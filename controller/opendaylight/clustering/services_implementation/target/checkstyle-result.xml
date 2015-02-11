@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/pom.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/java/org/opendaylight/controller/clustering/services_implementation/internal/ClusterGlobalManager.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/java/org/opendaylight/controller/clustering/services_implementation/internal/Activator.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/java/org/opendaylight/controller/clustering/services_implementation/internal/CacheListenerContainer.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/java/org/opendaylight/controller/clustering/services_implementation/internal/ClassResolver.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/java/org/opendaylight/controller/clustering/services_implementation/internal/GetUpdatesContainer.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/java/org/opendaylight/controller/clustering/services_implementation/internal/ClusterManager.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/java/org/opendaylight/controller/clustering/services_implementation/internal/ClusterManagerCommon.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/java/org/opendaylight/controller/clustering/services_implementation/internal/ClusterManagerCLI.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/java/org/opendaylight/controller/clustering/services_implementation/internal/ClusterContainerManager.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/java/org/infinispan/interceptors/distribution/BaseDistributionInterceptor.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/resources/config/jgroups.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/resources/config/infinispan-config.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/test/java/org/opendaylight/controller/clustering/services_implementation/internal/ClusterManagerTest.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/test/java/org/opendaylight/controller/clustering/services_implementation/internal/ClusterManagerTest.java">
+</file>
+</checkstyle>

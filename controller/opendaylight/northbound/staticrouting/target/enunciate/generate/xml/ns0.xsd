@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="staticRoute" type="staticRoute"/>
+  <xs:element name="list" type="staticRoutes"/>
+  <xs:complexType name="staticRoute">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[StaticRoute represents the static route data that is returned as a response to
+the NorthBound GET request.]]>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[The name of the static route.]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="prefix" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[The prefix for the route.
+Format: A.B.C.D/MM Where A.B.C.D is the Default Gateway IP (L3) or ARP Querier IP (L2)]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nextHop" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[NextHop IP-Address (or) datapath ID/port list: xx:xx:xx:xx:xx:xx:xx:xx/a,b,c-m,r-t,y]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="staticRoutes">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[This class represents a list of static routes.]]>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="staticRoute" type="staticRoute" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

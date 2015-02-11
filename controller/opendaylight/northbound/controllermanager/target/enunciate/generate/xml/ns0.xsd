@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="controllerProperties" type="controllerProperties"/>
+  <xs:element name="property" type="property"/>
+  <xs:complexType name="controllerProperties">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[The class describes set of properties attached to a controller]]>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="properties" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element ref="property"/>
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="property" abstract="true"/>
+</xs:schema>

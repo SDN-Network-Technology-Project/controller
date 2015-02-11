@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="pool" type="pool"/>
+  <xs:element name="poolmember" type="poolMember"/>
+  <xs:element name="vip" type="VIP"/>
+  <xs:element name="pools" type="pools"/>
+  <xs:element name="VIPs" type="VIPs"/>
+  <xs:complexType name="pool">
+    <xs:sequence>
+      <xs:element name="lbmethod" type="xs:string" minOccurs="0"/>
+      <xs:element name="vips" type="VIP" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="status" type="xs:string" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="members" type="poolMember" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="poolMember">
+    <xs:sequence>
+      <xs:element name="poolname" type="xs:string" minOccurs="0"/>
+      <xs:element name="status" type="xs:string" minOccurs="0"/>
+      <xs:element name="ip" type="xs:string" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VIP">
+    <xs:sequence>
+      <xs:element name="poolname" type="xs:string" minOccurs="0"/>
+      <xs:element name="protocol" type="xs:string" minOccurs="0"/>
+      <xs:element name="ip" type="xs:string" minOccurs="0"/>
+      <xs:element name="port" type="xs:short" minOccurs="1"/>
+      <xs:element name="status" type="xs:string" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pools">
+    <xs:sequence>
+      <xs:element name="pool" type="pool" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VIPs">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[JAX-RS resource for handling details of all the available VIPs
+in response to respective REST API requests.]]>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vip" type="VIP" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

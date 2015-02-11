@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" xmlns:ns2="router" xmlns:ns1="provider" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="router" schemaLocation="ns2.xsd"/>
+  <xs:import namespace="provider" schemaLocation="ns1.xsd"/>
+  <xs:element name="neutronFloatingIP" type="neutronFloatingIP"/>
+  <xs:element name="network" type="neutronNetwork"/>
+  <xs:element name="neutronPort" type="neutronPort"/>
+  <xs:element name="neutronRouter" type="neutronRouter"/>
+  <xs:element name="neutronRouter_Interface" type="neutronRouter_Interface"/>
+  <xs:element name="neutronRouter_NetworkReference" type="neutronRouter_NetworkReference"/>
+  <xs:element name="neutronSubnet" type="neutronSubnet"/>
+  <xs:element name="neutronSubnet_HostRoute" type="neutronSubnet_HostRoute"/>
+  <xs:element name="neutronSubnet_IPAllocationPool" type="neutronSubnet_IPAllocationPool"/>
+  <xs:element name="neutron_IPs" type="neutron_IPs"/>
+  <xs:element name="neutronFloatingIPRequest" type="neutronFloatingIPRequest"/>
+  <xs:element name="neutronNetworkRequest" type="neutronNetworkRequest"/>
+  <xs:element name="neutronPortRequest" type="neutronPortRequest"/>
+  <xs:element name="neutronRouterRequest" type="neutronRouterRequest"/>
+  <xs:element name="neutronSubnetRequest" type="neutronSubnetRequest"/>
+  <xs:complexType name="configurationObject" abstract="true"/>
+  <xs:complexType name="neutronFloatingIP">
+    <xs:complexContent>
+      <xs:extension base="configurationObject">
+        <xs:sequence>
+          <xs:element name="floating_ip_address" type="xs:string" minOccurs="0"/>
+          <xs:element name="port_id" type="xs:string" minOccurs="0"/>
+          <xs:element name="tenant_id" type="xs:string" minOccurs="0"/>
+          <xs:element name="floating_network_id" type="xs:string" minOccurs="0"/>
+          <xs:element name="id" type="xs:string" minOccurs="0"/>
+          <xs:element name="fixed_ip_address" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="neutronNetwork">
+    <xs:complexContent>
+      <xs:extension base="configurationObject">
+        <xs:sequence>
+          <xs:element ref="ns1:segmentation_id" minOccurs="0"/>
+          <xs:element name="tenant_id" type="xs:string" minOccurs="0"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element ref="ns2:external" minOccurs="0"/>
+          <xs:element ref="ns1:network_type" minOccurs="0"/>
+          <xs:element name="shared" type="xs:boolean" minOccurs="0"/>
+          <xs:element ref="ns1:physical_network" minOccurs="0"/>
+          <xs:element name="status" type="xs:string" minOccurs="0"/>
+          <xs:element name="id" type="xs:string" minOccurs="0"/>
+          <xs:element name="admin_state_up" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="subnets" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="neutronPort">
+    <xs:complexContent>
+      <xs:extension base="configurationObject">
+        <xs:sequence>
+          <xs:element name="tenant_id" type="xs:string" minOccurs="0"/>
+          <xs:element name="mac_address" type="xs:string" minOccurs="0"/>
+          <xs:element name="admin_state_up" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="device_owner" type="xs:string" minOccurs="0"/>
+          <xs:element name="status" type="xs:string" minOccurs="0"/>
+          <xs:element name="id" type="xs:string" minOccurs="0"/>
+          <xs:element name="device_id" type="xs:string" minOccurs="0"/>
+          <xs:element name="network_id" type="xs:string" minOccurs="0"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="fixed_ips" type="neutron_IPs" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="neutronRouter">
+    <xs:complexContent>
+      <xs:extension base="configurationObject">
+        <xs:sequence>
+          <xs:element name="tenant_id" type="xs:string" minOccurs="0"/>
+          <xs:element name="external_gateway_info" type="neutronRouter_NetworkReference" minOccurs="0"/>
+          <xs:element name="admin_state_up" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="status" type="xs:string" minOccurs="0"/>
+          <xs:element name="id" type="xs:string" minOccurs="0"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="neutronRouter_Interface">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
+      <xs:element name="tenant_id" type="xs:string" minOccurs="0"/>
+      <xs:element name="port_id" type="xs:string" minOccurs="0"/>
+      <xs:element name="subnet_id" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="neutronRouter_NetworkReference">
+    <xs:sequence>
+      <xs:element name="network_id" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="neutronSubnet">
+    <xs:complexContent>
+      <xs:extension base="configurationObject">
+        <xs:sequence>
+          <xs:element name="ip_version" type="xs:int" minOccurs="0"/>
+          <xs:element name="gateway_ip" type="xs:string" minOccurs="0"/>
+          <xs:element name="cidr" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipv6_address_mode" type="xs:string" minOccurs="0"/>
+          <xs:element name="network_id" type="xs:string" minOccurs="0"/>
+          <xs:element name="id" type="xs:string" minOccurs="0"/>
+          <xs:element name="tenant_id" type="xs:string" minOccurs="0"/>
+          <xs:element name="dns_nameservers" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipv6_ra_mode" type="xs:string" minOccurs="0"/>
+          <xs:element name="host_routes" type="neutronSubnet_HostRoute" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="allocation_pools" type="neutronSubnet_IPAllocationPool" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="enable_dhcp" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="neutronSubnet_HostRoute">
+    <xs:sequence>
+      <xs:element name="nexthop" type="xs:string" minOccurs="0"/>
+      <xs:element name="destination" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="neutronSubnet_IPAllocationPool">
+    <xs:sequence>
+      <xs:element name="start" type="xs:string" minOccurs="0"/>
+      <xs:element name="end" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="neutron_IPs">
+    <xs:complexContent>
+      <xs:extension base="configurationObject">
+        <xs:sequence>
+          <xs:element name="subnet_id" type="xs:string" minOccurs="0"/>
+          <xs:element name="ip_address" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="neutronFloatingIPRequest">
+    <xs:sequence>
+      <xs:element name="floatingip" type="neutronFloatingIP" minOccurs="0"/>
+      <xs:element name="floatingips" type="neutronFloatingIP" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="neutronNetworkRequest">
+    <xs:sequence>
+      <xs:element name="network" type="neutronNetwork" minOccurs="0"/>
+      <xs:element name="networks" type="neutronNetwork" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="neutronPortRequest">
+    <xs:sequence>
+      <xs:element name="port" type="neutronPort" minOccurs="0"/>
+      <xs:element name="ports" type="neutronPort" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="neutronRouterRequest">
+    <xs:sequence>
+      <xs:element name="router" type="neutronRouter" minOccurs="0"/>
+      <xs:element name="routers" type="neutronRouter" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="neutronSubnetRequest">
+    <xs:sequence>
+      <xs:element name="subnet" type="neutronSubnet" minOccurs="0"/>
+      <xs:element name="subnets" type="neutronSubnet" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

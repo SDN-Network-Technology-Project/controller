@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wadl:application xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <wadl:doc xmlns:enunciate="http://enunciate.codehaus.org/" enunciate:generatedBy="Enunciate-1.26.1"/>
+  <wadl:grammars>
+    <wadl:include href="ns0.xsd"/>
+  </wadl:grammars>
+  <wadl:resources base="http://localhost:8080/full">
+    <wadl:resource path="/controller/nb/v2/containermanager/containers">
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Get all the containers configured in the system]]>
+        </wadl:doc>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[a List of all org.opendaylight.controller.containermanager.ContainerConfig
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/containers
+
+Response body in XML:
+&lt;containerConfig-list&gt;
+&#x20;&#x20;&#x20;&lt;containerConfig&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;container&gt;black&lt;/container&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;staticVlan&gt;10&lt;/staticVlan&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nodeConnectors&gt;OF|1@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nodeConnectors&gt;OF|23@OF|00:00:00:00:00:00:20:21&lt;/nodeConnectors&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;flowSpecs&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;name&gt;tcp&lt;/name&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;protocol&gt;TCP&lt;/protocol&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;/flowSpecs&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;/containerConfig&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;containerConfig&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;container&gt;red&lt;/container&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;staticVlan&gt;20&lt;/staticVlan&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nodeConnectors&gt;OF|1@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nodeConnectors&gt;OF|23@OF|00:00:00:00:00:00:20:21&lt;/nodeConnectors&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;flowSpecs&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;name&gt;udp&lt;/name&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;protocol&gt;UDP&lt;/protocol&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;/flowSpecs&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;/containerConfig&gt;
+&lt;/containerConfig-list&gt;
+
+Response body in JSON:
+{ "containerConfig" : [
+{ "container" : "black",
+"nodeConnectors" : [
+"OF|1@OF|00:00:00:00:00:00:00:01", "OF|23@OF|00:00:00:00:00:00:20:21"
+],
+"staticVlan" : "10",
+"flowSpecs : [
+{ "name": "udp",
+"protocol": "UDP" }
+]
+},
+{ "container" : "red",
+"nodeConnectors" : [
+"OF|1@OF|00:00:00:00:00:00:00:01",
+"OF|23@OF|00:00:00:00:00:00:20:21"
+],
+"staticVlan" : "20",
+"flowSpecs": [
+{ "name": "tcp",
+"protocol": "TCP"
+}
+]
+}
+]
+}
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="containerConfig-list"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/containermanager/container/{container}">
+      <wadl:param name="container" style="template">
+        <wadl:doc>
+          <![CDATA[name of the Container (eg. blue)]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Get the container configuration for container name requested]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[a List of org.opendaylight.controller.containermanager.ContainerConfig
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/blue
+
+Response body in XML:
+&lt;containerConfig&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;container&gt;blue&lt;/container&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;staticVlan&gt;10&lt;/staticVlan&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;nodeConnectors&gt;OF|1@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;nodeConnectors&gt;OF|23@OF|00:00:00:00:00:00:20:21&lt;/nodeConnectors&gt;
+&lt;/containerConfig&gt;
+
+Response body in JSON:
+{
+"containerConfig": [
+{
+"container": "yellow",
+"staticVlan": "10",
+"nodeConnectors": [
+"OF|1@OF|00:00:00:00:00:00:00:01",
+"OF|2@OF|00:00:00:00:00:00:00:02"
+],
+"flowSpecs": []
+}
+]
+}
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="containerConfig"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="PUT">
+        <wadl:doc>
+          <![CDATA[Create a container]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:doc>
+            <![CDATA[details of the container as specified by: org.opendaylight.controller.containermanager.ContainerConfig]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="containerConfig"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[Response as dictated by the HTTP Response Status code
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/yellow
+
+Request body in XML:
+&lt;containerConfig&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;container&gt;yellow&lt;/container&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;staticVlan&gt;10&lt;/staticVlan&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;nodeConnectors&gt;&lt;/nodeConnectors&gt;
+&lt;/containerConfig&gt;
+
+Request body in JSON:
+{
+"container" : "yellow",
+"nodeConnectors" : [
+"OF|1@OF|00:00:00:00:00:00:00:01",
+"OF|23@OF|00:00:00:00:00:00:20:21"
+],
+"staticVlan" : "10"
+}
+
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="DELETE">
+        <wadl:doc>
+          <![CDATA[Delete a container]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[Response as dictated by the HTTP Response code
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/green
+
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/containermanager/container/{container}/flowspecs">
+      <wadl:param name="container" style="template">
+        <wadl:doc>
+          <![CDATA[name of the Container (eg. red)]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Get all the flowspec in a given container]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[list of all flowspec configured for a container. Flowspec as
+specified by:
+org.opendaylight.controller.containermanager.ContainerFlowConfig
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/red/flowspec
+
+Response body in XML:
+&lt;flow-spec-configs&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;flow-spec-config&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;name&gt;ssh&lt;/name&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;dlVlan&gt;52&lt;/dlVlan&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nwSrc&gt;10.0.0.101&lt;/nwSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nwDst&gt;10.0.0.102&lt;/nwDst&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;protocol&gt;IPv4&lt;/protocol&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;tpSrc&gt;23&lt;/tpSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;tpDst&gt;100&lt;/tpDst&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;/flow-spec-config&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;flow-spec-config&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;name&gt;http2&lt;/name&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;dlVlan&gt;123&lt;/dlVlan&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nwSrc&gt;10.0.0.201&lt;/nwSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nwDst&gt;10.0.0.202&lt;/nwDst&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;protocol&gt;&lt;/protocol&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;tpSrc&gt;80&lt;/tpSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;tpDst&gt;100&lt;/tpDst&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;/flow-spec-config&gt;
+&lt;/flow-spec-configs&gt;
+
+Response body in JSON:
+{
+"flow-spec-config": [
+{
+"name": "http",
+"dlVlan" : "52",
+"nwSrc": "10.0.0.201",
+"nwDst": "10.0.0.202",
+"protocol": "",
+"tpSrc": "80",
+"tpDst": "100"
+},
+{
+"name": "ssh",
+"dlVlan" : "123",
+"nwSrc": "10.0.0.101",
+"nwDst": "10.0.0.102",
+"protocol": "IPv4",
+"tpSrc": "23",
+"tpDst": "100"
+}
+]
+}
+
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="flow-spec-configs"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/containermanager/container/{container}/nodeconnector">
+      <wadl:param name="container" style="template">
+        <wadl:doc>
+          <![CDATA[name of the container (eg. green)]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:method name="PUT">
+        <wadl:doc>
+          <![CDATA[Add node connectors to a container]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:doc>
+            <![CDATA[The list of strings each representing a node connector in the form "<Port Type>|<Port id>@<Node Type>|<Node id>", as "OF|1@OF|00:00:00:ab:00:00:00:01"]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="nodeConnectors"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[response as dictated by the HTTP Status code
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/green/nodeconnector
+
+Request body in XML:
+&lt;nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|1@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|2@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|3@OF|00:00:00:00:00:00:00:22&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|4@OF|00:00:00:00:00:00:00:22&lt;/nodeConnectors&gt;
+&lt;/nodeConnectors&gt;
+
+Request body in JSON:
+{
+"nodeConnectors" : [
+"OF|1@OF|00:00:00:00:00:00:00:01",
+"OF|2@OF|00:00:00:00:00:00:00:01",
+"OF|3@OF|00:00:00:00:00:00:00:22",
+"OF|4@OF|00:00:00:00:00:00:00:22"
+]
+}
+
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="DELETE">
+        <wadl:doc>
+          <![CDATA[Remove node connectors from a container]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:representation mediaType="application/xml" element="nodeConnectors"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[response as dictated by the HTTP Status code
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/red/nodeconnector
+
+Request body in XML:
+&lt;nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|1@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|2@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|3@OF|00:00:00:00:00:00:00:22&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|4@OF|00:00:00:00:00:00:00:22&lt;/nodeConnectors&gt;
+&lt;/nodeConnectors&gt;
+
+Request body in JSON:
+{
+"nodeConnectors" : [
+"OF|1@OF|00:00:00:00:00:00:00:01",
+"OF|2@OF|00:00:00:00:00:00:00:01",
+"OF|3@OF|00:00:00:00:00:00:00:22",
+"OF|4@OF|00:00:00:00:00:00:00:22"
+]
+}
+
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/containermanager/container/{container}/flowspec/{flowspec}">
+      <wadl:param name="container" style="template">
+        <wadl:doc>
+          <![CDATA[name of the Container (eg. green)]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="flowspec" style="template"/>
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Get flowspec within a given container]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[flowspec detail as specified by:
+org.opendaylight.controller.containermanager.ContainerFlowConfig
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/green/flowspec/ssh
+
+Response body in XML:
+&lt;flow-spec-config&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;name&gt;ssh&lt;/name&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;dlVlan&gt;52&lt;/dlVlan&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;nwSrc&gt;10.0.0.101&lt;/nwSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;nwDst&gt;10.0.0.102&lt;/nwDst&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;protocol&gt;IPv4&lt;/protocol&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;tpSrc&gt;80&lt;/tpSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;tpDst&gt;100&lt;/tpDst&gt;
+&lt;/flow-spec-config&gt;
+
+Response body in JSON:
+{
+"protocol" : "IPv4",
+"dlVlan" : "52",
+"nwDst" : "10.0.0.102",
+"name" : "ssh",
+"nwSrc" : "10.0.0.101",
+"tpSrc" : "80",
+"tpDst" : "100"
+}
+
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="flow-spec-config"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="PUT">
+        <wadl:doc>
+          <![CDATA[Add flowspec to a container]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:representation mediaType="application/xml" element="flow-spec-config"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[Response as dictated by the HTTP Response code
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/purple/flowspec/http
+
+Request body in XML:
+&lt;flow-spec-config&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;name&gt;http&lt;/name&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;dlVlan&gt;25&lt;/dlVlan&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;nwSrc&gt;10.0.0.101&lt;/nwSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;nwDst&gt;10.0.0.102&lt;/nwDst&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;protocol&gt;&lt;/protocol&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;tpSrc&gt;80&lt;/tpSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;tpDst&gt;100&lt;/tpDst&gt;
+&lt;/flow-spec-config&gt;
+
+Request body in JSON:
+{
+"name" : "http",
+"dlVlan" : "25",
+"nwSrc" : "10.0.0.101",
+"nwDst" : "10.0.0.102",
+"protocol" : "",
+"tpSrc" : "80",
+"tpDst" : "100"
+}
+
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="DELETE">
+        <wadl:doc>
+          <![CDATA[Remove flowspec from a container]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[Response as dictated by the HTTP Response code
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/black/flowspec/telnet
+
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+  </wadl:resources>
+</wadl:application>

@@ -1,0 +1,2 @@
+@javax.xml.bind.annotation.XmlSchema(namespace="http://www.eclipse.org/eclipselink/xsds/persistence/oxm",elementFormDefault=javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+package org.eclipse.persistence.jaxb.xmlmodel;

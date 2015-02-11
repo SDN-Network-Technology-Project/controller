@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api-docs title="Topology REST API">
+  <data>
+    <schema namespace="" namespaceId="ns0" file="ns0.xsd">
+      <types>
+        <type name="configurationObject" id="org.opendaylight.controller.configuration.ConfigurationObject" package="org.opendaylight.controller.configuration">
+          <groups>
+            <group>ConfigurationObject</group>
+          </groups>
+        </type>
+        <type name="edge" id="org.opendaylight.controller.sal.core.Edge" package="org.opendaylight.controller.sal.core">
+          <groups>
+            <group>Edge</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="headNodeConnector">
+              <choice name="headNodeConnector" namespace="" typeNamespace="" typeName="nodeConnector" typeSchemaId="ns0"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="tailNodeConnector">
+              <choice name="tailNodeConnector" namespace="" typeNamespace="" typeName="nodeConnector" typeSchemaId="ns0"/>
+            </element>
+          </elements>
+        </type>
+        <type name="node" id="org.opendaylight.controller.sal.core.Node" package="org.opendaylight.controller.sal.core">
+          <groups>
+            <group>Node</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="type">
+              <choice name="type" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="id">
+              <choice name="id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+        <type name="nodeConnector" id="org.opendaylight.controller.sal.core.NodeConnector" package="org.opendaylight.controller.sal.core">
+          <groups>
+            <group>NodeConnector</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="type">
+              <choice name="type" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="node">
+              <choice name="node" namespace="" typeNamespace="" typeName="node" typeSchemaId="ns0"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="id">
+              <choice name="id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+        <type name="property" id="org.opendaylight.controller.sal.core.Property" package="org.opendaylight.controller.sal.core">
+          <groups>
+            <group>Property</group>
+          </groups>
+        </type>
+        <type name="edgeProperties" id="org.opendaylight.controller.topology.northbound.EdgeProperties" package="org.opendaylight.controller.topology.northbound">
+          <groups>
+            <group>EdgeProperties</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="edge">
+              <choice name="edge" namespace="" typeNamespace="" typeName="edge" typeSchemaId="ns0"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="properties">
+              <choice name="properties/property" namespace=""/>
+            </element>
+          </elements>
+        </type>
+        <type name="topology" id="org.opendaylight.controller.topology.northbound.Topology" package="org.opendaylight.controller.topology.northbound">
+          <groups>
+            <group>Topology</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="edgeProperties">
+              <choice name="edgeProperties" namespace="" typeNamespace="" typeName="edgeProperties" typeSchemaId="ns0"/>
+            </element>
+          </elements>
+        </type>
+        <type name="topologyUserLinks" id="org.opendaylight.controller.topology.northbound.TopologyUserLinks" package="org.opendaylight.controller.topology.northbound">
+          <groups>
+            <group>TopologyUserLinks</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="userLinks">
+              <choice name="userLinks" namespace="" typeNamespace="" typeName="topologyUserLinkConfig" typeSchemaId="ns0"/>
+            </element>
+          </elements>
+        </type>
+        <type name="topologyUserLinkConfig" id="org.opendaylight.controller.topologymanager.TopologyUserLinkConfig" package="org.opendaylight.controller.topologymanager" extendsType="org.opendaylight.controller.configuration.ConfigurationObject">
+          <groups>
+            <group>TopologyUserLinkConfig</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="srcNodeConnector">
+              <choice name="srcNodeConnector" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="dstNodeConnector">
+              <choice name="dstNodeConnector" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="status">
+              <choice name="status" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="name">
+              <choice name="name" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+      </types>
+      <elements>
+        <element name="edge" type="org.opendaylight.controller.sal.core.Edge" typeName="edge" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>Edge</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<edge>
+  <headNodeConnector>
+    <type>...</type>
+    <node>
+      <type>...</type>
+      <id>...</id>
+    </node>
+    <id>...</id>
+  </headNodeConnector>
+  <tailNodeConnector>
+    <type>...</type>
+    <node>
+      <type>...</type>
+      <id>...</id>
+    </node>
+    <id>...</id>
+  </tailNodeConnector>
+</edge>]]></examplexml>
+        </element>
+        <element name="node" type="org.opendaylight.controller.sal.core.Node" typeName="node" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>Node</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<node>
+  <type>...</type>
+  <id>...</id>
+</node>]]></examplexml>
+        </element>
+        <element name="nodeConnector" type="org.opendaylight.controller.sal.core.NodeConnector" typeName="nodeConnector" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>NodeConnector</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<nodeConnector>
+  <type>...</type>
+  <node>
+    <type>...</type>
+    <id>...</id>
+  </node>
+  <id>...</id>
+</nodeConnector>]]></examplexml>
+        </element>
+        <element name="property" type="org.opendaylight.controller.sal.core.Property" typeName="property" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>Property</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<property />]]></examplexml>
+        </element>
+        <element name="edgeProperties" type="org.opendaylight.controller.topology.northbound.EdgeProperties" typeName="edgeProperties" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>EdgeProperties</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<edgeProperties>
+  <edge>
+    <headNodeConnector>
+      <type>...</type>
+      <node>
+        <type>...</type>
+        <id>...</id>
+      </node>
+      <id>...</id>
+    </headNodeConnector>
+    <tailNodeConnector>
+      <type>...</type>
+      <node>
+        <type>...</type>
+        <id>...</id>
+      </node>
+      <id>...</id>
+    </tailNodeConnector>
+  </edge>
+  <properties>
+    <property>...</property>
+    <property>...</property>
+    <!--...more "property" elements...-->
+  </properties>
+</edgeProperties>]]></examplexml>
+        </element>
+        <element name="topology" type="org.opendaylight.controller.topology.northbound.Topology" typeName="topology" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>Topology</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<topology>
+  <edgeProperties>
+    <edge>
+      <headNodeConnector>
+        <type>...</type>
+        <node>
+          <type>...</type>
+          <id>...</id>
+        </node>
+        <id>...</id>
+      </headNodeConnector>
+      <tailNodeConnector>
+        <type>...</type>
+        <node>
+          <type>...</type>
+          <id>...</id>
+        </node>
+        <id>...</id>
+      </tailNodeConnector>
+    </edge>
+    <properties>
+      <property>...</property>
+      <property>...</property>
+      <!--...more "property" elements...-->
+    </properties>
+  </edgeProperties>
+  <edgeProperties>
+    <!--...-->
+  </edgeProperties>
+  <!--...more "edgeProperties" elements...-->
+</topology>]]></examplexml>
+        </element>
+        <element name="list" type="org.opendaylight.controller.topology.northbound.TopologyUserLinks" typeName="topologyUserLinks" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>TopologyUserLinks</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<list>
+  <userLinks>
+    <srcNodeConnector>...</srcNodeConnector>
+    <dstNodeConnector>...</dstNodeConnector>
+    <status>...</status>
+    <name>...</name>
+  </userLinks>
+  <userLinks>
+    <!--...-->
+  </userLinks>
+  <!--...more "userLinks" elements...-->
+</list>]]></examplexml>
+        </element>
+        <element name="topologyUserLinkConfig" type="org.opendaylight.controller.topologymanager.TopologyUserLinkConfig" typeName="topologyUserLinkConfig" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>TopologyUserLinkConfig</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<topologyUserLinkConfig>
+  <srcNodeConnector>...</srcNodeConnector>
+  <dstNodeConnector>...</dstNodeConnector>
+  <status>...</status>
+  <name>...</name>
+</topologyUserLinkConfig>]]></examplexml>
+        </element>
+      </elements>
+      <groups>
+        <group>
+          <name>ConfigurationObject</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>Edge</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>EdgeProperties</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>Node</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>NodeConnector</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>Property</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>Topology</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>TopologyUserLinkConfig</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>TopologyUserLinks</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+      </groups>
+    </schema>
+  </data>
+  <soap>
+    <wsdls>
+    </wsdls>
+  </soap>
+  <rest baseAddress="http://localhost:8080/full" wadl="application.wadl">
+    <resources>
+      <resource name="/{containerName}" subcontext="/controller/nb/v2/topology">
+        <groups>
+          <group>TopologyNorthboundJAXRS</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Retrieve the Topology]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[The container for which we want to retrieve the topology (Eg. 'default')]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="topology" />
+            
+            <documentation><![CDATA[A List of EdgeProps each EdgeProp represent an Edge of the graph
+with the corresponding properties attached to it.
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/topology/default
+
+Response body in XML:
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;topology&gt;
+&lt;edgeProperties&gt;
+&lt;edge&gt;
+&lt;tailNodeConnector&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:02&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;2&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/tailNodeConnector&gt;
+&lt;headNodeConnector&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:51&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;2&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/headNodeConnector&gt;
+&lt;/edge&gt;
+&lt;properties&gt;
+&lt;state&gt;
+&lt;value&gt;1&lt;/value&gt;
+&lt;/state&gt;
+&lt;config&gt;
+&lt;value&gt;1&lt;/value&gt;
+&lt;/config&gt;
+&lt;name&gt;
+&lt;value&gt;C1_2-L2_2&lt;/value&gt;
+&lt;/name&gt;
+&lt;timeStamp&gt;
+&lt;value&gt;1377279422032&lt;/value&gt;
+&lt;name&gt;creation&lt;/name&gt;
+&lt;/timeStamp&gt;
+&lt;/properties&gt;
+&lt;/edgeProperties&gt;
+&lt;edgeProperties&gt;
+&lt;edge&gt;
+&lt;tailNodeConnector&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:51&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;2&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/tailNodeConnector&gt;
+&lt;headNodeConnector&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:02&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;2&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/headNodeConnector&gt;
+&lt;/edge&gt;
+&lt;properties&gt;
+&lt;state&gt;
+&lt;value&gt;1&lt;/value&gt;
+&lt;/state&gt;
+&lt;name&gt;
+&lt;value&gt;L2_2-C1_2&lt;/value&gt;
+&lt;/name&gt;
+&lt;config&gt;
+&lt;value&gt;1&lt;/value&gt;
+&lt;/config&gt;
+&lt;timeStamp&gt;
+&lt;value&gt;1377279423564&lt;/value&gt;
+&lt;name&gt;creation&lt;/name&gt;
+&lt;/timeStamp&gt;
+&lt;/properties&gt;
+&lt;/edgeProperties&gt;
+&lt;/topology&gt;
+
+Response body in JSON:
+{
+"edgeProperties":[
+{
+"edge":{
+"tailNodeConnector":{
+"node":{
+"id":"00:00:00:00:00:00:00:02",
+"type":"OF"
+},
+"id":"2",
+"type":"OF"
+},
+"headNodeConnector":{
+"node":{
+"id":"00:00:00:00:00:00:00:51",
+"type":"OF"
+},
+"id":"2",
+"type":"OF"
+}
+},
+"properties":{
+"timeStamp": {
+"value": 1379527162648,
+"name": "creation",
+},
+"name": {
+"value": "s2-eth3"
+},
+"state": {
+"value": 1
+},
+"config": {
+"value": 1
+},
+"bandwidth": {
+"value": 10000000000
+}
+}
+},
+{
+"edge":{
+"tailNodeConnector":{
+"node":{
+"id":"00:00:00:00:00:00:00:51",
+"type":"OF"
+},
+"id":"2",
+"type":"OF"
+},
+"headNodeConnector":{
+"node":{
+"id":"00:00:00:00:00:00:00:02",
+"type":"OF"
+},
+"id":"2",
+"type":"OF"
+}
+},
+"properties":{
+"timeStamp": {
+"value": 1379527162648,
+"name": "creation",
+}
+}
+}
+]
+}
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="404">
+            <![CDATA[The Container Name was not found]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/{containerName}/userLinks" subcontext="/controller/nb/v2/topology">
+        <groups>
+          <group>TopologyNorthboundJAXRS</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Retrieve the user configured links]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[The container for which we want to retrieve the user links (Eg. 'default')]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="list" />
+            
+            <documentation><![CDATA[A List of user configured links
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/topology/default/userLinks
+
+Response body in XML:
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;list&gt;
+&lt;userLinks&gt;
+&lt;status&gt;Success&lt;/status&gt;
+&lt;name&gt;link1&lt;/name&gt;
+&lt;srcNodeConnector&gt;OF|2@OF|00:00:00:00:00:00:00:02&lt;/srcNodeConnector&gt;
+&lt;dstNodeConnector&gt;OF|2@OF|00:00:00:00:00:00:00:51&lt;/dstNodeConnector&gt;
+&lt;/userLinks&gt;
+&lt;/list&gt;
+
+Response body in JSON:
+{
+"userLinks": [
+{
+"status": "Success",
+"name": "link1",
+"srcNodeConnector": "OF|2@OF|00:00:00:00:00:00:00:02",
+"dstNodeConnector": "OF|5@OF|00:00:00:00:00:00:00:05"
+}
+]
+}
+
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="404">
+            <![CDATA[The Container Name was not found]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/{containerName}/userLink/{name}" subcontext="/controller/nb/v2/topology">
+        <groups>
+          <group>TopologyNorthboundJAXRS</group>
+        </groups>
+        <operation name="PUT">
+          <documentation>
+            <![CDATA[Add an User Link]]>
+          </documentation>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container (Eg. 'default')]]>
+          </parameter>
+          <parameter name="name" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the user link]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="topologyUserLinkConfig" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[Response as dictated by the HTTP Response Status code
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/topology/default/userLink/link1
+
+Request body in XML:
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;topologyUserLinkConfig&gt;
+&lt;status&gt;Success&lt;/status&gt;
+&lt;name&gt;link1&lt;/name&gt;
+&lt;srcNodeConnector&gt;OF|2@OF|00:00:00:00:00:00:00:02&lt;/srcNodeConnector&gt;
+&lt;dstNodeConnector&gt;OF|2@OF|00:00:00:00:00:00:00:51&lt;/dstNodeConnector&gt;
+&lt;/topologyUserLinkConfig&gt;
+
+Request body in JSON:
+{
+"status":"Success",
+"name":"link1",
+"srcNodeConnector":"OF|2@OF|00:00:00:00:00:00:00:02",
+"dstNodeConnector":"OF|2@OF|00:00:00:00:00:00:00:51"
+}
+
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="201">
+            <![CDATA[User Link added successfully]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The Container Name was not found]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Failed to add User Link due to Conflicting Name]]>
+          </statusCode>
+          <statusCode code="500">
+            <![CDATA[Failed to add User Link. Failure Reason included in HTTP Error response]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[One or more of Controller services are unavailable]]>
+          </statusCode>
+        </operation>
+        <operation name="DELETE">
+          <documentation>
+            <![CDATA[Delete an User Link]]>
+          </documentation>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container (Eg. 'default')]]>
+          </parameter>
+          <parameter name="name" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Link Configuration (Eg. 'config1')]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[Response as dictated by the HTTP Response Status code
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/topology/default/userLink/config1
+
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="204">
+            <![CDATA[User link removed successfully]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The Container Name or Link Configuration Name was not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[One or more of Controller services are unavailable]]>
+          </statusCode>
+        </operation>
+      </resource>
+    </resources>
+    <groups>
+      <group>
+        <name>TopologyNorthboundJAXRS</name>
+        <documentation><![CDATA[Topology Northbound REST API
+
+<br>
+<br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b>HTTP and HTTPS</b><br>
+<br>
+HTTPS Authentication is disabled by default.]]></documentation>
+      </group>
+    </groups>
+  </rest>
+  <packages>
+    <package id="org.opendaylight.controller.topology.northbound">
+    </package>
+  </packages>
+</api-docs>

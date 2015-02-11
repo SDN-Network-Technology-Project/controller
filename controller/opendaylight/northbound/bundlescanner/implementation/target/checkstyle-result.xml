@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/pom.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/main/java/org/opendaylight/controller/northbound/bundlescanner/internal/BundleInfo.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/main/java/org/opendaylight/controller/northbound/bundlescanner/internal/Activator.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/main/java/org/opendaylight/controller/northbound/bundlescanner/internal/BundleScanServiceImpl.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/main/java/org/opendaylight/controller/northbound/bundlescanner/internal/BundleScanner.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_misc/Misc.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_sub1/NoAnnotation.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_sub1/Zoo.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_sub2/NoAnnotation.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_sub2/Customer.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_sub2/Agent.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_base/Mammal.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_base/NonRelevantAnnotation.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_base/NoAnnotation.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_base/BasePerson.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_base/Person.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_base/Animal.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/org/opendaylight/controller/northbound/bundlescanner/internal/BundleScannerTest.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_misc/Misc.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_sub1/NoAnnotation.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_sub1/Zoo.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_sub2/NoAnnotation.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_sub2/Customer.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_sub2/Agent.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_base/Mammal.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_base/NonRelevantAnnotation.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_base/NoAnnotation.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_base/BasePerson.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_base/Person.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/bundle_base/Animal.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/bundlescanner/implementation/src/test/java/org/opendaylight/controller/northbound/bundlescanner/internal/BundleScannerTest.java">
+</file>
+</checkstyle>

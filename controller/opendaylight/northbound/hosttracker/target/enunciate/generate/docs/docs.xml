@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api-docs title="Host Tracker REST API">
+  <data>
+    <schema namespace="" namespaceId="ns0" file="ns0.xsd">
+      <types>
+        <type name="hostConfig" id="org.opendaylight.controller.hosttracker.northbound.HostConfig" package="org.opendaylight.controller.hosttracker.northbound">
+          <documentation>
+            <![CDATA[Configuration Java Object which represents a Host configuration information
+for HostTracker.]]>
+          </documentation>
+          <groups>
+            <group>HostConfig</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="dataLayerAddress">
+              <choice name="dataLayerAddress" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="nodeType">
+              <choice name="nodeType" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="nodeId">
+              <choice name="nodeId" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="nodeConnectorType">
+              <choice name="nodeConnectorType" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="nodeConnectorId">
+              <choice name="nodeConnectorId" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="vlan">
+              <choice name="vlan" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="1" maxOccurs="1" jsonName="staticHost">
+              <choice name="staticHost" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="boolean"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="networkAddress">
+              <choice name="networkAddress" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+        <type name="hosts" id="org.opendaylight.controller.hosttracker.northbound.Hosts" package="org.opendaylight.controller.hosttracker.northbound">
+          <groups>
+            <group>Hosts</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="hostConfig">
+              <choice name="hostConfig" namespace="" typeNamespace="" typeName="hostConfig" typeSchemaId="ns0"/>
+            </element>
+          </elements>
+        </type>
+      </types>
+      <elements>
+        <element name="hostConfig" type="org.opendaylight.controller.hosttracker.northbound.HostConfig" typeName="hostConfig" typeNamespace="" typeSchemaId="ns0">
+          <documentation>
+            <![CDATA[Configuration Java Object which represents a Host configuration information
+for HostTracker.]]>
+          </documentation>
+          <groups>
+            <group>HostConfig</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<hostConfig>
+  <dataLayerAddress>...</dataLayerAddress>
+  <nodeType>...</nodeType>
+  <nodeId>...</nodeId>
+  <nodeConnectorType>...</nodeConnectorType>
+  <nodeConnectorId>...</nodeConnectorId>
+  <vlan>...</vlan>
+  <staticHost>...</staticHost>
+  <networkAddress>...</networkAddress>
+</hostConfig>]]></examplexml>
+        </element>
+        <element name="list" type="org.opendaylight.controller.hosttracker.northbound.Hosts" typeName="hosts" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>Hosts</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<list>
+  <hostConfig>
+    <dataLayerAddress>...</dataLayerAddress>
+    <nodeType>...</nodeType>
+    <nodeId>...</nodeId>
+    <nodeConnectorType>...</nodeConnectorType>
+    <nodeConnectorId>...</nodeConnectorId>
+    <vlan>...</vlan>
+    <staticHost>...</staticHost>
+    <networkAddress>...</networkAddress>
+  </hostConfig>
+  <hostConfig>
+    <!--...-->
+  </hostConfig>
+  <!--...more "hostConfig" elements...-->
+</list>]]></examplexml>
+        </element>
+      </elements>
+      <groups>
+        <group>
+          <name>HostConfig</name>
+          <documentation><![CDATA[Configuration Java Object which represents a Host configuration information
+for HostTracker.]]></documentation>
+        </group>
+        <group>
+          <name>Hosts</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+      </groups>
+    </schema>
+  </data>
+  <soap>
+    <wsdls>
+    </wsdls>
+  </soap>
+  <rest baseAddress="http://localhost:8080/full" wadl="application.wadl">
+    <resources>
+      <resource name="/{containerName}/address/{networkAddress}" subcontext="/controller/nb/v2/hosttracker">
+        <groups>
+          <group>HostTrackerNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Returns a host that matches the IP Address value passed as parameter.]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container. The Container name for the base controller is "default".]]>
+          </parameter>
+          <parameter name="networkAddress" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[IP Address being looked up]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="hostConfig" />
+            
+            <documentation><![CDATA[host that matches the IP Address
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/hosttracker/default/address/1.1.1.1
+
+Response body in XML
+
+&lt;hostConfig&gt;
+&#x20;&lt;dataLayerAddress&gt;00:00:00:00:01:01&lt;/dataLayerAddress&gt;
+&#x20;&lt;networkAddress&gt;1.1.1.1&lt;/networkAddress&gt;
+&#x20;&lt;nodeType&gt;OF&lt;/nodeType&gt;
+&#x20;&lt;nodeId&gt;00:00:00:00:00:00:00:01&lt;/nodeId&gt;
+&#x20;&lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+&#x20;&lt;nodeConnectorId&gt;9&lt;/nodeConnectorId&gt;
+&#x20;&lt;vlan&gt;0&lt;/vlan&gt;
+&#x20;&lt;staticHost&gt;false&lt;/staticHost&gt;
+&lt;/hostConfig&gt;
+
+Response body in JSON:
+
+{
+&#x20;"dataLayerAddress":"00:00:00:00:01:01",
+&#x20;"nodeType":"OF",
+&#x20;"nodeId":"00:00:00:00:00:00:00:01",
+&#x20;"nodeConnectorType":"OF",
+&#x20;"nodeConnectorId":"9",
+&#x20;"vlan":"0",
+&#x20;"staticHost":"false",
+&#x20;"networkAddress":"1.1.1.1"
+}
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Invalid IP specified in networkAddress parameter]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName is not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[One or more of Controller Services are unavailable]]>
+          </statusCode>
+        </operation>
+        <operation name="PUT">
+          <documentation>
+            <![CDATA[Add a Static Host configuration. If a host by the given address already
+exists, this method will respond with a non-successful status response.]]>
+          </documentation>
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container. The Container name for the base controller is "default".]]>
+          </parameter>
+          <parameter name="networkAddress" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Host IP Address]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="hostConfig" />
+            
+            <documentation><![CDATA[Host Config Details]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[Response as dictated by the HTTP Response Status code
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/hosttracker/default/address/1.1.1.1
+
+Request body in XML
+
+&lt;hostConfig&gt;
+&#x20;&lt;dataLayerAddress&gt;00:00:00:00:01:01&lt;/dataLayerAddress&gt;
+&#x20;&lt;networkAddress&gt;1.1.1.1&lt;/networkAddress&gt;
+&#x20;&lt;nodeType&gt;OF&lt;/nodeType&gt;
+&#x20;&lt;nodeId&gt;00:00:00:00:00:00:00:01&lt;/nodeId&gt;
+&#x20;&lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+&#x20;&lt;nodeConnectorId&gt;9&lt;/nodeConnectorId&gt;
+&#x20;&lt;vlan&gt;1&lt;/vlan&gt;
+&#x20;&lt;staticHost&gt;true&lt;/staticHost&gt;
+&lt;/hostConfig&gt;
+
+Request body in JSON:
+
+{
+&#x20;"dataLayerAddress":"00:00:00:00:01:01",
+&#x20;"nodeType":"OF",
+&#x20;"nodeId":"00:00:00:00:00:00:00:01",
+&#x20;"nodeConnectorType":"OF",
+&#x20;"nodeConnectorId":"9",
+&#x20;"vlan":"1",
+&#x20;"staticHost":"true",
+&#x20;"networkAddress":"1.1.1.1"
+}
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="201">
+            <![CDATA[Static host created successfully]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Invalid parameters specified, see response body for details]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The container or resource is not found]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Resource conflict, see response body for details]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[One or more of Controller services are unavailable]]>
+          </statusCode>
+        </operation>
+        <operation name="DELETE">
+          <documentation>
+            <![CDATA[Delete a Static Host configuration]]>
+          </documentation>
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container. The Container name for the base controller is "default".]]>
+          </parameter>
+          <parameter name="networkAddress" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[IP Address]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[Response as dictated by the HTTP Response code.
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/hosttracker/default/address/1.1.1.1]]></documentation>
+          </outValue>
+          <statusCode code="204">
+            <![CDATA[Static host deleted successfully]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The container or a specified resource was not found]]>
+          </statusCode>
+          <statusCode code="406">
+            <![CDATA[Cannot operate on Default Container when other Containers are active]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[One or more of Controller service is unavailable]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/{containerName}/hosts/active" subcontext="/controller/nb/v2/hosttracker">
+        <groups>
+          <group>HostTrackerNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Returns a list of all Hosts : both configured via PUT API and dynamically
+learnt on the network.]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container. The Container name for the base controller is "default".]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="list" />
+            
+            <documentation><![CDATA[List of Active Hosts.
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/hosttracker/default/hosts/active
+
+Response body in XML
+
+&lt;list&gt;
+&#x20;&lt;hostConfig&gt;
+&#x20;&#x20;&lt;dataLayerAddress&gt;00:00:00:00:01:01&lt;/dataLayerAddress&gt;
+&#x20;&#x20;&lt;networkAddress&gt;1.1.1.1&lt;/networkAddress&gt;
+&#x20;&#x20;&lt;nodeType&gt;OF&lt;/nodeType&gt;
+&#x20;&#x20;&lt;nodeId&gt;00:00:00:00:00:00:00:01&lt;/nodeId&gt;
+&#x20;&#x20;&lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+&#x20;&#x20;&lt;nodeConnectorId&gt;9&lt;/nodeConnectorId&gt;
+&#x20;&#x20;&lt;vlan&gt;0&lt;/vlan&gt;
+&#x20;&#x20;&lt;staticHost&gt;false&lt;/staticHost&gt;
+&#x20;&lt;/hostConfig&gt;
+&#x20;&lt;hostConfig&gt;
+&#x20;&#x20;&lt;dataLayerAddress&gt;00:00:00:00:02:02&lt;/dataLayerAddress&gt;
+&#x20;&#x20;&lt;networkAddress&gt;2.2.2.2&lt;/networkAddress&gt;
+&#x20;&#x20;&lt;nodeType&gt;OF&lt;/nodeType&gt;
+&#x20;&#x20;&lt;nodeId&gt;00:00:00:00:00:00:00:02&lt;/nodeId&gt;
+&#x20;&#x20;&lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+&#x20;&#x20;&lt;nodeConnectorId&gt;5&lt;/nodeConnectorId&gt;
+&#x20;&#x20;&lt;vlan&gt;0&lt;/vlan&gt;
+&#x20;&#x20;&lt;staticHost&gt;false&lt;/staticHost&gt;
+&#x20;&lt;/hostConfig&gt;
+&lt;/list&gt;
+
+Response body in JSON:
+
+{
+&#x20;"hostConfig":[
+&#x20;&#x20;{
+&#x20;&#x20;&#x20;"dataLayerAddress":"00:00:00:00:01:01",
+&#x20;&#x20;&#x20;"nodeType":"OF",
+&#x20;&#x20;&#x20;"nodeId":"00:00:00:00:00:00:00:01",
+&#x20;&#x20;&#x20;"nodeConnectorType":"OF",
+&#x20;&#x20;&#x20;"nodeConnectorId":"9",
+&#x20;&#x20;&#x20;"vlan":"0",
+&#x20;&#x20;&#x20;"staticHost":"false",
+&#x20;&#x20;&#x20;"networkAddress":"1.1.1.1"
+&#x20;&#x20;},
+&#x20;&#x20;{
+&#x20;&#x20;&#x20;"dataLayerAddress":"00:00:00:00:02:02",
+&#x20;&#x20;&#x20;"nodeType":"OF",
+&#x20;&#x20;&#x20;"nodeId":"00:00:00:00:00:00:00:02",
+&#x20;&#x20;&#x20;"nodeConnectorType":"OF",
+&#x20;&#x20;&#x20;"nodeConnectorId":"5",
+&#x20;&#x20;&#x20;"vlan":"0",
+&#x20;&#x20;&#x20;"staticHost":"false",
+&#x20;&#x20;&#x20;"networkAddress":"2.2.2.2"
+&#x20;&#x20;}
+&#x20;]
+}
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName is not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[One or more of Controller Services are unavailable]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/{containerName}/hosts/inactive" subcontext="/controller/nb/v2/hosttracker">
+        <groups>
+          <group>HostTrackerNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Returns a list of Hosts that are statically configured and are connected
+to a NodeConnector that is down.]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container. The Container name for the base controller is "default".]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="list" />
+            
+            <documentation><![CDATA[List of inactive Hosts.
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/hosttracker/default/hosts/inactive
+
+Response body in XML
+
+&lt;list&gt;
+&#x20;&lt;hostConfig&gt;
+&#x20;&#x20;&lt;dataLayerAddress&gt;00:00:00:00:01:01&lt;/dataLayerAddress&gt;
+&#x20;&#x20;&lt;networkAddress&gt;1.1.1.1&lt;/networkAddress&gt;
+&#x20;&#x20;&lt;nodeType&gt;OF&lt;/nodeType&gt;
+&#x20;&#x20;&lt;nodeId&gt;00:00:00:00:00:00:00:01&lt;/nodeId&gt;
+&#x20;&#x20;&lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+&#x20;&#x20;&lt;nodeConnectorId&gt;9&lt;/nodeConnectorId&gt;
+&#x20;&#x20;&lt;vlan&gt;0&lt;/vlan&gt;
+&#x20;&#x20;&lt;staticHost&gt;false&lt;/staticHost&gt;
+&#x20;&lt;/hostConfig&gt;
+&#x20;&lt;hostConfig&gt;
+&#x20;&#x20;&lt;dataLayerAddress&gt;00:00:00:00:02:02&lt;/dataLayerAddress&gt;
+&#x20;&#x20;&lt;networkAddress&gt;2.2.2.2&lt;/networkAddress&gt;
+&#x20;&#x20;&lt;nodeType&gt;OF&lt;/nodeType&gt;
+&#x20;&#x20;&lt;nodeId&gt;00:00:00:00:00:00:00:02&lt;/nodeId&gt;
+&#x20;&#x20;&lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+&#x20;&#x20;&lt;nodeConnectorId&gt;5&lt;/nodeConnectorId&gt;
+&#x20;&#x20;&lt;vlan&gt;0&lt;/vlan&gt;
+&#x20;&#x20;&lt;staticHost&gt;false&lt;/staticHost&gt;
+&#x20;&lt;/hostConfig&gt;
+&lt;/list&gt;
+
+Response body in JSON:
+
+{
+&#x20;"hostConfig":[
+&#x20;&#x20;{
+&#x20;&#x20;&#x20;"dataLayerAddress":"00:00:00:00:01:01",
+&#x20;&#x20;&#x20;"nodeType":"OF",
+&#x20;&#x20;&#x20;"nodeId":"00:00:00:00:00:00:00:01",
+&#x20;&#x20;&#x20;"nodeConnectorType":"OF",
+&#x20;&#x20;&#x20;"nodeConnectorId":"9",
+&#x20;&#x20;&#x20;"vlan":"0",
+&#x20;&#x20;&#x20;"staticHost":"false",
+&#x20;&#x20;&#x20;"networkAddress":"1.1.1.1"
+&#x20;&#x20;},
+&#x20;&#x20;{
+&#x20;&#x20;&#x20;"dataLayerAddress":"00:00:00:00:02:02",
+&#x20;&#x20;&#x20;"nodeType":"OF",
+&#x20;&#x20;&#x20;"nodeId":"00:00:00:00:00:00:00:02",
+&#x20;&#x20;&#x20;"nodeConnectorType":"OF",
+&#x20;&#x20;&#x20;"nodeConnectorId":"5",
+&#x20;&#x20;&#x20;"vlan":"0",
+&#x20;&#x20;&#x20;"staticHost":"false",
+&#x20;&#x20;&#x20;"networkAddress":"2.2.2.2"
+&#x20;&#x20;}
+&#x20;]
+}
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName is not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[One or more of Controller Services are unavailable]]>
+          </statusCode>
+        </operation>
+      </resource>
+    </resources>
+    <groups>
+      <group>
+        <name>HostTrackerNorthbound</name>
+        <documentation><![CDATA[Host Tracker Northbound REST APIs.<br>
+This class provides REST APIs to track host location in a network. Host
+Location is represented by Host node connector which is essentially a logical
+entity that represents a Switch/Port. A host is represented by it's
+IP-address and mac-address.
+
+<br>
+<br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b>HTTP and HTTPS</b><br>
+<br>
+HTTPS Authentication is disabled by default.]]></documentation>
+      </group>
+    </groups>
+  </rest>
+  <packages>
+    <package id="org.opendaylight.controller.hosttracker.northbound">
+    </package>
+  </packages>
+</api-docs>

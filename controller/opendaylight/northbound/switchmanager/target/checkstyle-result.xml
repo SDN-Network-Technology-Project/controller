@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/switchmanager/pom.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/switchmanager/enunciate.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/switchmanager/src/main/java/org/opendaylight/controller/switchmanager/northbound/SwitchNorthbound.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/switchmanager/src/main/java/org/opendaylight/controller/switchmanager/northbound/Nodes.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/switchmanager/src/main/java/org/opendaylight/controller/switchmanager/northbound/NodeProperties.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/switchmanager/src/main/java/org/opendaylight/controller/switchmanager/northbound/NodeConnectorProperties.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/switchmanager/src/main/java/org/opendaylight/controller/switchmanager/northbound/NodeConnectors.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/switchmanager/src/main/resources/WEB-INF/web.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/switchmanager/src/test/java/org/opendaylight/controller/switchmanager/northbound/SwitchManagerNorthboundTest.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/switchmanager/src/test/java/org/opendaylight/controller/switchmanager/northbound/SwitchManagerNorthboundTest.java">
+</file>
+</checkstyle>

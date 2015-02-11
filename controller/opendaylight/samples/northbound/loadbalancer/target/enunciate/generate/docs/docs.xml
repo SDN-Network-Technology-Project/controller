@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api-docs title="Load Balancer REST API">
+  <data>
+    <schema namespace="" namespaceId="ns0" file="ns0.xsd">
+      <types>
+        <type name="pool" id="org.opendaylight.controller.samples.loadbalancer.entities.Pool" package="org.opendaylight.controller.samples.loadbalancer.entities">
+          <groups>
+            <group>Pool</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="lbmethod">
+              <choice name="lbmethod" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="vips">
+              <choice name="vips" namespace="" typeNamespace="" typeName="VIP" typeSchemaId="ns0"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="status">
+              <choice name="status" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="name">
+              <choice name="name" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="members">
+              <choice name="members" namespace="" typeNamespace="" typeName="poolMember" typeSchemaId="ns0"/>
+            </element>
+          </elements>
+        </type>
+        <type name="poolMember" id="org.opendaylight.controller.samples.loadbalancer.entities.PoolMember" package="org.opendaylight.controller.samples.loadbalancer.entities">
+          <groups>
+            <group>PoolMember</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="poolname">
+              <choice name="poolname" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="status">
+              <choice name="status" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="ip">
+              <choice name="ip" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="name">
+              <choice name="name" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+        <type name="VIP" id="org.opendaylight.controller.samples.loadbalancer.entities.VIP" package="org.opendaylight.controller.samples.loadbalancer.entities">
+          <groups>
+            <group>VIP</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="poolname">
+              <choice name="poolname" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="protocol">
+              <choice name="protocol" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="ip">
+              <choice name="ip" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="1" maxOccurs="1" jsonName="port">
+              <choice name="port" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="short"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="status">
+              <choice name="status" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="name">
+              <choice name="name" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+        <type name="pools" id="org.opendaylight.controller.samples.loadbalancer.northbound.Pools" package="org.opendaylight.controller.samples.loadbalancer.northbound">
+          <groups>
+            <group>Pools</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="pool">
+              <choice name="pool" namespace="" typeNamespace="" typeName="pool" typeSchemaId="ns0"/>
+            </element>
+          </elements>
+        </type>
+        <type name="VIPs" id="org.opendaylight.controller.samples.loadbalancer.northbound.VIPs" package="org.opendaylight.controller.samples.loadbalancer.northbound">
+          <documentation>
+            <![CDATA[JAX-RS resource for handling details of all the available VIPs
+in response to respective REST API requests.]]>
+          </documentation>
+          <groups>
+            <group>VIPs</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="vip">
+              <choice name="vip" namespace="" typeNamespace="" typeName="VIP" typeSchemaId="ns0"/>
+            </element>
+          </elements>
+        </type>
+      </types>
+      <elements>
+        <element name="pool" type="org.opendaylight.controller.samples.loadbalancer.entities.Pool" typeName="pool" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>Pool</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<pool>
+  <lbmethod>...</lbmethod>
+  <vips>
+    <poolname>...</poolname>
+    <protocol>...</protocol>
+    <ip>...</ip>
+    <port>...</port>
+    <status>...</status>
+    <name>...</name>
+  </vips>
+  <vips>
+    <!--...-->
+  </vips>
+  <!--...more "vips" elements...-->
+  <status>...</status>
+  <name>...</name>
+  <members>
+    <poolname>...</poolname>
+    <status>...</status>
+    <ip>...</ip>
+    <name>...</name>
+  </members>
+  <members>
+    <!--...-->
+  </members>
+  <!--...more "members" elements...-->
+</pool>]]></examplexml>
+        </element>
+        <element name="poolmember" type="org.opendaylight.controller.samples.loadbalancer.entities.PoolMember" typeName="poolMember" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>PoolMember</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<poolmember>
+  <poolname>...</poolname>
+  <status>...</status>
+  <ip>...</ip>
+  <name>...</name>
+</poolmember>]]></examplexml>
+        </element>
+        <element name="vip" type="org.opendaylight.controller.samples.loadbalancer.entities.VIP" typeName="VIP" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>VIP</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<vip>
+  <poolname>...</poolname>
+  <protocol>...</protocol>
+  <ip>...</ip>
+  <port>...</port>
+  <status>...</status>
+  <name>...</name>
+</vip>]]></examplexml>
+        </element>
+        <element name="pools" type="org.opendaylight.controller.samples.loadbalancer.northbound.Pools" typeName="pools" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>Pools</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<pools>
+  <pool>
+    <lbmethod>...</lbmethod>
+    <vips>
+      <poolname>...</poolname>
+      <protocol>...</protocol>
+      <ip>...</ip>
+      <port>...</port>
+      <status>...</status>
+      <name>...</name>
+    </vips>
+    <vips>
+      <!--...-->
+    </vips>
+    <!--...more "vips" elements...-->
+    <status>...</status>
+    <name>...</name>
+    <members>
+      <poolname>...</poolname>
+      <status>...</status>
+      <ip>...</ip>
+      <name>...</name>
+    </members>
+    <members>
+      <!--...-->
+    </members>
+    <!--...more "members" elements...-->
+  </pool>
+  <pool>
+    <!--...-->
+  </pool>
+  <!--...more "pool" elements...-->
+</pools>]]></examplexml>
+        </element>
+        <element name="VIPs" type="org.opendaylight.controller.samples.loadbalancer.northbound.VIPs" typeName="VIPs" typeNamespace="" typeSchemaId="ns0">
+          <documentation>
+            <![CDATA[JAX-RS resource for handling details of all the available VIPs
+in response to respective REST API requests.]]>
+          </documentation>
+          <groups>
+            <group>VIPs</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<VIPs>
+  <vip>
+    <poolname>...</poolname>
+    <protocol>...</protocol>
+    <ip>...</ip>
+    <port>...</port>
+    <status>...</status>
+    <name>...</name>
+  </vip>
+  <vip>
+    <!--...-->
+  </vip>
+  <!--...more "vip" elements...-->
+</VIPs>]]></examplexml>
+        </element>
+      </elements>
+      <groups>
+        <group>
+          <name>Pool</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>PoolMember</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>Pools</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>VIP</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>VIPs</name>
+          <documentation><![CDATA[JAX-RS resource for handling details of all the available VIPs
+in response to respective REST API requests.]]></documentation>
+        </group>
+      </groups>
+    </schema>
+  </data>
+  <soap>
+    <wsdls>
+    </wsdls>
+  </soap>
+  <rest baseAddress="http://localhost:8080/full" wadl="application.wadl">
+    <resources>
+      <resource name="/{containerName}" subcontext="/one/nb/v2/lb">
+        <groups>
+          <group>LoadBalancerNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="pools" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName is not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Load balancer service is unavailable]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/{containerName}/vips" subcontext="/one/nb/v2/lb">
+        <groups>
+          <group>LoadBalancerNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="VIPs" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName is not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Load balancer service is unavailable]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/{containerName}/create/pool" subcontext="/one/nb/v2/lb">
+        <groups>
+          <group>LoadBalancerNorthbound</group>
+        </groups>
+        <operation name="POST">
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="pool" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="201">
+            <![CDATA[Pool created successfully]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Load balancer service is unavailable]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Pool already exist]]>
+          </statusCode>
+          <statusCode code="415">
+            <![CDATA[Invalid input data]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/{containerName}/create/poolmember" subcontext="/one/nb/v2/lb">
+        <groups>
+          <group>LoadBalancerNorthbound</group>
+        </groups>
+        <operation name="POST">
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="poolmember" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="201">
+            <![CDATA[Pool member created successfully]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Load balancer service is unavailable]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Pool not found]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Pool member already exist]]>
+          </statusCode>
+          <statusCode code="415">
+            <![CDATA[Invalid input data]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/{containerName}/create/vip" subcontext="/one/nb/v2/lb">
+        <groups>
+          <group>LoadBalancerNorthbound</group>
+        </groups>
+        <operation name="POST">
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="vip" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="201">
+            <![CDATA[VIP created successfully]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The Container Name not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Load balancer service is unavailable]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[VIP already exist]]>
+          </statusCode>
+          <statusCode code="415">
+            <![CDATA[Invalid input data]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/{containerName}/update/vip" subcontext="/one/nb/v2/lb">
+        <groups>
+          <group>LoadBalancerNorthbound</group>
+        </groups>
+        <operation name="PUT">
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="vip" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="201">
+            <![CDATA[VIP updated successfully]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[VIP not found]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Pool not found]]>
+          </statusCode>
+          <statusCode code="405">
+            <![CDATA[Pool already attached to the VIP]]>
+          </statusCode>
+          <statusCode code="415">
+            <![CDATA[Invalid input name]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/{containerName}/delete/pool/{poolName}" subcontext="/one/nb/v2/lb">
+        <groups>
+          <group>LoadBalancerNorthbound</group>
+        </groups>
+        <operation name="DELETE">
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="poolName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Pool deleted successfully]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Load balancer service is unavailable]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Pool not found]]>
+          </statusCode>
+          <statusCode code="500">
+            <![CDATA[Failed to delete Pool]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/{containerName}/delete/vip/{vipName}" subcontext="/one/nb/v2/lb">
+        <groups>
+          <group>LoadBalancerNorthbound</group>
+        </groups>
+        <operation name="DELETE">
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="vipName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[VIP deleted successfully]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Load balancer service is unavailable]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[VIP not found]]>
+          </statusCode>
+          <statusCode code="500">
+            <![CDATA[Failed to delete VIP]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/{containerName}/delete/poolmember/{poolMemberName}/{poolName}" subcontext="/one/nb/v2/lb">
+        <groups>
+          <group>LoadBalancerNorthbound</group>
+        </groups>
+        <operation name="DELETE">
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="poolMemberName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="poolName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Pool member deleted successfully]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Load balancer service is unavailable]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Pool member not found]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Pool not found]]>
+          </statusCode>
+        </operation>
+      </resource>
+    </resources>
+    <groups>
+      <group>
+        <name>LoadBalancerNorthbound</name>
+        <documentation><![CDATA[This class exposes North bound REST APIs for the Load Balancer Service.
+Following APIs are exposed by the Load Balancer Service:
+
+Data retrieval REST APIs::
+1. Get details of all existing pools
+Type : GET
+URI : /one/nb/v2/lb/{container-name}/
+NOTE: Current implementation of the opendaylight usage 'default' as a container-name
+e.g : http://localhost:8080/one/nb/v2/lb/default will give you list of all the pools
+
+2. Get details of all the existing VIPs
+Type : GET
+URI:  /one/nb/v2/lb/{container-name}/vips
+
+Pool related REST APIs::
+1. Create Pool :
+Type : POST
+URI : /one/nb/v2/lb/{container-name}/create/pool
+Request body :
+{
+"name":"",
+"lbmethod":""
+}
+Currently, two load balancing policies are allowed {"roundrobin" and "random" }
+
+2. Delete Pool :
+Type : DELETE
+URI : /one/nb/v2/lb/{container-name}/delete/pool/{pool-name}
+
+VIP related REST APIs::
+1. Create VIP:
+Type : POST
+URI : /one/nb/v2/lb/{container-name}/create/vip
+Request body :
+{
+"name":"",
+"ip":"ip in (xxx.xxx.xxx.xxx) format",
+"protocol":"TCP/UDP",
+"port":"any valid port number",
+"poolname":"" (optional)
+}
+The pool name is optional and can be set up at a later stage (using the REST API given below).
+
+2. Update VIP: Update pool name of the VIP
+Type : PUT
+URI : /one/nb/v2/lb/{container-name}/update/vip
+Request body :
+{
+"name":"",
+"poolname":""
+}
+Currently, we only allow update of the VIP pool name (if a VIP does not have an attached pool)
+and not of the VIP name itself.
+The specified pool name must already exist. If the specified VIP is already attached to a pool, the update
+will fail.
+
+3. Delete VIP :
+Type : DELETE
+URI : /one/nb/v2/lb/{container-name}/delete/vip/{vip-name}
+
+Pool member related REST APIs::
+1. Create pool member:
+Type : POST
+URI : /one/nb/v2/lb/default/create/poolmember
+Request body :
+{
+"name":"",
+"ip":"ip in (xxx.xxx.xxx.xxx) format",
+"poolname":"existing pool name"
+}
+
+2. Delete pool member:
+Type : DELETE
+URI : /one/nb/v2/lb/{container-name}/delete/poolmember/{pool-member-name}/{pool-name}
+
+NOTE: Property "name" of each individual entity must be unique.
+All the above REST APIs throw appropriate response codes in case of error/success.
+Please consult the respective methods to get details of various response codes.]]></documentation>
+      </group>
+    </groups>
+  </rest>
+  <packages>
+    <package id="org.opendaylight.controller.samples.loadbalancer.northbound">
+    </package>
+  </packages>
+</api-docs>

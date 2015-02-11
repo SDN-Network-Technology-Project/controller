@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/test/pom.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/test/src/main/java/org/opendaylight/controller/clustering/test/internal/Activator.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/test/src/main/java/org/opendaylight/controller/clustering/test/internal/IComplex.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/test/src/main/java/org/opendaylight/controller/clustering/test/internal/StringContainer.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/test/src/main/java/org/opendaylight/controller/clustering/test/internal/LoggingListener.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/test/src/main/java/org/opendaylight/controller/clustering/test/internal/ComplexClass1.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/test/src/main/java/org/opendaylight/controller/clustering/test/internal/ComplexContainer.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/test/src/main/java/org/opendaylight/controller/clustering/test/internal/ComplexClass.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/test/src/main/java/org/opendaylight/controller/clustering/test/internal/SimpleClient.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/test/src/test/java/org/opendaylight/controller/clustering/test/internal/TestClusteringTest.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/test/src/test/java/org/opendaylight/controller/clustering/test/internal/TestClusteringTest.java">
+</file>
+</checkstyle>

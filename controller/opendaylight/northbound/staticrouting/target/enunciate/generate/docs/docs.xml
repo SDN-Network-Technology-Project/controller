@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api-docs title="Static Routing REST API">
+  <data>
+    <schema namespace="" namespaceId="ns0" file="ns0.xsd">
+      <types>
+        <type name="staticRoute" id="org.opendaylight.controller.forwarding.staticrouting.northbound.StaticRoute" package="org.opendaylight.controller.forwarding.staticrouting.northbound">
+          <documentation>
+            <![CDATA[StaticRoute represents the static route data that is returned as a response to
+the NorthBound GET request.]]>
+          </documentation>
+          <groups>
+            <group>StaticRoute</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="name">
+              <documentation>
+                <![CDATA[The name of the static route.]]>
+              </documentation>
+              <choice name="name" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="prefix">
+              <documentation>
+                <![CDATA[The prefix for the route.
+Format: A.B.C.D/MM  Where A.B.C.D is the Default Gateway IP (L3) or ARP Querier IP (L2)]]>
+              </documentation>
+              <choice name="prefix" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="nextHop">
+              <documentation>
+                <![CDATA[NextHop IP-Address (or) datapath ID/port list: xx:xx:xx:xx:xx:xx:xx:xx/a,b,c-m,r-t,y]]>
+              </documentation>
+              <choice name="nextHop" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+        <type name="staticRoutes" id="org.opendaylight.controller.forwarding.staticrouting.northbound.StaticRoutes" package="org.opendaylight.controller.forwarding.staticrouting.northbound">
+          <documentation>
+            <![CDATA[This class represents a list of static routes.]]>
+          </documentation>
+          <groups>
+            <group>StaticRoutes</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="staticRoute">
+              <choice name="staticRoute" namespace="" typeNamespace="" typeName="staticRoute" typeSchemaId="ns0"/>
+            </element>
+          </elements>
+        </type>
+      </types>
+      <elements>
+        <element name="staticRoute" type="org.opendaylight.controller.forwarding.staticrouting.northbound.StaticRoute" typeName="staticRoute" typeNamespace="" typeSchemaId="ns0">
+          <documentation>
+            <![CDATA[StaticRoute represents the static route data that is returned as a response to
+the NorthBound GET request.]]>
+          </documentation>
+          <groups>
+            <group>StaticRoute</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<staticRoute>
+  <name>...</name>
+  <prefix>...</prefix>
+  <nextHop>...</nextHop>
+</staticRoute>]]></examplexml>
+        </element>
+        <element name="list" type="org.opendaylight.controller.forwarding.staticrouting.northbound.StaticRoutes" typeName="staticRoutes" typeNamespace="" typeSchemaId="ns0">
+          <documentation>
+            <![CDATA[This class represents a list of static routes.]]>
+          </documentation>
+          <groups>
+            <group>StaticRoutes</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<list>
+  <staticRoute>
+    <name>...</name>
+    <prefix>...</prefix>
+    <nextHop>...</nextHop>
+  </staticRoute>
+  <staticRoute>
+    <!--...-->
+  </staticRoute>
+  <!--...more "staticRoute" elements...-->
+</list>]]></examplexml>
+        </element>
+      </elements>
+      <groups>
+        <group>
+          <name>StaticRoute</name>
+          <documentation><![CDATA[StaticRoute represents the static route data that is returned as a response to
+the NorthBound GET request.]]></documentation>
+        </group>
+        <group>
+          <name>StaticRoutes</name>
+          <documentation><![CDATA[This class represents a list of static routes.]]></documentation>
+        </group>
+      </groups>
+    </schema>
+  </data>
+  <soap>
+    <wsdls>
+    </wsdls>
+  </soap>
+  <rest baseAddress="http://localhost:8080/full" wadl="application.wadl">
+    <resources>
+      <resource name="/{containerName}/routes" subcontext="/controller/nb/v2/staticroute">
+        <groups>
+          <group>StaticRoutingNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Get a list of static routes present on the given container.]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container. The Container name for the base controller is "default".]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="list" />
+            
+            <documentation><![CDATA[List of configured static routes on the given container
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/staticroute/default/routes
+
+Response body in XML:
+&lt;list&gt;
+&lt;staticRoute&gt;
+&lt;name&gt;route-1&lt;/name&gt;
+&lt;prefix&gt;10.10.1.0/24&lt;/prefix&gt;
+&lt;nextHop&gt;1.1.1.1&lt;/nextHop&gt;
+&lt;/staticRoute&gt;
+&lt;/list&gt;
+
+Response body in JSON:
+{
+"staticRoute": [
+{
+"name": "route-1",
+"prefix": "10.10.1.0/24",
+"nextHop": "1.1.1.1"
+}
+]
+}
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName passed was not found]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/{containerName}/route/{route}" subcontext="/controller/nb/v2/staticroute">
+        <groups>
+          <group>StaticRoutingNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Returns the static route for the provided configuration name on a given container]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container. The Container name for the base controller is "default".]]>
+          </parameter>
+          <parameter name="route" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Static Route configuration]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="staticRoute" />
+            
+            <documentation><![CDATA[Static route configured with the supplied Name.
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/staticroute/default/route/route-1
+
+Response body in XML:
+
+&lt;staticRoute&gt;
+&lt;name&gt;route-1&lt;/name&gt;
+&lt;prefix&gt;10.10.1.0/24&lt;/prefix&gt;
+&lt;nextHop&gt;1.1.1.1&lt;/nextHop&gt;
+&lt;/staticRoute&gt;
+
+Response body in JSON:
+{
+"name":"route-1",
+"prefix":"10.10.1.0/24",
+"nextHop":"1.1.1.1"
+}
+
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The Container Name or Static Route Configuration name passed was not found]]>
+          </statusCode>
+        </operation>
+        <operation name="PUT">
+          <documentation>
+            <![CDATA[Add a new Static Route. If a route by the given name already exists, this
+method will return a non-successful status response.]]>
+          </documentation>
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container. The Container name for the base controller is "default".]]>
+          </parameter>
+          <parameter name="route" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Static Route configuration]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="staticRoute" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[Response as dictated by the HTTP Response code
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/staticroute/default/route/route-1
+
+Request body in XML:
+&lt;staticRoute&gt;
+&lt;name&gt;route-1&lt;/name&gt;
+&lt;prefix>10.10.1.0/24&lt;/prefix&gt;
+&lt;nextHop&gt;1.1.1.1&lt;/nextHop&gt;
+&lt;/staticRoute&gt;
+Request body in JSON:
+{
+"name":"route-1",
+"prefix":"10.10.1.0/24",
+"nextHop":"1.1.1.1"
+}
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="201">
+            <![CDATA[Created Static Route successfully]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The Container Name passed is not found]]>
+          </statusCode>
+          <statusCode code="406">
+            <![CDATA[Cannot operate on Default Container when other Containers are active]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Failed to create Static Route entry due to Conflicting Name or Prefix.]]>
+          </statusCode>
+        </operation>
+        <operation name="DELETE">
+          <documentation>
+            <![CDATA[Delete a Static Route]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container. The Container name for the base controller is "default".]]>
+          </parameter>
+          <parameter name="route" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Static Route configuration to be removed]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[Response as dictated by the HTTP Response code
+
+<pre>
+Example:
+
+Request URL:
+DELETE http://localhost:8080/controller/nb/v2/staticroute/default/route/route-1
+
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="204">
+            <![CDATA[Static route removed successfully]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Container Name or Configuration Name not found]]>
+          </statusCode>
+          <statusCode code="406">
+            <![CDATA[Cannot operate on Default Container when other Containers are active]]>
+          </statusCode>
+        </operation>
+      </resource>
+    </resources>
+    <groups>
+      <group>
+        <name>StaticRoutingNorthbound</name>
+        <documentation><![CDATA[<p>Static Routing Northbound API allows for the management of the static
+routes.</p>
+</br>
+An example request/response for retrieving the static routes may look like this: </br>
+<pre>
+GET http://localhost:8080/controller/nb/v2/staticroute/default HTTP/1.1
+Accept: application/json
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{ "staticRoute":[
+"name":"route-1",
+"prefix":"10.10.1.0/24",
+"nextHop":"1.1.1.1"
+]
+}
+
+</pre>
+
+<br><br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b>HTTP and HTTPS</b><br>
+<br>]]></documentation>
+      </group>
+    </groups>
+  </rest>
+  <packages>
+    <package id="org.opendaylight.controller.forwarding.staticrouting.northbound">
+    </package>
+  </packages>
+</api-docs>

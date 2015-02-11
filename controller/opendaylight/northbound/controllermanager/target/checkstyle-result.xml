@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/controllermanager/pom.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/controllermanager/enunciate.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/controllermanager/src/main/java/org/opendaylight/controller/controllermanager/northbound/ControllerProperties.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/controllermanager/src/main/java/org/opendaylight/controller/controllermanager/northbound/ControllerManagerNorthbound.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/controllermanager/src/main/resources/WEB-INF/web.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/controllermanager/src/test/java/org/opendaylight/controller/controllermanager/northbound/ControllerManagerNorthboundTest.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/controllermanager/src/test/java/org/opendaylight/controller/controllermanager/northbound/ControllerManagerNorthboundTest.java">
+</file>
+</checkstyle>

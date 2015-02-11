@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="list" type="flowConfigs"/>
+  <xs:element name="flowConfig" type="flowConfig"/>
+  <xs:element name="node" type="node"/>
+  <xs:complexType name="configurationObject" abstract="true"/>
+  <xs:complexType name="flowConfigs">
+    <xs:sequence>
+      <xs:element name="flowConfig" type="flowConfig" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="flowConfig">
+    <xs:complexContent>
+      <xs:extension base="configurationObject">
+        <xs:sequence>
+          <xs:element name="nwSrc" type="xs:string" minOccurs="0"/>
+          <xs:element name="installInHw" type="xs:string" minOccurs="0"/>
+          <xs:element name="idleTimeout" type="xs:string" minOccurs="0"/>
+          <xs:element name="vlanId" type="xs:string" minOccurs="0"/>
+          <xs:element name="etherType" type="xs:string" minOccurs="0"/>
+          <xs:element name="priority" type="xs:string" minOccurs="0"/>
+          <xs:element name="tosBits" type="xs:string" minOccurs="0"/>
+          <xs:element name="actions" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="dlDst" type="xs:string" minOccurs="0"/>
+          <xs:element name="dlSrc" type="xs:string" minOccurs="0"/>
+          <xs:element name="tpSrc" type="xs:string" minOccurs="0"/>
+          <xs:element name="hardTimeout" type="xs:string" minOccurs="0"/>
+          <xs:element name="protocol" type="xs:string" minOccurs="0"/>
+          <xs:element name="node" type="node" minOccurs="0"/>
+          <xs:element name="cookie" type="xs:string" minOccurs="0"/>
+          <xs:element name="vlanPriority" type="xs:string" minOccurs="0"/>
+          <xs:element name="nwDst" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressPort" type="xs:string" minOccurs="0"/>
+          <xs:element name="tpDst" type="xs:string" minOccurs="0"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="node">
+    <xs:sequence>
+      <xs:element name="type" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

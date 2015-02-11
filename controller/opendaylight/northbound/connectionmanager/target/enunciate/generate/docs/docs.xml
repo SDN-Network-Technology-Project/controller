@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api-docs title="Connection Manager REST API">
+  <data>
+    <schema namespace="" namespaceId="ns0" file="ns0.xsd">
+      <types>
+        <type name="nodes" id="org.opendaylight.controller.connectionmanager.northbound.Nodes" package="org.opendaylight.controller.connectionmanager.northbound">
+          <groups>
+            <group>Nodes</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="node">
+              <choice name="node" namespace="" typeNamespace="" typeName="node" typeSchemaId="ns0"/>
+            </element>
+          </elements>
+        </type>
+        <type name="node" id="org.opendaylight.controller.sal.core.Node" package="org.opendaylight.controller.sal.core">
+          <groups>
+            <group>Node</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="type">
+              <choice name="type" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="id">
+              <choice name="id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+      </types>
+      <elements>
+        <element name="list" type="org.opendaylight.controller.connectionmanager.northbound.Nodes" typeName="nodes" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>Nodes</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<list>
+  <node>
+    <type>...</type>
+    <id>...</id>
+  </node>
+  <node>
+    <!--...-->
+  </node>
+  <!--...more "node" elements...-->
+</list>]]></examplexml>
+        </element>
+        <element name="node" type="org.opendaylight.controller.sal.core.Node" typeName="node" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>Node</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<node>
+  <type>...</type>
+  <id>...</id>
+</node>]]></examplexml>
+        </element>
+      </elements>
+      <groups>
+        <group>
+          <name>Node</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>Nodes</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+      </groups>
+    </schema>
+  </data>
+  <soap>
+    <wsdls>
+    </wsdls>
+  </soap>
+  <rest baseAddress="http://localhost:8080/full" wadl="application.wadl">
+    <resources>
+      <resource name="/nodes" subcontext="/controller/nb/v2/connectionmanager">
+        <groups>
+          <group>ConnectionManagerNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Retrieve a list of all the nodes connected to a given controller in the cluster.]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="controller" type="query" defaultValue="" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Optional parameter to retrieve the nodes connected to another controller in the cluster]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="list" />
+            
+            <documentation><![CDATA[A list of Nodes org.opendaylight.controller.sal.core.Node
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/connectionmanager/nodes?controller=1.1.1.1
+
+Response body in XML:
+&lt;list&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:52&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:3e&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;/list&gt;
+
+Response body in JSON:
+{
+"node": [
+{
+"type": "OF",
+"id": "00:00:00:00:00:00:00:52"
+},
+{
+"type": "OF",
+"id": "00:00:00:00:00:00:00:3e"
+}
+]
+}
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="406">
+            <![CDATA[Invalid Controller IP Address passed.]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Connection Manager Service not available]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/node/{nodeType}/{nodeId}" subcontext="/controller/nb/v2/connectionmanager">
+        <groups>
+          <group>ConnectionManagerNorthbound</group>
+        </groups>
+        <operation name="DELETE">
+          <documentation>
+            <![CDATA[Disconnect an existing Connection.
+<pre>
+
+Example :
+
+Request :
+DELETE http://localhost:8080/controller/nb/v2/connectionmanager/node/STUB/mgmt1
+
+</pre>]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="nodeType" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Type of the Node]]>
+          </parameter>
+          <parameter name="nodeId" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Connection's NodeId.]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="200">
+            <![CDATA[Node disconnected successfully]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Could not find a connection with the specified Node identifier]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Connection Manager Service not available]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/node/{nodeId}/address/{ipAddress}/port/{port}" subcontext="/controller/nb/v2/connectionmanager">
+        <groups>
+          <group>ConnectionManagerNorthbound</group>
+        </groups>
+        <operation name="PUT">
+          <documentation>
+            <![CDATA[If a Network Configuration Service needs a Management Connection and if the
+Node Type is unknown, use this REST api to connect to the management session.
+<pre>
+
+Example :
+
+Request :
+PUT http://localhost:8080/controller/nb/v2/connectionmanager/node/mgmt1/address/1.1.1.1/port/6634
+
+Response :
+Node :
+xml :
+&lt;node&gt;
+&lt;id&gt;mgmt1&lt;/id&gt;
+&lt;type&gt;STUB&lt;/type&gt;
+&lt;/node&gt;
+
+json:
+{"id": "mgmt1","type": "STUB"}
+
+</pre>]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="nodeId" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[User-Defined name of the node to connect with. This can be any alpha numeric value]]>
+          </parameter>
+          <parameter name="ipAddress" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[IP Address of the Node to connect with.]]>
+          </parameter>
+          <parameter name="port" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Layer4 Port of the management session to connect with.]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="node" />
+            
+            <documentation><![CDATA[Node If the connection is successful, HTTP 404 otherwise.]]></documentation>
+          </outValue>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Could not connect to the Node with the specified parameters]]>
+          </statusCode>
+          <statusCode code="406">
+            <![CDATA[Invalid IP Address or Port parameter passed.]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Connection Manager Service not available]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/node/{nodeType}/{nodeId}/address/{ipAddress}/port/{port}" subcontext="/controller/nb/v2/connectionmanager">
+        <groups>
+          <group>ConnectionManagerNorthbound</group>
+        </groups>
+        <operation name="PUT">
+          <documentation>
+            <![CDATA[If a Network Configuration Service needs a Management Connection, and if the
+node Type is known, the user can choose to use this REST api to connect to the management session.
+<pre>
+
+Example :
+
+Request :
+PUT http://localhost:8080/controller/nb/v2/connectionmanager/node/STUB/mgmt1/address/1.1.1.1/port/6634
+
+Response : Node :
+xml :
+&lt;node&gt;
+&lt;id&gt;mgmt1&lt;/id&gt;
+&lt;type&gt;STUB&lt;/type&gt;
+&lt;/node&gt;
+
+json:
+{"id": "mgmt1","type": "STUB"}
+
+</pre>]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="nodeType" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Type of the Node the connection is made for.]]>
+          </parameter>
+          <parameter name="nodeId" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[User-Defined name of the node to connect with. This can be any alpha numeric value]]>
+          </parameter>
+          <parameter name="ipAddress" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[IP Address of the Node to connect with.]]>
+          </parameter>
+          <parameter name="port" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Layer4 Port of the management session to connect with.]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="node" />
+            
+            <documentation><![CDATA[Node If the connection is successful, HTTP 404 otherwise.]]></documentation>
+          </outValue>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Could not connect to the Node with the specified parameters]]>
+          </statusCode>
+          <statusCode code="406">
+            <![CDATA[Invalid IP Address or Port parameter passed.]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Connection Manager Service not available]]>
+          </statusCode>
+        </operation>
+      </resource>
+    </resources>
+    <groups>
+      <group>
+        <name>ConnectionManagerNorthbound</name>
+        <documentation><![CDATA[Connection Manager Northbound APIs]]></documentation>
+      </group>
+    </groups>
+  </rest>
+  <packages>
+    <package id="org.opendaylight.controller.connectionmanager.northbound">
+    </package>
+  </packages>
+</api-docs>

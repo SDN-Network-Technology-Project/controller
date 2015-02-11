@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api-docs title="Flow Programmer REST API">
+  <data>
+    <schema namespace="" namespaceId="ns0" file="ns0.xsd">
+      <types>
+        <type name="configurationObject" id="org.opendaylight.controller.configuration.ConfigurationObject" package="org.opendaylight.controller.configuration">
+          <groups>
+            <group>ConfigurationObject</group>
+          </groups>
+        </type>
+        <type name="flowConfigs" id="org.opendaylight.controller.flowprogrammer.northbound.FlowConfigs" package="org.opendaylight.controller.flowprogrammer.northbound">
+          <groups>
+            <group>FlowConfigs</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="flowConfig">
+              <choice name="flowConfig" namespace="" typeNamespace="" typeName="flowConfig" typeSchemaId="ns0"/>
+            </element>
+          </elements>
+        </type>
+        <type name="flowConfig" id="org.opendaylight.controller.forwardingrulesmanager.FlowConfig" package="org.opendaylight.controller.forwardingrulesmanager" extendsType="org.opendaylight.controller.configuration.ConfigurationObject">
+          <groups>
+            <group>FlowConfig</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="nwSrc">
+              <choice name="nwSrc" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="installInHw">
+              <choice name="installInHw" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="idleTimeout">
+              <choice name="idleTimeout" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="vlanId">
+              <choice name="vlanId" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="etherType">
+              <choice name="etherType" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="priority">
+              <choice name="priority" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="tosBits">
+              <choice name="tosBits" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="actions">
+              <choice name="actions" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="dlDst">
+              <choice name="dlDst" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="dlSrc">
+              <choice name="dlSrc" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="tpSrc">
+              <choice name="tpSrc" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="hardTimeout">
+              <choice name="hardTimeout" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="protocol">
+              <choice name="protocol" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="node">
+              <choice name="node" namespace="" typeNamespace="" typeName="node" typeSchemaId="ns0"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="cookie">
+              <choice name="cookie" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="vlanPriority">
+              <choice name="vlanPriority" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="nwDst">
+              <choice name="nwDst" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="ingressPort">
+              <choice name="ingressPort" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="tpDst">
+              <choice name="tpDst" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="name">
+              <choice name="name" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+        <type name="node" id="org.opendaylight.controller.sal.core.Node" package="org.opendaylight.controller.sal.core">
+          <groups>
+            <group>Node</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="type">
+              <choice name="type" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="id">
+              <choice name="id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+      </types>
+      <elements>
+        <element name="list" type="org.opendaylight.controller.flowprogrammer.northbound.FlowConfigs" typeName="flowConfigs" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>FlowConfigs</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<list>
+  <flowConfig>
+    <nwSrc>...</nwSrc>
+    <installInHw>...</installInHw>
+    <idleTimeout>...</idleTimeout>
+    <vlanId>...</vlanId>
+    <etherType>...</etherType>
+    <priority>...</priority>
+    <tosBits>...</tosBits>
+    <actions>...</actions>
+    <actions>...</actions>
+    <!--...more "actions" elements...-->
+    <dlDst>...</dlDst>
+    <dlSrc>...</dlSrc>
+    <tpSrc>...</tpSrc>
+    <hardTimeout>...</hardTimeout>
+    <protocol>...</protocol>
+    <node>
+      <type>...</type>
+      <id>...</id>
+    </node>
+    <cookie>...</cookie>
+    <vlanPriority>...</vlanPriority>
+    <nwDst>...</nwDst>
+    <ingressPort>...</ingressPort>
+    <tpDst>...</tpDst>
+    <name>...</name>
+  </flowConfig>
+  <flowConfig>
+    <!--...-->
+  </flowConfig>
+  <!--...more "flowConfig" elements...-->
+</list>]]></examplexml>
+        </element>
+        <element name="flowConfig" type="org.opendaylight.controller.forwardingrulesmanager.FlowConfig" typeName="flowConfig" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>FlowConfig</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<flowConfig>
+  <nwSrc>...</nwSrc>
+  <installInHw>...</installInHw>
+  <idleTimeout>...</idleTimeout>
+  <vlanId>...</vlanId>
+  <etherType>...</etherType>
+  <priority>...</priority>
+  <tosBits>...</tosBits>
+  <actions>...</actions>
+  <actions>...</actions>
+  <!--...more "actions" elements...-->
+  <dlDst>...</dlDst>
+  <dlSrc>...</dlSrc>
+  <tpSrc>...</tpSrc>
+  <hardTimeout>...</hardTimeout>
+  <protocol>...</protocol>
+  <node>
+    <type>...</type>
+    <id>...</id>
+  </node>
+  <cookie>...</cookie>
+  <vlanPriority>...</vlanPriority>
+  <nwDst>...</nwDst>
+  <ingressPort>...</ingressPort>
+  <tpDst>...</tpDst>
+  <name>...</name>
+</flowConfig>]]></examplexml>
+        </element>
+        <element name="node" type="org.opendaylight.controller.sal.core.Node" typeName="node" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>Node</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<node>
+  <type>...</type>
+  <id>...</id>
+</node>]]></examplexml>
+        </element>
+      </elements>
+      <groups>
+        <group>
+          <name>ConfigurationObject</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>FlowConfig</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>FlowConfigs</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>Node</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+      </groups>
+    </schema>
+  </data>
+  <soap>
+    <wsdls>
+    </wsdls>
+  </soap>
+  <rest baseAddress="http://localhost:8080/full" wadl="application.wadl">
+    <resources>
+      <resource name="/{containerName}" subcontext="/controller/nb/v2/flowprogrammer">
+        <groups>
+          <group>FlowProgrammerNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Returns a list of Flows configured on the given container]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container (Eg. 'default')]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="list" />
+            
+            <documentation><![CDATA[List of flows configured on a given container
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/flowprogrammer/default
+
+Response body in XML:
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;list&gt;
+&#x20;&#x20;&#x20;&lt;flowConfig&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;installInHw&gt;true&lt;/installInHw&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;name&gt;flow1&lt;/name&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;node&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;type&gt;OF&lt;/type&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;/node&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;ingressPort&gt;1&lt;/ingressPort&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;priority&gt;500&lt;/priority&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;etherType&gt;0x800&lt;/etherType&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nwSrc&gt;9.9.1.1&lt;/nwSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;actions&gt;OUTPUT=2&lt;/actions&gt;
+&#x20;&#x20;&#x20;&lt;/flowConfig&gt;
+&lt;/list&gt;
+
+Response body in JSON:
+{
+"flowConfig": [
+{
+"installInHw": "true",
+"name": "flow1",
+"node": {
+"type": "OF",
+"id": "00:00:00:00:00:00:00:01"
+},
+"ingressPort": "1",
+"priority": "500",
+"etherType": "0x800",
+"nwSrc":"9.9.1.1",
+"actions": [
+"OUTPUT=2"
+]
+}
+]
+}
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName is not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[One or more of Controller Services are unavailable]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/{containerName}/node/{nodeType}/{nodeId}" subcontext="/controller/nb/v2/flowprogrammer">
+        <groups>
+          <group>FlowProgrammerNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Returns a list of Flows configured on a Node in a given container]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container (Eg. 'default')]]>
+          </parameter>
+          <parameter name="nodeType" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Type of the node being programmed (Eg. 'OF')]]>
+          </parameter>
+          <parameter name="nodeId" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Node Identifier (Eg. '00:00:00:00:00:00:00:01')]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="list" />
+            
+            <documentation><![CDATA[List of flows configured on a Node in a container
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/flowprogrammer/default/node/OF/00:00:00:00:00:00:00:01
+
+Response body in XML:
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;list&gt;
+&#x20;&#x20;&#x20;&lt;flowConfig&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;installInHw&gt;true&lt;/installInHw&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;name&gt;flow1&lt;/name&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;node&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;type&gt;OF&lt;/type&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;/node&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;ingressPort&gt;1&lt;/ingressPort&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;priority&gt;500&lt;/priority&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;etherType&gt;0x800&lt;/etherType&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nwSrc&gt;9.9.1.1&lt;/nwSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;actions&gt;OUTPUT=2&lt;/actions&gt;
+&#x20;&#x20;&#x20;&lt;/flowConfig&gt;
+&lt;/list&gt;
+
+Response body in JSON:
+{
+"flowConfig": [
+{
+"installInHw": "true",
+"name": "flow1",
+"node": {
+"type": "OF",
+"id": "00:00:00:00:00:00:00:01"
+},
+"ingressPort": "1",
+"priority": "500",
+"etherType": "0x800",
+"nwSrc":"9.9.1.1",
+"actions": [
+"OUTPUT=2"
+]
+}
+]
+}
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName or nodeId is not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[One or more of Controller Services are unavailable]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/{containerName}/node/{nodeType}/{nodeId}/staticFlow/{name}" subcontext="/controller/nb/v2/flowprogrammer">
+        <groups>
+          <group>FlowProgrammerNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Returns the flow configuration matching a human-readable name and nodeId
+on a given Container.]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container (Eg. 'default')]]>
+          </parameter>
+          <parameter name="nodeType" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Type of the node being programmed (Eg. 'OF')]]>
+          </parameter>
+          <parameter name="nodeId" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Node Identifier (Eg. '00:00:00:00:00:00:00:01')]]>
+          </parameter>
+          <parameter name="name" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Human-readable name for the configured flow (Eg. 'Flow1')]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="flowConfig" />
+            
+            <documentation><![CDATA[Flow configuration matching the name and nodeId on a Container
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/flowprogrammer/default/node/OF/00:00:00:00:00:00:00:01/staticFlow/flow1
+
+Response body in XML:
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;flowConfig&gt;
+&#x20;&#x20;&#x20;&lt;installInHw&gt;true&lt;/installInHw&gt;
+&#x20;&#x20;&#x20;&lt;name&gt;flow1&lt;/name&gt;
+&#x20;&#x20;&#x20;&lt;node&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;type&gt;OF&lt;/type&gt;
+&#x20;&#x20;&#x20;&lt;/node&gt;
+&#x20;&#x20;&#x20;&lt;ingressPort&gt;1&lt;/ingressPort&gt;
+&#x20;&#x20;&#x20;&lt;priority&gt;500&lt;/priority&gt;
+&#x20;&#x20;&#x20;&lt;etherType&gt;0x800&lt;/etherType&gt;
+&#x20;&#x20;&#x20;&lt;nwSrc&gt;9.9.1.1&lt;/nwSrc&gt;
+&#x20;&#x20;&#x20;&lt;actions&gt;OUTPUT=2&lt;/actions&gt;
+&lt;/flowConfig&gt;
+
+Response body in JSON:
+{
+"installInHw":"true",
+"name":"flow1",
+"node":{
+"id":"00:00:00:00:00:00:00:01",
+"type":"OF"
+},
+"ingressPort":"1",
+"priority":"500",
+"etherType":"0x800",
+"nwSrc":"9.9.1.1",
+"actions":[
+"OUTPUT=2"
+]
+}
+
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName or NodeId or Configuration name is not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[One or more of Controller Services are unavailable]]>
+          </statusCode>
+        </operation>
+        <operation name="PUT">
+          <documentation>
+            <![CDATA[Add or Modify a flow configuration. If the flow exists already, it will replace the current flow.]]>
+          </documentation>
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container (Eg. 'default')]]>
+          </parameter>
+          <parameter name="name" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Static Flow configuration (Eg. 'Flow2')]]>
+          </parameter>
+          <parameter name="nodeType" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Type of the node being programmed (Eg. 'OF')]]>
+          </parameter>
+          <parameter name="nodeId" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Node Identifier (Eg. '00:00:00:00:00:00:00:01')]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="flowConfig" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[Response as dictated by the HTTP Response Status code
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/flowprogrammer/default/node/OF/00:00:00:00:00:00:00:01/staticFlow/flow1
+
+Request body in XML:
+&lt;flowConfig&gt;
+&#x20;&#x20;&#x20;&lt;installInHw&gt;true&lt;/installInHw&gt;
+&#x20;&#x20;&#x20;&lt;name&gt;flow1&lt;/name&gt;
+&#x20;&#x20;&#x20;&lt;node&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;type&gt;OF&lt;/type&gt;
+&#x20;&#x20;&#x20;&lt;/node&gt;
+&#x20;&#x20;&#x20;&lt;ingressPort&gt;1&lt;/ingressPort&gt;
+&#x20;&#x20;&#x20;&lt;priority&gt;500&lt;/priority&gt;
+&#x20;&#x20;&#x20;&lt;etherType&gt;0x800&lt;/etherType&gt;
+&#x20;&#x20;&#x20;&lt;nwSrc&gt;9.9.1.1&lt;/nwSrc&gt;
+&#x20;&#x20;&#x20;&lt;actions&gt;OUTPUT=2&lt;/actions&gt;
+&lt;/flowConfig&gt;
+
+Request body in JSON:
+{
+"installInHw":"true",
+"name":"flow1",
+"node":{
+"id":"00:00:00:00:00:00:00:01",
+"type":"OF"
+},
+"ingressPort":"1",
+"priority":"500",
+"etherType":"0x800",
+"nwSrc":"9.9.1.1",
+"actions":[
+"OUTPUT=2"
+]
+}
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Static Flow modified successfully]]>
+          </statusCode>
+          <statusCode code="201">
+            <![CDATA[Flow Config processed successfully]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Failed to create Static Flow entry due to invalid flow configuration]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The Container Name or nodeId is not found]]>
+          </statusCode>
+          <statusCode code="406">
+            <![CDATA[Cannot operate on Default Container when other Containers are active]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Failed to create Static Flow entry due to Conflicting Name or configuration]]>
+          </statusCode>
+          <statusCode code="500">
+            <![CDATA[Failed to create Static Flow entry. Failure Reason included in HTTP Error response]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[One or more of Controller services are unavailable]]>
+          </statusCode>
+        </operation>
+        <operation name="DELETE">
+          <documentation>
+            <![CDATA[Delete a Flow configuration]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container (Eg. 'default')]]>
+          </parameter>
+          <parameter name="name" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Static Flow configuration (Eg. 'Flow1')]]>
+          </parameter>
+          <parameter name="nodeType" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Type of the node being programmed (Eg. 'OF')]]>
+          </parameter>
+          <parameter name="nodeId" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Node Identifier (Eg. '00:00:00:00:00:00:00:01')]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[Response as dictated by the HTTP Response code
+
+<pre>
+
+Example:
+
+RequestURL:
+http://localhost:8080/controller/nb/v2/flowprogrammer/default/node/OF/00:00:00:00:00:00:00:01/staticFlow/flow1
+
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="204">
+            <![CDATA[Flow Config deleted successfully]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The Container Name or Node-id or Flow Name passed is not found]]>
+          </statusCode>
+          <statusCode code="406">
+            <![CDATA[Failed to delete Flow config due to invalid operation. Failure details included in HTTP Error response]]>
+          </statusCode>
+          <statusCode code="500">
+            <![CDATA[Failed to delete Flow config. Failure Reason included in HTTP Error response]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[One or more of Controller service is unavailable]]>
+          </statusCode>
+        </operation>
+        <operation name="POST">
+          <documentation>
+            <![CDATA[Toggle a Flow configuration]]>
+          </documentation>
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container (Eg. 'default')]]>
+          </parameter>
+          <parameter name="nodeType" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Type of the node being programmed (Eg. 'OF')]]>
+          </parameter>
+          <parameter name="nodeId" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Node Identifier (Eg. '00:00:00:00:00:00:00:01')]]>
+          </parameter>
+          <parameter name="name" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Static Flow configuration (Eg. 'Flow1')]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[Response as dictated by the HTTP Response code
+
+<pre>
+
+Example:
+
+RequestURL:
+http://localhost:8080/controller/nb/v2/flowprogrammer/default/node/OF/00:00:00:00:00:00:00:01/staticFlow/flow1
+
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Flow Config processed successfully]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The Container Name or Node-id or Flow Name passed is not found]]>
+          </statusCode>
+          <statusCode code="406">
+            <![CDATA[Failed to delete Flow config due to invalid operation. Failure details included in HTTP Error response]]>
+          </statusCode>
+          <statusCode code="500">
+            <![CDATA[Failed to delete Flow config. Failure Reason included in HTTP Error response]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[One or more of Controller service is unavailable]]>
+          </statusCode>
+        </operation>
+      </resource>
+    </resources>
+    <groups>
+      <group>
+        <name>FlowProgrammerNorthbound</name>
+        <documentation><![CDATA[Flow Configuration Northbound API provides capabilities to program flows.
+
+<br>
+<br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b>HTTP and HTTPS</b><br>
+<br>
+HTTPS Authentication is disabled by default.]]></documentation>
+      </group>
+    </groups>
+  </rest>
+  <packages>
+    <package id="org.opendaylight.controller.flowprogrammer.northbound">
+    </package>
+  </packages>
+</api-docs>

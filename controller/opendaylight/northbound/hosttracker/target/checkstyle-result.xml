@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/hosttracker/pom.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/hosttracker/enunciate.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/hosttracker/src/main/java/org/opendaylight/controller/hosttracker/northbound/Hosts.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/hosttracker/src/main/java/org/opendaylight/controller/hosttracker/northbound/HostConfig.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/hosttracker/src/main/java/org/opendaylight/controller/hosttracker/northbound/HostTrackerNorthbound.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/hosttracker/src/main/resources/WEB-INF/web.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/hosttracker/src/test/java/org/opendaylight/controller/hosttracker/northbound/HostTrackerNorthboundTest.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/hosttracker/src/test/java/org/opendaylight/controller/hosttracker/northbound/HostTrackerNorthboundTest.java">
+</file>
+</checkstyle>

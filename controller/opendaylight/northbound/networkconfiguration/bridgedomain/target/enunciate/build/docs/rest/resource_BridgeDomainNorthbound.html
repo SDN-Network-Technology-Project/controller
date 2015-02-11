@@ -1,0 +1,637 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>BridgeDomainNorthbound</title>
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS: implied media="all" -->
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/prettify.css">
+
+  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+  <script src="js/libs/modernizr-1.7.min.js"></script>
+
+</head>
+
+<body class="home">
+
+  <div class="container">
+    <header>
+      <div id="header" class="column first last span-20">
+        <div id="site-name" class="column span-18 append-1 prepend-1 first last"><a href="index.html">BridgeDomainNorthbound</a></div>
+        <div id="primary" class="column span-18 append-1 prepend-1 first last">
+          <ul class="navigation">
+            <li id="nav-rest"><a href="rest.html">REST</a></li>
+            <li id="nav-data"><a href="model.html">Data Model</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="xbreadcrumbs" id="breadcrumbs">
+            <li>
+              <a href="index.html" class="home">Home</a> &gt;
+            </li>
+            <li>
+              <a href="rest.html">REST</a> &gt;
+              <ul>
+                <li><a href="model.html">Data Model</a></li>
+                <li><a href="rest.html">REST</a></li>
+              </ul>
+            </li>
+            <li class="current">
+              <a href="resource_BridgeDomainNorthbound.html">BridgeDomainNorthbound</a>
+              <ul>
+                <li><a href="resource_BridgeDomainNorthbound.html">BridgeDomainNorthbound</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div id="main" class="column first last span-20">
+      <h1>BridgeDomainNorthbound</h1>
+
+      <p>BridgeDomain Configuration Northbound APIs
+
+<br><br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b>HTTP and HTTPS</b><br>
+<br>
+HTTPS Authentication is disabled by default. Administrator can enable it in tomcat-server.xml after adding
+a proper keystore / SSL certificate from a trusted authority.<br>
+More info : http://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Configuration</p>
+      <p>The following resources are part of this group:</p>
+      <ul>
+        <li><a href="#path__bridge_-nodeType-_-nodeId-_-bridgeName-.html">/bridge/{nodeType}/{nodeId}/{bridgeName}</a></li>
+        <li><a href="#path__port_-nodeType-_-nodeId-_-bridgeName-_-portName-.html">/port/{nodeType}/{nodeId}/{bridgeName}/{portName}</a></li>
+        <li><a href="#path__port_-nodeType-_-nodeId-_-bridgeName-_-portName-_-vlan-.html">/port/{nodeType}/{nodeId}/{bridgeName}/{portName}/{vlan}</a></li>
+      </ul>
+      <a name="path__bridge_-nodeType-_-nodeId-_-bridgeName-.html"></a>
+      <h1>/bridge/{nodeType}/{nodeId}/{bridgeName}</h1>
+      <p class="note">Mount Point: <a href="../controller/nb/v2/networkconfig/bridgedomain/bridge/{nodeType}/{nodeId}/{bridgeName}">/controller/nb/v2/networkconfig/bridgedomain/bridge/{nodeType}/{nodeId}/{bridgeName}</a></p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <p>
+            Create a Bridge.
+<pre>
+
+Example :
+
+Request :
+http://localhost:8080/controller/nb/v2/networkconfig/bridgedomain/bridge/STUB/mgmt1/bridge1
+
+</pre>
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>nodeType</td>
+          <td>
+            Node Type of the node with the management session.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeId</td>
+          <td>
+            Node Identifier of the node with the management session.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>bridgeName</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Request Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml</td>
+        </tr>
+      </table>
+      <p>Additional Bridge Configurations. It takes in complex structures under the ConfigConstants.CUSTOM key. The use-cases are documented under wiki.opendaylight.org project pages: https://wiki.opendaylight.org/view/OVSDB_Integration:Mininet_OVSDB_Tutorial</p>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>201</td>
+          <td>
+            Bridge created successfully
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            Could not create Bridge
+          </td>
+        </tr>
+        <tr>
+          <td>412</td>
+          <td>
+            Failed to create Bridge due to an exception
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            Bridge Domain Configuration Service not available
+          </td>
+        </tr>
+      </table>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <p>
+            Remove a Bridge.
+<pre>
+
+Example :
+
+Request :
+DELETE
+http://localhost:8080/controller/nb/v2/networkconfig/bridgedomain/bridge/STUB/mgmt1/bridge1
+
+</pre>
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>nodeType</td>
+          <td>
+            Node Type of the node with the management session.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeId</td>
+          <td>
+            Node Identifier of the node with the management session.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>bridgeName</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Bridge deleted successfully
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            Could not delete Bridge
+          </td>
+        </tr>
+        <tr>
+          <td>412</td>
+          <td>
+            Failed to delete Bridge due to an exception
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            Bridge Domain Configuration Service not available
+          </td>
+        </tr>
+      </table>
+      <a name="path__port_-nodeType-_-nodeId-_-bridgeName-_-portName-.html"></a>
+      <h1>/port/{nodeType}/{nodeId}/{bridgeName}/{portName}</h1>
+      <p class="note">Mount Point: <a href="../controller/nb/v2/networkconfig/bridgedomain/port/{nodeType}/{nodeId}/{bridgeName}/{portName}">/controller/nb/v2/networkconfig/bridgedomain/port/{nodeType}/{nodeId}/{bridgeName}/{portName}</a></p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <p>
+            Add a Port to a Bridge
+<pre>
+
+Example :
+
+Request :
+http://localhost:8080/controller/nb/v2/networkconfig/bridgedomain/port/STUB/mgmt1/bridge1/port1
+
+</pre>
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>nodeType</td>
+          <td>
+            Node Type of the node with the management session.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeId</td>
+          <td>
+            Node Identifier of the node with the management session.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>bridgeName</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>portName</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Request Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>Additional Port Configurations. It takes in complex structures under the ConfigConstants.CUSTOM key. The use-cases are documented under wiki.opendaylight.org project pages : https://wiki.opendaylight.org/view/OVSDB_Integration:Mininet_OVSDB_Tutorial</p>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml<br/></td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>201</td>
+          <td>
+            Port added successfully
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            Could not add Port to the Bridge
+          </td>
+        </tr>
+        <tr>
+          <td>412</td>
+          <td>
+            Failed to add Port due to an exception
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            Bridge Domain Configuration Service not available
+          </td>
+        </tr>
+      </table>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <p>
+            Remove a Port from a Bridge
+<pre>
+
+Example :
+
+Request :
+DELETE
+http://localhost:8080/controller/nb/v2/networkconfig/bridgedomain/port/STUB/mgmt1/bridge1/port1
+
+</pre>
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>nodeType</td>
+          <td>
+            Node Type of the node with the management session.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeId</td>
+          <td>
+            Node Identifier of the node with the management session.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>bridgeName</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>portName</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml<br/></td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Port deleted successfully
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            Could not delete Port to the Bridge
+          </td>
+        </tr>
+        <tr>
+          <td>412</td>
+          <td>
+            Failed to delete Port due to an exception
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            Bridge Domain Configuration Service not available
+          </td>
+        </tr>
+      </table>
+      <a name="path__port_-nodeType-_-nodeId-_-bridgeName-_-portName-_-vlan-.html"></a>
+      <h1>/port/{nodeType}/{nodeId}/{bridgeName}/{portName}/{vlan}</h1>
+      <p class="note">Mount Point: <a href="../controller/nb/v2/networkconfig/bridgedomain/port/{nodeType}/{nodeId}/{bridgeName}/{portName}/{vlan}">/controller/nb/v2/networkconfig/bridgedomain/port/{nodeType}/{nodeId}/{bridgeName}/{portName}/{vlan}</a></p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <p>
+            Add a Port,Vlan to a Bridge
+<pre>
+
+Example :
+Request :
+http://localhost:8080/controller/nb/v2/networkconfig/bridgedomain/port/STUB/mgmt1/bridge1/port2/200
+
+</pre>
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>nodeType</td>
+          <td>
+            Node Type of the node with the management session.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeId</td>
+          <td>
+            Node Identifier of the node with the management session.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>bridgeName</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>portName</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>vlan</td>
+          <td>
+            Vlan Id.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>201</td>
+          <td>
+            Created Port with Vlan tag successfully
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            Could not add Port,Vlan to the Bridge
+          </td>
+        </tr>
+        <tr>
+          <td>406</td>
+          <td>
+            Invalid Vlan parameter passed.
+          </td>
+        </tr>
+        <tr>
+          <td>412</td>
+          <td>
+            Failed to add Port,Vlan due to an exception
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            Bridge Domain Configuration Service not available
+          </td>
+        </tr>
+      </table>
+
+      <div class="clear" />
+    </div>
+    <footer>
+      <div id="footer">
+        Generated by <a href="http://enunciate.codehaus.org">Enunciate</a>.
+      </div>
+    </footer>
+  </div> <!--! end of #container -->
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+  <script>window.jQuery || document.write("<script src='js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
+
+  <!--manage the navigation menu-->
+  <script src="js/libs/xbreadcrumbs.js"></script>
+  <script>
+    $(function() {
+      $('#breadcrumbs').xBreadcrumbs();
+    });
+  </script>
+
+
+  <!-- prettify code blocks. see http://code.google.com/p/google-code-prettify/ -->
+  <script src="js/libs/prettify/prettify.js"></script>
+  <script>
+    $(function() {
+      prettyPrint();
+    });
+  </script>
+
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg"); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
+  <![endif]-->
+
+</body>
+</html>

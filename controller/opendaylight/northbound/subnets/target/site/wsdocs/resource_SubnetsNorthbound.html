@@ -1,0 +1,670 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>SubnetsNorthbound</title>
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS: implied media="all" -->
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/prettify.css">
+
+  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+  <script src="js/libs/modernizr-1.7.min.js"></script>
+
+</head>
+
+<body class="home">
+
+  <div class="container">
+    <header>
+      <div id="header" class="column first last span-20">
+        <div id="site-name" class="column span-18 append-1 prepend-1 first last"><a href="index.html">SubnetsNorthbound</a></div>
+        <div id="primary" class="column span-18 append-1 prepend-1 first last">
+          <ul class="navigation">
+            <li id="nav-rest"><a href="rest.html">REST</a></li>
+            <li id="nav-data"><a href="model.html">Data Model</a></li>
+            <li id="nav-downloads"><a href="downloads.html">Files and Libraries</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="xbreadcrumbs" id="breadcrumbs">
+            <li>
+              <a href="index.html" class="home">Home</a> &gt;
+            </li>
+            <li>
+              <a href="rest.html">REST</a> &gt;
+              <ul>
+                <li><a href="model.html">Data Model</a></li>
+                <li><a href="downloads.html">Files and Libraries</a></li>
+                <li><a href="rest.html">REST</a></li>
+              </ul>
+            </li>
+            <li class="current">
+              <a href="resource_SubnetsNorthbound.html">SubnetsNorthbound</a>
+              <ul>
+                <li><a href="resource_SubnetsNorthbound.html">SubnetsNorthbound</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div id="main" class="column first last span-20">
+      <h1>SubnetsNorthbound</h1>
+
+      <p>This class provides REST APIs to manage subnets.
+
+<br>
+<br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b>HTTP and HTTPS</b><br>
+<br>
+HTTPS Authentication is disabled by default.</p>
+      <p>The following resources are part of this group:</p>
+      <ul>
+        <li><a href="#path__-containerName-_subnets.html">/{containerName}/subnets</a></li>
+        <li><a href="#path__-containerName-_subnet_-subnetName-.html">/{containerName}/subnet/{subnetName}</a></li>
+      </ul>
+      <a name="path__-containerName-_subnets.html"></a>
+      <h1>/{containerName}/subnets</h1>
+      <p class="note">Mount Point: <a href="../controller/nb/v2/subnetservice/{containerName}/subnets">/controller/nb/v2/subnetservice/{containerName}/subnets</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            List all the subnets in a given container
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            container in which we want to query the subnets
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td><a href="el_ns0_list.html">list</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>a List of SubnetConfig
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/subnetservice/default/subnets
+
+Response body in XML:
+&lt;list&gt;
+&lt;subnetConfig&gt;
+&lt;name&gt;marketingdepartment&lt;/name&gt;
+&lt;subnet&gt;30.31.54.254/24&lt;/subnet&gt;
+&lt;/subnetConfig&gt;
+&lt;subnetConfig&gt;
+&lt;name&gt;salesdepartment&lt;/name&gt;
+&lt;subnet&gt;20.18.1.254/16&lt;/subnet&gt;
+&lt;nodeConnectors&gt;OF|11@OF|00:00:00:aa:bb:cc:dd:ee&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|13@OF|00:00:00:aa:bb:cc:dd:ee&lt;/nodeConnectors&gt;
+&lt;/subnetConfig&gt;
+&lt;/list&gt;
+Response body in JSON:
+{
+"subnetConfig": [
+{
+"name": "marketingdepartment",
+"subnet": "30.31.54.254/24",
+"nodeConnectors": [
+"OF|04@OF|00:00:00:00:00:00:00:04",
+"OF|07@OF|00:00:00:00:00:00:00:07"
+]
+},
+{
+"name":"salesdepartment",
+"subnet":"20.18.1.254/16",
+"nodeConnectors": [
+"OF|11@OF|00:00:00:aa:bb:cc:dd:ee",
+"OF|13@OF|00:00:00:aa:bb:cc:dd:ee"
+]
+}
+]
+}
+
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName passed was not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            Service unavailable
+          </td>
+        </tr>
+      </table>
+      <a name="path__-containerName-_subnet_-subnetName-.html"></a>
+      <h1>/{containerName}/subnet/{subnetName}</h1>
+      <p class="note">Mount Point: <a href="../controller/nb/v2/subnetservice/{containerName}/subnet/{subnetName}">/controller/nb/v2/subnetservice/{containerName}/subnet/{subnetName}</a></p>
+      <p>
+        The following operations are supported on this resource:
+      </p>
+      <ul>
+        <li><a href="#GET">GET</a></li>
+        <li><a href="#PUT">PUT</a></li>
+        <li><a href="#DELETE">DELETE</a></li>
+        <li><a href="#POST">POST</a></li>
+      </ul>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            List the configuration of a subnet in a given container
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            container in which we want to query the subnet
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>subnetName</td>
+          <td>
+            of the subnet being queried
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td><a href="el_ns0_subnetConfig.html">subnetConfig</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>SubnetConfig
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/subnetservice/default/subnet/marketingdepartment
+
+Response body in XML:
+&lt;subnetConfig&gt;
+&lt;name&gt;marketingdepartment&lt;/name&gt;
+&lt;subnet&gt;30.0.0.1/24&lt;/subnet&gt;
+&lt;nodeConnectors&gt;OF|1@OF|00:00:00:00:00:00:00:01&lt;/nodePorts&gt;
+&lt;nodeConnectors&gt;OF|3@OF|00:00:00:00:00:00:00:03&lt;/nodePorts&gt;
+&lt;/subnetConfig&gt;
+
+Response body in JSON:
+{
+"name":"marketingdepartment",
+"subnet":"30.0.0.1/24",
+"nodeConnectors":[
+"OF|1@OF|00:00:00:00:00:00:00:01",
+"OF|3@OF|00:00:00:00:00:00:00:03"
+]
+}
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName or subnetName passed was not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            Service unavailable
+          </td>
+        </tr>
+      </table>
+      <a name="PUT"></a>
+      <h2>PUT</h2>
+      <p>
+            Add a subnet into the specified container context, node connectors are
+optional
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            name of the container context in which the subnet needs to be added
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>subnetName</td>
+          <td>
+            name of new subnet to be added
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Request Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td><a href="el_ns0_subnetConfig.html">subnetConfig</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml</td>
+        </tr>
+      </table>
+      <p>the SubnetConfig structure in request body</p>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml</td>
+        </tr>
+      </table>
+      <p>Response as dictated by the HTTP Response Status code
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/subnetservice/default/subnet/salesdepartment
+
+Request body in XML:
+&lt;subnetConfig&gt;
+&lt;name&gt;salesdepartment&lt;/name&gt;
+&lt;subnet&gt;172.173.174.254/24&lt;/subnet&gt;
+&lt;nodeConnectors&gt;OF|22@OF|00:00:11:22:33:44:55:66&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|39@OF|00:00:ab:cd:33:44:55:66&lt;/nodeConnectors&gt;
+&lt;/subnetConfig&gt;
+
+Request body in JSON:
+{
+"name":"salesdepartment",
+"subnet":"172.173.174.254/24",
+"nodeConnectors":[
+"OF|22@OF|00:00:11:22:33:44:55:66",
+"OF|39@OF|00:00:ab:cd:33:44:55:66"
+]
+}
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>201</td>
+          <td>
+            Subnet created successfully
+          </td>
+        </tr>
+        <tr>
+          <td>400</td>
+          <td>
+            Invalid data passed
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>409</td>
+          <td>
+            Subnet name in url conflicts with name in request body
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            Container name passed was not found or subnet config is null
+          </td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>
+            Internal Server Error: Addition of subnet failed
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            Service unavailable
+          </td>
+        </tr>
+      </table>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <p>
+            Delete a subnet from the specified container context
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            name of the container in which subnet needs to be removed
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>subnetName</td>
+          <td>
+            name of new subnet to be deleted
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml</td>
+        </tr>
+      </table>
+      <p>Response as dictated by the HTTP Response Status code
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/subnetservice/default/subnet/engdepartment
+
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>204</td>
+          <td>
+            No Content
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName passed was not found
+          </td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>
+            Internal Server Error : Removal of subnet failed
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            Service unavailable
+          </td>
+        </tr>
+      </table>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <p>
+            Modify a subnet. Replace the existing subnet with the new specified one.
+For now only port list modification is allowed. If the respective subnet
+configuration does not exist this call is equivalent to a subnet
+creation.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container context
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>subnetName</td>
+          <td>
+            Name of the subnet to be modified
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Request Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td><a href="el_ns0_subnetConfig.html">subnetConfig</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>the SubnetConfig structure in request body parameter</p>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml<br/></td>
+        </tr>
+      </table>
+      <p>Response as dictated by the HTTP Response Status code
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/subnetservice/default/subnet/salesdepartment
+
+Request body in XML:
+&lt;subnetConfig&gt;
+&lt;name&gt;salesdepartment&lt;/name&gt;
+&lt;subnet&gt;172.173.174.254/24&lt;/subnet&gt;
+&lt;nodeConnectors&gt;OF|22@OF|00:00:11:22:33:44:55:66&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|39@OF|00:00:ab:cd:33:44:55:66&lt;/nodeConnectors&gt;
+&lt;/subnetConfig&gt;
+
+Request body in JSON:
+{
+"name":"salesdepartment",
+"subnet":"172.173.174.254/24",
+"nodeConnectors":[
+"OF|22@OF|00:00:11:22:33:44:55:66",
+"OF|39@OF|00:00:ab:cd:33:44:55:66"
+]
+}
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Configuration replaced successfully
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>409</td>
+          <td>
+            Subnet name in url conflicts with name in request body
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName or subnetName is not found
+          </td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>
+            Internal server error: Modify subnet failed
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            Service unavailable
+          </td>
+        </tr>
+      </table>
+
+      <div class="clear" />
+    </div>
+    <footer>
+      <div id="footer">
+        Generated by <a href="http://enunciate.codehaus.org">Enunciate</a>.
+      </div>
+    </footer>
+  </div> <!--! end of #container -->
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+  <script>window.jQuery || document.write("<script src='js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
+
+  <!--manage the navigation menu-->
+  <script src="js/libs/xbreadcrumbs.js"></script>
+  <script>
+    $(function() {
+      $('#breadcrumbs').xBreadcrumbs();
+    });
+  </script>
+
+
+  <!-- prettify code blocks. see http://code.google.com/p/google-code-prettify/ -->
+  <script src="js/libs/prettify/prettify.js"></script>
+  <script>
+    $(function() {
+      prettyPrint();
+    });
+  </script>
+
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg"); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
+  <![endif]-->
+
+</body>
+</html>

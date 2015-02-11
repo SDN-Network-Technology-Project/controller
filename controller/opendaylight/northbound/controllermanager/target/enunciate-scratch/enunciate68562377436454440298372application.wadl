@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wadl:application xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <wadl:doc xmlns:enunciate="http://enunciate.codehaus.org/" enunciate:generatedBy="Enunciate-1.26.1"/>
+  <wadl:grammars>
+    <wadl:include href="ns0.xsd"/>
+  </wadl:grammars>
+  <wadl:resources base="http://localhost:8080/full">
+    <wadl:resource path="/controller/nb/v2/controllermanager/configuration">
+      <wadl:method name="PUT">
+        <wadl:doc>
+          <![CDATA[Save controller configuration
+
+Request URL:
+http://localhost:8080/controller/nb/v2/controllermanager/configuration
+
+Request body is empty]]>
+        </wadl:doc>
+        <wadl:response>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/controllermanager/{containerName}/properties">
+      <wadl:param name="containerName" style="template">
+        <wadl:doc>
+          <![CDATA[Name of the Container (Eg. 'default')]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Retrieve a property or all properties for the controller in the network]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:param name="propertyName" style="query">
+            <wadl:doc>
+              <![CDATA[Name of the Property specified by org.opendaylight.controller.sal.core.Property and its extended classes  Example:  Request URL: http://localhost:8080/controller/nb/v2/controllermanager/default/properties/?propertyName=macAddress  Response Body in XML: <?xml version="1.0" encoding="UTF-8" standalone="yes"?> <controllerProperties> <properties> <macAddress> <value>3e:04:ef:11:13:80</value> </macAddress> </properties> </controllerProperties>  Response Body in JSON: { "controllerProperties": {"properties": { "macAddress": { "value": "3e:04:ef:11:13:80" } } } }]]>
+            </wadl:doc>
+          </wadl:param>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/xml" element="property"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/controllermanager/{containerName}/properties/{propertyName}">
+      <wadl:param name="containerName" style="template">
+        <wadl:doc>
+          <![CDATA[Name of the Container (Eg. 'default')]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="propertyName" style="template">
+        <wadl:doc>
+          <![CDATA[Name of the Property specified by org.opendaylight.controller.sal.core.Property and its extended classes]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:method name="DELETE">
+        <wadl:doc>
+          <![CDATA[Delete a property of the controller]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[Response as dictated by the HTTP Response Status code
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/controllermanager/default/properties/description]]>
+          </wadl:doc>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/controllermanager/{containerName}/properties/{propertyName}/{propertyValue}">
+      <wadl:param name="containerName" style="template">
+        <wadl:doc>
+          <![CDATA[Name of the Container (Eg. 'default')]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="propertyName" style="template">
+        <wadl:doc>
+          <![CDATA[Name of the Property specified by org.opendaylight.controller.sal.core.Property and its extended classes]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="propertyValue" style="template">
+        <wadl:doc>
+          <![CDATA[Value of the Property specified by org.opendaylight.controller.sal.core.Property and its extended classes]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:method name="PUT">
+        <wadl:doc>
+          <![CDATA[Add a controller property to the controller. This method overrides
+previously set property values if the property already exist.]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[Response as dictated by the HTTP Response Status code
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/controllermanager/default/properties/description/defaultController]]>
+          </wadl:doc>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+  </wadl:resources>
+</wadl:application>

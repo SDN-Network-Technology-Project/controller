@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api-docs title="Bridge Domain Configuration REST API">
+  <data>
+  </data>
+  <soap>
+    <wsdls>
+    </wsdls>
+  </soap>
+  <rest baseAddress="http://localhost:8080/full" wadl="application.wadl">
+    <resources>
+      <resource name="/bridge/{nodeType}/{nodeId}/{bridgeName}" subcontext="/controller/nb/v2/networkconfig/bridgedomain">
+        <groups>
+          <group>BridgeDomainNorthbound</group>
+        </groups>
+        <operation name="POST">
+          <documentation>
+            <![CDATA[Create a Bridge.
+<pre>
+
+Example :
+
+Request :
+http://localhost:8080/controller/nb/v2/networkconfig/bridgedomain/bridge/STUB/mgmt1/bridge1
+
+</pre>]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <parameter name="nodeType" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Node Type of the node with the management session.]]>
+          </parameter>
+          <parameter name="nodeId" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Node Identifier of the node with the management session.]]>
+          </parameter>
+          <parameter name="bridgeName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <inValue>
+            
+            
+            <documentation><![CDATA[Additional Bridge Configurations. It takes in complex structures under the ConfigConstants.CUSTOM key. The use-cases are documented under wiki.opendaylight.org project pages: https://wiki.opendaylight.org/view/OVSDB_Integration:Mininet_OVSDB_Tutorial]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="201">
+            <![CDATA[Bridge created successfully]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Could not create Bridge]]>
+          </statusCode>
+          <statusCode code="412">
+            <![CDATA[Failed to create Bridge due to an exception]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Bridge Domain Configuration Service not available]]>
+          </statusCode>
+        </operation>
+        <operation name="DELETE">
+          <documentation>
+            <![CDATA[Remove a Bridge.
+<pre>
+
+Example :
+
+Request :
+DELETE
+http://localhost:8080/controller/nb/v2/networkconfig/bridgedomain/bridge/STUB/mgmt1/bridge1
+
+</pre>]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <parameter name="nodeType" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Node Type of the node with the management session.]]>
+          </parameter>
+          <parameter name="nodeId" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Node Identifier of the node with the management session.]]>
+          </parameter>
+          <parameter name="bridgeName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Bridge deleted successfully]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Could not delete Bridge]]>
+          </statusCode>
+          <statusCode code="412">
+            <![CDATA[Failed to delete Bridge due to an exception]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Bridge Domain Configuration Service not available]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/port/{nodeType}/{nodeId}/{bridgeName}/{portName}" subcontext="/controller/nb/v2/networkconfig/bridgedomain">
+        <groups>
+          <group>BridgeDomainNorthbound</group>
+        </groups>
+        <operation name="POST">
+          <documentation>
+            <![CDATA[Add a Port to a Bridge
+<pre>
+
+Example :
+
+Request :
+http://localhost:8080/controller/nb/v2/networkconfig/bridgedomain/port/STUB/mgmt1/bridge1/port1
+
+</pre>]]>
+          </documentation>
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <parameter name="nodeType" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Node Type of the node with the management session.]]>
+          </parameter>
+          <parameter name="nodeId" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Node Identifier of the node with the management session.]]>
+          </parameter>
+          <parameter name="bridgeName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="portName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <inValue>
+            
+            
+            <documentation><![CDATA[Additional Port Configurations. It takes in complex structures under the ConfigConstants.CUSTOM key. The use-cases are documented under wiki.opendaylight.org project pages : https://wiki.opendaylight.org/view/OVSDB_Integration:Mininet_OVSDB_Tutorial]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="201">
+            <![CDATA[Port added successfully]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Could not add Port to the Bridge]]>
+          </statusCode>
+          <statusCode code="412">
+            <![CDATA[Failed to add Port due to an exception]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Bridge Domain Configuration Service not available]]>
+          </statusCode>
+        </operation>
+        <operation name="DELETE">
+          <documentation>
+            <![CDATA[Remove a Port from a Bridge
+<pre>
+
+Example :
+
+Request :
+DELETE
+http://localhost:8080/controller/nb/v2/networkconfig/bridgedomain/port/STUB/mgmt1/bridge1/port1
+
+</pre>]]>
+          </documentation>
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <parameter name="nodeType" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Node Type of the node with the management session.]]>
+          </parameter>
+          <parameter name="nodeId" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Node Identifier of the node with the management session.]]>
+          </parameter>
+          <parameter name="bridgeName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="portName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Port deleted successfully]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Could not delete Port to the Bridge]]>
+          </statusCode>
+          <statusCode code="412">
+            <![CDATA[Failed to delete Port due to an exception]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Bridge Domain Configuration Service not available]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/port/{nodeType}/{nodeId}/{bridgeName}/{portName}/{vlan}" subcontext="/controller/nb/v2/networkconfig/bridgedomain">
+        <groups>
+          <group>BridgeDomainNorthbound</group>
+        </groups>
+        <operation name="POST">
+          <documentation>
+            <![CDATA[Add a Port,Vlan to a Bridge
+<pre>
+
+Example :
+Request :
+http://localhost:8080/controller/nb/v2/networkconfig/bridgedomain/port/STUB/mgmt1/bridge1/port2/200
+
+</pre>]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <parameter name="nodeType" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Node Type of the node with the management session.]]>
+          </parameter>
+          <parameter name="nodeId" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Node Identifier of the node with the management session.]]>
+          </parameter>
+          <parameter name="bridgeName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="portName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="vlan" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Vlan Id.]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="201">
+            <![CDATA[Created Port with Vlan tag successfully]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Could not add Port,Vlan to the Bridge]]>
+          </statusCode>
+          <statusCode code="406">
+            <![CDATA[Invalid Vlan parameter passed.]]>
+          </statusCode>
+          <statusCode code="412">
+            <![CDATA[Failed to add Port,Vlan due to an exception]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Bridge Domain Configuration Service not available]]>
+          </statusCode>
+        </operation>
+      </resource>
+    </resources>
+    <groups>
+      <group>
+        <name>BridgeDomainNorthbound</name>
+        <documentation><![CDATA[BridgeDomain Configuration Northbound APIs
+
+<br><br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b>HTTP and HTTPS</b><br>
+<br>
+HTTPS Authentication is disabled by default. Administrator can enable it in tomcat-server.xml after adding
+a proper keystore / SSL certificate from a trusted authority.<br>
+More info : http://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Configuration]]></documentation>
+      </group>
+    </groups>
+  </rest>
+  <packages>
+    <package id="org.opendaylight.controller.networkconfig.bridgedomain.northbound">
+    </package>
+  </packages>
+</api-docs>

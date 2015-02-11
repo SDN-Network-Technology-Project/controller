@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wadl:application xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <wadl:doc xmlns:enunciate="http://enunciate.codehaus.org/" enunciate:generatedBy="Enunciate-1.26.1"/>
+  <wadl:grammars>
+    <wadl:include href="ns0.xsd"/>
+  </wadl:grammars>
+  <wadl:resources base="http://localhost:8080/full">
+    <wadl:resource path="/controller/nb/v2/staticroute/{containerName}/routes">
+      <wadl:param name="containerName" style="template">
+        <wadl:doc>
+          <![CDATA[Name of the Container. The Container name for the base controller is "default".]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Get a list of static routes present on the given container.]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[List of configured static routes on the given container
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/staticroute/default/routes
+
+Response body in XML:
+&lt;list&gt;
+&lt;staticRoute&gt;
+&lt;name&gt;route-1&lt;/name&gt;
+&lt;prefix&gt;10.10.1.0/24&lt;/prefix&gt;
+&lt;nextHop&gt;1.1.1.1&lt;/nextHop&gt;
+&lt;/staticRoute&gt;
+&lt;/list&gt;
+
+Response body in JSON:
+{
+"staticRoute": [
+{
+"name": "route-1",
+"prefix": "10.10.1.0/24",
+"nextHop": "1.1.1.1"
+}
+]
+}
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="list"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/staticroute/{containerName}/route/{route}">
+      <wadl:param name="containerName" style="template">
+        <wadl:doc>
+          <![CDATA[Name of the Container. The Container name for the base controller is "default".]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="route" style="template">
+        <wadl:doc>
+          <![CDATA[Name of the Static Route configuration]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Returns the static route for the provided configuration name on a given container]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[Static route configured with the supplied Name.
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/staticroute/default/route/route-1
+
+Response body in XML:
+
+&lt;staticRoute&gt;
+&lt;name&gt;route-1&lt;/name&gt;
+&lt;prefix&gt;10.10.1.0/24&lt;/prefix&gt;
+&lt;nextHop&gt;1.1.1.1&lt;/nextHop&gt;
+&lt;/staticRoute&gt;
+
+Response body in JSON:
+{
+"name":"route-1",
+"prefix":"10.10.1.0/24",
+"nextHop":"1.1.1.1"
+}
+
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="staticRoute"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="PUT">
+        <wadl:doc>
+          <![CDATA[Add a new Static Route. If a route by the given name already exists, this
+method will return a non-successful status response.]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:representation mediaType="application/xml" element="staticRoute"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[Response as dictated by the HTTP Response code
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/staticroute/default/route/route-1
+
+Request body in XML:
+&lt;staticRoute&gt;
+&lt;name&gt;route-1&lt;/name&gt;
+&lt;prefix>10.10.1.0/24&lt;/prefix&gt;
+&lt;nextHop&gt;1.1.1.1&lt;/nextHop&gt;
+&lt;/staticRoute&gt;
+Request body in JSON:
+{
+"name":"route-1",
+"prefix":"10.10.1.0/24",
+"nextHop":"1.1.1.1"
+}
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="DELETE">
+        <wadl:doc>
+          <![CDATA[Delete a Static Route]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[Response as dictated by the HTTP Response code
+
+<pre>
+Example:
+
+Request URL:
+DELETE http://localhost:8080/controller/nb/v2/staticroute/default/route/route-1
+
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+  </wadl:resources>
+</wadl:application>

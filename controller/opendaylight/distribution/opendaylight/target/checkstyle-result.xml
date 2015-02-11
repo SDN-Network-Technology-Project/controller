@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/distribution/opendaylight/pom.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/distribution/opendaylight/runsanity.bat">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/distribution/opendaylight/runsanity.sh">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/distribution/opendaylight/src/assemble/bin.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/distribution/opendaylight/src/main/resources/configuration/tomcat-server.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/distribution/opendaylight/src/main/resources/configuration/logback.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/distribution/opendaylight/src/main/resources/configuration/context.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/distribution/opendaylight/src/main/resources/configuration/config.ini">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/distribution/opendaylight/src/main/resources/run.sh">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/distribution/opendaylight/src/main/resources/run.bat">
+</file>
+</checkstyle>

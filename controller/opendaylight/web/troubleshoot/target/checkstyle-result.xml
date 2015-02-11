@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/web/troubleshoot/pom.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/web/troubleshoot/src/main/java/org/opendaylight/controller/troubleshoot/web/Troubleshoot2.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/web/troubleshoot/src/main/java/org/opendaylight/controller/troubleshoot/web/Troubleshoot.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/web/troubleshoot/src/main/java/org/opendaylight/controller/troubleshoot/web/TroubleshootingJsonBean.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/web/troubleshoot/src/main/resources/WEB-INF/Troubleshoot-servlet.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/web/troubleshoot/src/main/resources/WEB-INF/web.xml">
+</file>
+</checkstyle>

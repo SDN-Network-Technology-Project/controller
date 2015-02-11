@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1420001365189
+Build-Jdk: 1.7.0_65
+Built-By: localadmin
+Bundle-ManifestVersion: 2
+Bundle-Name: configuration
+Bundle-SymbolicName: org.opendaylight.controller.configuration
+Bundle-Version: 0.4.1.1-SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.opendaylight.controller.configuration;uses:="org.ope
+ ndaylight.controller.sal.utils";version="0.4.1.1-SNAPSHOT"
+Import-Package: org.opendaylight.controller.sal.utils;version="[0.7,1)"
+Tool: Bnd-1.50.0

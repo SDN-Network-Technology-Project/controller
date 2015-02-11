@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wadl:application xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <wadl:doc xmlns:enunciate="http://enunciate.codehaus.org/" enunciate:generatedBy="Enunciate-1.26.1"/>
+  <wadl:grammars>
+    <wadl:include href="ns0.xsd"/>
+    <wadl:include href="ns2.xsd"/>
+    <wadl:include href="ns1.xsd"/>
+  </wadl:grammars>
+  <wadl:resources base="http://localhost:8080/full">
+    <wadl:resource path="/controller/nb/v2/neutron/floatingips">
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Returns a list of all FloatingIPs]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:param name="fields" style="query"/>
+          <wadl:param name="id" style="query"/>
+          <wadl:param name="floating_network_id" style="query"/>
+          <wadl:param name="port_id" style="query"/>
+          <wadl:param name="fixed_ip_address" style="query"/>
+          <wadl:param name="floating_ip_address" style="query"/>
+          <wadl:param name="tenant_id" style="query"/>
+          <wadl:param name="limit" style="query"/>
+          <wadl:param name="marker" style="query"/>
+          <wadl:param name="page_reverse" style="query"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="POST">
+        <wadl:doc>
+          <![CDATA[Creates new FloatingIPs]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/neutron/networks">
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Returns a list of all Networks]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:param name="fields" style="query"/>
+          <wadl:param name="id" style="query"/>
+          <wadl:param name="name" style="query"/>
+          <wadl:param name="admin_state_up" style="query"/>
+          <wadl:param name="status" style="query"/>
+          <wadl:param name="shared" style="query"/>
+          <wadl:param name="tenant_id" style="query"/>
+          <wadl:param name="router_external" style="query"/>
+          <wadl:param name="provider_network_type" style="query"/>
+          <wadl:param name="provider_physical_network" style="query"/>
+          <wadl:param name="provider_segmentation_id" style="query"/>
+          <wadl:param name="limit" style="query"/>
+          <wadl:param name="marker" style="query"/>
+          <wadl:param name="page_reverse" style="query"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="POST">
+        <wadl:doc>
+          <![CDATA[Creates new Networks]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/neutron/ports">
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Returns a list of all Ports]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:param name="fields" style="query"/>
+          <wadl:param name="id" style="query"/>
+          <wadl:param name="network_id" style="query"/>
+          <wadl:param name="name" style="query"/>
+          <wadl:param name="admin_state_up" style="query"/>
+          <wadl:param name="status" style="query"/>
+          <wadl:param name="mac_address" style="query"/>
+          <wadl:param name="device_id" style="query"/>
+          <wadl:param name="device_owner" style="query"/>
+          <wadl:param name="tenant_id" style="query"/>
+          <wadl:param name="limit" style="query"/>
+          <wadl:param name="marker" style="query"/>
+          <wadl:param name="page_reverse" style="query"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="POST">
+        <wadl:doc>
+          <![CDATA[Creates new Ports]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/neutron/routers">
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Returns a list of all Routers]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:param name="fields" style="query"/>
+          <wadl:param name="id" style="query"/>
+          <wadl:param name="name" style="query"/>
+          <wadl:param name="admin_state_up" style="query"/>
+          <wadl:param name="status" style="query"/>
+          <wadl:param name="tenant_id" style="query"/>
+          <wadl:param name="external_gateway_info" style="query"/>
+          <wadl:param name="limit" style="query"/>
+          <wadl:param name="marker" style="query"/>
+          <wadl:param name="page_reverse" style="query"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="POST">
+        <wadl:doc>
+          <![CDATA[Creates new Routers]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/neutron/subnets">
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Returns a list of all Subnets]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:param name="fields" style="query"/>
+          <wadl:param name="id" style="query"/>
+          <wadl:param name="network_id" style="query"/>
+          <wadl:param name="name" style="query"/>
+          <wadl:param name="ip_version" style="query"/>
+          <wadl:param name="cidr" style="query"/>
+          <wadl:param name="gateway_ip" style="query"/>
+          <wadl:param name="enable_dhcp" style="query"/>
+          <wadl:param name="tenant_id" style="query"/>
+          <wadl:param name="ipv6_address_mode" style="query"/>
+          <wadl:param name="ipv6_ra_mode" style="query"/>
+          <wadl:param name="limit" style="query"/>
+          <wadl:param name="marker" style="query"/>
+          <wadl:param name="page_reverse" style="query"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="POST">
+        <wadl:doc>
+          <![CDATA[Creates new Subnets]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/neutron/floatingips/{floatingipUUID}">
+      <wadl:param name="floatingipUUID" style="template"/>
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Returns a specific FloatingIP]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:param name="fields" style="query"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="PUT">
+        <wadl:doc>
+          <![CDATA[Updates a FloatingIP]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="DELETE">
+        <wadl:doc>
+          <![CDATA[Deletes a FloatingIP]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/neutron/networks/{netUUID}">
+      <wadl:param name="netUUID" style="template"/>
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Returns a specific Network]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:param name="fields" style="query"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="PUT">
+        <wadl:doc>
+          <![CDATA[Updates a Network]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="DELETE">
+        <wadl:doc>
+          <![CDATA[Deletes a Network]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/neutron/ports/{portUUID}">
+      <wadl:param name="portUUID" style="template"/>
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Returns a specific Port]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:param name="fields" style="query"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="PUT">
+        <wadl:doc>
+          <![CDATA[Updates a Port]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="DELETE">
+        <wadl:doc>
+          <![CDATA[Deletes a Port]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/neutron/routers/{routerUUID}">
+      <wadl:param name="routerUUID" style="template"/>
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Returns a specific Router]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:param name="fields" style="query"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="PUT">
+        <wadl:doc>
+          <![CDATA[Updates a Router]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="DELETE">
+        <wadl:doc>
+          <![CDATA[Deletes a Router]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/neutron/subnets/{subnetUUID}">
+      <wadl:param name="subnetUUID" style="template"/>
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Returns a specific Subnet]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:param name="fields" style="query"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="PUT">
+        <wadl:doc>
+          <![CDATA[Updates a Subnet]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="DELETE">
+        <wadl:doc>
+          <![CDATA[Deletes a Subnet]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/neutron/routers/{routerUUID}/add_router_interface">
+      <wadl:param name="routerUUID" style="template"/>
+      <wadl:method name="PUT">
+        <wadl:doc>
+          <![CDATA[Adds an interface to a router]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/neutron/routers/{routerUUID}/remove_router_interface">
+      <wadl:param name="routerUUID" style="template"/>
+      <wadl:method name="PUT">
+        <wadl:doc>
+          <![CDATA[Removes an interface to a router]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+  </wadl:resources>
+</wadl:application>

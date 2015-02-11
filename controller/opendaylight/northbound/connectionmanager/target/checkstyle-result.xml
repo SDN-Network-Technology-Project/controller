@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/connectionmanager/pom.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/connectionmanager/enunciate.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/connectionmanager/src/main/java/org/opendaylight/controller/connectionmanager/northbound/ConnectionManagerNorthbound.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/connectionmanager/src/main/java/org/opendaylight/controller/connectionmanager/northbound/Nodes.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/connectionmanager/src/main/resources/WEB-INF/web.xml">
+</file>
+</checkstyle>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wadl:application xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <wadl:doc xmlns:enunciate="http://enunciate.codehaus.org/" enunciate:generatedBy="Enunciate-1.26.1"/>
+  <wadl:grammars/>
+  <wadl:resources base="http://localhost:8080/full">
+    <wadl:resource path="/controller/nb/v2/networkconfig/bridgedomain/bridge/{nodeType}/{nodeId}/{bridgeName}">
+      <wadl:param name="nodeType" style="template">
+        <wadl:doc>
+          <![CDATA[Node Type of the node with the management session.]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="nodeId" style="template">
+        <wadl:doc>
+          <![CDATA[Node Identifier of the node with the management session.]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="bridgeName" style="template"/>
+      <wadl:method name="POST">
+        <wadl:doc>
+          <![CDATA[Create a Bridge.
+<pre>
+
+Example :
+
+Request :
+http://localhost:8080/controller/nb/v2/networkconfig/bridgedomain/bridge/STUB/mgmt1/bridge1
+
+</pre>]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:doc>
+            <![CDATA[Additional Bridge Configurations. It takes in complex structures under the ConfigConstants.CUSTOM key. The use-cases are documented under wiki.opendaylight.org project pages: https://wiki.opendaylight.org/view/OVSDB_Integration:Mininet_OVSDB_Tutorial]]>
+          </wadl:doc>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="DELETE">
+        <wadl:doc>
+          <![CDATA[Remove a Bridge.
+<pre>
+
+Example :
+
+Request :
+DELETE
+http://localhost:8080/controller/nb/v2/networkconfig/bridgedomain/bridge/STUB/mgmt1/bridge1
+
+</pre>]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/networkconfig/bridgedomain/port/{nodeType}/{nodeId}/{bridgeName}/{portName}">
+      <wadl:param name="nodeType" style="template">
+        <wadl:doc>
+          <![CDATA[Node Type of the node with the management session.]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="nodeId" style="template">
+        <wadl:doc>
+          <![CDATA[Node Identifier of the node with the management session.]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="bridgeName" style="template"/>
+      <wadl:param name="portName" style="template"/>
+      <wadl:method name="POST">
+        <wadl:doc>
+          <![CDATA[Add a Port to a Bridge
+<pre>
+
+Example :
+
+Request :
+http://localhost:8080/controller/nb/v2/networkconfig/bridgedomain/port/STUB/mgmt1/bridge1/port1
+
+</pre>]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:doc>
+            <![CDATA[Additional Port Configurations. It takes in complex structures under the ConfigConstants.CUSTOM key. The use-cases are documented under wiki.opendaylight.org project pages : https://wiki.opendaylight.org/view/OVSDB_Integration:Mininet_OVSDB_Tutorial]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="DELETE">
+        <wadl:doc>
+          <![CDATA[Remove a Port from a Bridge
+<pre>
+
+Example :
+
+Request :
+DELETE
+http://localhost:8080/controller/nb/v2/networkconfig/bridgedomain/port/STUB/mgmt1/bridge1/port1
+
+</pre>]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/networkconfig/bridgedomain/port/{nodeType}/{nodeId}/{bridgeName}/{portName}/{vlan}">
+      <wadl:param name="nodeType" style="template">
+        <wadl:doc>
+          <![CDATA[Node Type of the node with the management session.]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="nodeId" style="template">
+        <wadl:doc>
+          <![CDATA[Node Identifier of the node with the management session.]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="bridgeName" style="template"/>
+      <wadl:param name="portName" style="template"/>
+      <wadl:param name="vlan" style="template">
+        <wadl:doc>
+          <![CDATA[Vlan Id.]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:method name="POST">
+        <wadl:doc>
+          <![CDATA[Add a Port,Vlan to a Bridge
+<pre>
+
+Example :
+Request :
+http://localhost:8080/controller/nb/v2/networkconfig/bridgedomain/port/STUB/mgmt1/bridge1/port2/200
+
+</pre>]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+  </wadl:resources>
+</wadl:application>

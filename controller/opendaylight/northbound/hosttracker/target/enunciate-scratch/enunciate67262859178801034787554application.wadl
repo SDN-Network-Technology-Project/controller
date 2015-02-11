@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wadl:application xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <wadl:doc xmlns:enunciate="http://enunciate.codehaus.org/" enunciate:generatedBy="Enunciate-1.26.1"/>
+  <wadl:grammars>
+    <wadl:include href="ns0.xsd"/>
+  </wadl:grammars>
+  <wadl:resources base="http://localhost:8080/full">
+    <wadl:resource path="/controller/nb/v2/hosttracker/{containerName}/address/{networkAddress}">
+      <wadl:param name="containerName" style="template">
+        <wadl:doc>
+          <![CDATA[Name of the Container. The Container name for the base controller is "default".]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="networkAddress" style="template">
+        <wadl:doc>
+          <![CDATA[IP Address being looked up]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Returns a host that matches the IP Address value passed as parameter.]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[host that matches the IP Address
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/hosttracker/default/address/1.1.1.1
+
+Response body in XML
+
+&lt;hostConfig&gt;
+&#x20;&lt;dataLayerAddress&gt;00:00:00:00:01:01&lt;/dataLayerAddress&gt;
+&#x20;&lt;networkAddress&gt;1.1.1.1&lt;/networkAddress&gt;
+&#x20;&lt;nodeType&gt;OF&lt;/nodeType&gt;
+&#x20;&lt;nodeId&gt;00:00:00:00:00:00:00:01&lt;/nodeId&gt;
+&#x20;&lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+&#x20;&lt;nodeConnectorId&gt;9&lt;/nodeConnectorId&gt;
+&#x20;&lt;vlan&gt;0&lt;/vlan&gt;
+&#x20;&lt;staticHost&gt;false&lt;/staticHost&gt;
+&lt;/hostConfig&gt;
+
+Response body in JSON:
+
+{
+&#x20;"dataLayerAddress":"00:00:00:00:01:01",
+&#x20;"nodeType":"OF",
+&#x20;"nodeId":"00:00:00:00:00:00:00:01",
+&#x20;"nodeConnectorType":"OF",
+&#x20;"nodeConnectorId":"9",
+&#x20;"vlan":"0",
+&#x20;"staticHost":"false",
+&#x20;"networkAddress":"1.1.1.1"
+}
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="hostConfig"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="PUT">
+        <wadl:doc>
+          <![CDATA[Add a Static Host configuration. If a host by the given address already
+exists, this method will respond with a non-successful status response.]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:doc>
+            <![CDATA[Host Config Details]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="hostConfig"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[Response as dictated by the HTTP Response Status code
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/hosttracker/default/address/1.1.1.1
+
+Request body in XML
+
+&lt;hostConfig&gt;
+&#x20;&lt;dataLayerAddress&gt;00:00:00:00:01:01&lt;/dataLayerAddress&gt;
+&#x20;&lt;networkAddress&gt;1.1.1.1&lt;/networkAddress&gt;
+&#x20;&lt;nodeType&gt;OF&lt;/nodeType&gt;
+&#x20;&lt;nodeId&gt;00:00:00:00:00:00:00:01&lt;/nodeId&gt;
+&#x20;&lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+&#x20;&lt;nodeConnectorId&gt;9&lt;/nodeConnectorId&gt;
+&#x20;&lt;vlan&gt;1&lt;/vlan&gt;
+&#x20;&lt;staticHost&gt;true&lt;/staticHost&gt;
+&lt;/hostConfig&gt;
+
+Request body in JSON:
+
+{
+&#x20;"dataLayerAddress":"00:00:00:00:01:01",
+&#x20;"nodeType":"OF",
+&#x20;"nodeId":"00:00:00:00:00:00:00:01",
+&#x20;"nodeConnectorType":"OF",
+&#x20;"nodeConnectorId":"9",
+&#x20;"vlan":"1",
+&#x20;"staticHost":"true",
+&#x20;"networkAddress":"1.1.1.1"
+}
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="DELETE">
+        <wadl:doc>
+          <![CDATA[Delete a Static Host configuration]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[Response as dictated by the HTTP Response code.
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/hosttracker/default/address/1.1.1.1]]>
+          </wadl:doc>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/hosttracker/{containerName}/hosts/active">
+      <wadl:param name="containerName" style="template">
+        <wadl:doc>
+          <![CDATA[Name of the Container. The Container name for the base controller is "default".]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Returns a list of all Hosts : both configured via PUT API and dynamically
+learnt on the network.]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[List of Active Hosts.
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/hosttracker/default/hosts/active
+
+Response body in XML
+
+&lt;list&gt;
+&#x20;&lt;hostConfig&gt;
+&#x20;&#x20;&lt;dataLayerAddress&gt;00:00:00:00:01:01&lt;/dataLayerAddress&gt;
+&#x20;&#x20;&lt;networkAddress&gt;1.1.1.1&lt;/networkAddress&gt;
+&#x20;&#x20;&lt;nodeType&gt;OF&lt;/nodeType&gt;
+&#x20;&#x20;&lt;nodeId&gt;00:00:00:00:00:00:00:01&lt;/nodeId&gt;
+&#x20;&#x20;&lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+&#x20;&#x20;&lt;nodeConnectorId&gt;9&lt;/nodeConnectorId&gt;
+&#x20;&#x20;&lt;vlan&gt;0&lt;/vlan&gt;
+&#x20;&#x20;&lt;staticHost&gt;false&lt;/staticHost&gt;
+&#x20;&lt;/hostConfig&gt;
+&#x20;&lt;hostConfig&gt;
+&#x20;&#x20;&lt;dataLayerAddress&gt;00:00:00:00:02:02&lt;/dataLayerAddress&gt;
+&#x20;&#x20;&lt;networkAddress&gt;2.2.2.2&lt;/networkAddress&gt;
+&#x20;&#x20;&lt;nodeType&gt;OF&lt;/nodeType&gt;
+&#x20;&#x20;&lt;nodeId&gt;00:00:00:00:00:00:00:02&lt;/nodeId&gt;
+&#x20;&#x20;&lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+&#x20;&#x20;&lt;nodeConnectorId&gt;5&lt;/nodeConnectorId&gt;
+&#x20;&#x20;&lt;vlan&gt;0&lt;/vlan&gt;
+&#x20;&#x20;&lt;staticHost&gt;false&lt;/staticHost&gt;
+&#x20;&lt;/hostConfig&gt;
+&lt;/list&gt;
+
+Response body in JSON:
+
+{
+&#x20;"hostConfig":[
+&#x20;&#x20;{
+&#x20;&#x20;&#x20;"dataLayerAddress":"00:00:00:00:01:01",
+&#x20;&#x20;&#x20;"nodeType":"OF",
+&#x20;&#x20;&#x20;"nodeId":"00:00:00:00:00:00:00:01",
+&#x20;&#x20;&#x20;"nodeConnectorType":"OF",
+&#x20;&#x20;&#x20;"nodeConnectorId":"9",
+&#x20;&#x20;&#x20;"vlan":"0",
+&#x20;&#x20;&#x20;"staticHost":"false",
+&#x20;&#x20;&#x20;"networkAddress":"1.1.1.1"
+&#x20;&#x20;},
+&#x20;&#x20;{
+&#x20;&#x20;&#x20;"dataLayerAddress":"00:00:00:00:02:02",
+&#x20;&#x20;&#x20;"nodeType":"OF",
+&#x20;&#x20;&#x20;"nodeId":"00:00:00:00:00:00:00:02",
+&#x20;&#x20;&#x20;"nodeConnectorType":"OF",
+&#x20;&#x20;&#x20;"nodeConnectorId":"5",
+&#x20;&#x20;&#x20;"vlan":"0",
+&#x20;&#x20;&#x20;"staticHost":"false",
+&#x20;&#x20;&#x20;"networkAddress":"2.2.2.2"
+&#x20;&#x20;}
+&#x20;]
+}
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="list"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/hosttracker/{containerName}/hosts/inactive">
+      <wadl:param name="containerName" style="template">
+        <wadl:doc>
+          <![CDATA[Name of the Container. The Container name for the base controller is "default".]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Returns a list of Hosts that are statically configured and are connected
+to a NodeConnector that is down.]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[List of inactive Hosts.
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/hosttracker/default/hosts/inactive
+
+Response body in XML
+
+&lt;list&gt;
+&#x20;&lt;hostConfig&gt;
+&#x20;&#x20;&lt;dataLayerAddress&gt;00:00:00:00:01:01&lt;/dataLayerAddress&gt;
+&#x20;&#x20;&lt;networkAddress&gt;1.1.1.1&lt;/networkAddress&gt;
+&#x20;&#x20;&lt;nodeType&gt;OF&lt;/nodeType&gt;
+&#x20;&#x20;&lt;nodeId&gt;00:00:00:00:00:00:00:01&lt;/nodeId&gt;
+&#x20;&#x20;&lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+&#x20;&#x20;&lt;nodeConnectorId&gt;9&lt;/nodeConnectorId&gt;
+&#x20;&#x20;&lt;vlan&gt;0&lt;/vlan&gt;
+&#x20;&#x20;&lt;staticHost&gt;false&lt;/staticHost&gt;
+&#x20;&lt;/hostConfig&gt;
+&#x20;&lt;hostConfig&gt;
+&#x20;&#x20;&lt;dataLayerAddress&gt;00:00:00:00:02:02&lt;/dataLayerAddress&gt;
+&#x20;&#x20;&lt;networkAddress&gt;2.2.2.2&lt;/networkAddress&gt;
+&#x20;&#x20;&lt;nodeType&gt;OF&lt;/nodeType&gt;
+&#x20;&#x20;&lt;nodeId&gt;00:00:00:00:00:00:00:02&lt;/nodeId&gt;
+&#x20;&#x20;&lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+&#x20;&#x20;&lt;nodeConnectorId&gt;5&lt;/nodeConnectorId&gt;
+&#x20;&#x20;&lt;vlan&gt;0&lt;/vlan&gt;
+&#x20;&#x20;&lt;staticHost&gt;false&lt;/staticHost&gt;
+&#x20;&lt;/hostConfig&gt;
+&lt;/list&gt;
+
+Response body in JSON:
+
+{
+&#x20;"hostConfig":[
+&#x20;&#x20;{
+&#x20;&#x20;&#x20;"dataLayerAddress":"00:00:00:00:01:01",
+&#x20;&#x20;&#x20;"nodeType":"OF",
+&#x20;&#x20;&#x20;"nodeId":"00:00:00:00:00:00:00:01",
+&#x20;&#x20;&#x20;"nodeConnectorType":"OF",
+&#x20;&#x20;&#x20;"nodeConnectorId":"9",
+&#x20;&#x20;&#x20;"vlan":"0",
+&#x20;&#x20;&#x20;"staticHost":"false",
+&#x20;&#x20;&#x20;"networkAddress":"1.1.1.1"
+&#x20;&#x20;},
+&#x20;&#x20;{
+&#x20;&#x20;&#x20;"dataLayerAddress":"00:00:00:00:02:02",
+&#x20;&#x20;&#x20;"nodeType":"OF",
+&#x20;&#x20;&#x20;"nodeId":"00:00:00:00:00:00:00:02",
+&#x20;&#x20;&#x20;"nodeConnectorType":"OF",
+&#x20;&#x20;&#x20;"nodeConnectorId":"5",
+&#x20;&#x20;&#x20;"vlan":"0",
+&#x20;&#x20;&#x20;"staticHost":"false",
+&#x20;&#x20;&#x20;"networkAddress":"2.2.2.2"
+&#x20;&#x20;}
+&#x20;]
+}
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="list"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+  </wadl:resources>
+</wadl:application>

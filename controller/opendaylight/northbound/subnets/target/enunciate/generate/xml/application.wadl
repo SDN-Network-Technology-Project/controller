@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wadl:application xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <wadl:doc xmlns:enunciate="http://enunciate.codehaus.org/" enunciate:generatedBy="Enunciate-1.26.1"/>
+  <wadl:grammars>
+    <wadl:include href="ns0.xsd"/>
+  </wadl:grammars>
+  <wadl:resources base="http://localhost:8080/full">
+    <wadl:resource path="/controller/nb/v2/subnetservice/{containerName}/subnets">
+      <wadl:param name="containerName" style="template">
+        <wadl:doc>
+          <![CDATA[container in which we want to query the subnets]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[List all the subnets in a given container]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[a List of SubnetConfig
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/subnetservice/default/subnets
+
+Response body in XML:
+&lt;list&gt;
+&lt;subnetConfig&gt;
+&lt;name&gt;marketingdepartment&lt;/name&gt;
+&lt;subnet&gt;30.31.54.254/24&lt;/subnet&gt;
+&lt;/subnetConfig&gt;
+&lt;subnetConfig&gt;
+&lt;name&gt;salesdepartment&lt;/name&gt;
+&lt;subnet&gt;20.18.1.254/16&lt;/subnet&gt;
+&lt;nodeConnectors&gt;OF|11@OF|00:00:00:aa:bb:cc:dd:ee&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|13@OF|00:00:00:aa:bb:cc:dd:ee&lt;/nodeConnectors&gt;
+&lt;/subnetConfig&gt;
+&lt;/list&gt;
+Response body in JSON:
+{
+"subnetConfig": [
+{
+"name": "marketingdepartment",
+"subnet": "30.31.54.254/24",
+"nodeConnectors": [
+"OF|04@OF|00:00:00:00:00:00:00:04",
+"OF|07@OF|00:00:00:00:00:00:00:07"
+]
+},
+{
+"name":"salesdepartment",
+"subnet":"20.18.1.254/16",
+"nodeConnectors": [
+"OF|11@OF|00:00:00:aa:bb:cc:dd:ee",
+"OF|13@OF|00:00:00:aa:bb:cc:dd:ee"
+]
+}
+]
+}
+
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="list"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/subnetservice/{containerName}/subnet/{subnetName}">
+      <wadl:param name="containerName" style="template">
+        <wadl:doc>
+          <![CDATA[container in which we want to query the subnet]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="subnetName" style="template">
+        <wadl:doc>
+          <![CDATA[of the subnet being queried]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[List the configuration of a subnet in a given container]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[SubnetConfig
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/subnetservice/default/subnet/marketingdepartment
+
+Response body in XML:
+&lt;subnetConfig&gt;
+&lt;name&gt;marketingdepartment&lt;/name&gt;
+&lt;subnet&gt;30.0.0.1/24&lt;/subnet&gt;
+&lt;nodeConnectors&gt;OF|1@OF|00:00:00:00:00:00:00:01&lt;/nodePorts&gt;
+&lt;nodeConnectors&gt;OF|3@OF|00:00:00:00:00:00:00:03&lt;/nodePorts&gt;
+&lt;/subnetConfig&gt;
+
+Response body in JSON:
+{
+"name":"marketingdepartment",
+"subnet":"30.0.0.1/24",
+"nodeConnectors":[
+"OF|1@OF|00:00:00:00:00:00:00:01",
+"OF|3@OF|00:00:00:00:00:00:00:03"
+]
+}
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="subnetConfig"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="PUT">
+        <wadl:doc>
+          <![CDATA[Add a subnet into the specified container context, node connectors are
+optional]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:doc>
+            <![CDATA[the SubnetConfig structure in request body]]>
+          </wadl:doc>
+          <wadl:representation mediaType="*/*" element="subnetConfig"/>
+          <wadl:representation mediaType="application/xml" element="subnetConfig"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[Response as dictated by the HTTP Response Status code
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/subnetservice/default/subnet/salesdepartment
+
+Request body in XML:
+&lt;subnetConfig&gt;
+&lt;name&gt;salesdepartment&lt;/name&gt;
+&lt;subnet&gt;172.173.174.254/24&lt;/subnet&gt;
+&lt;nodeConnectors&gt;OF|22@OF|00:00:11:22:33:44:55:66&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|39@OF|00:00:ab:cd:33:44:55:66&lt;/nodeConnectors&gt;
+&lt;/subnetConfig&gt;
+
+Request body in JSON:
+{
+"name":"salesdepartment",
+"subnet":"172.173.174.254/24",
+"nodeConnectors":[
+"OF|22@OF|00:00:11:22:33:44:55:66",
+"OF|39@OF|00:00:ab:cd:33:44:55:66"
+]
+}
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="DELETE">
+        <wadl:doc>
+          <![CDATA[Delete a subnet from the specified container context]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[Response as dictated by the HTTP Response Status code
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/subnetservice/default/subnet/engdepartment
+
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="POST">
+        <wadl:doc>
+          <![CDATA[Modify a subnet. Replace the existing subnet with the new specified one.
+For now only port list modification is allowed. If the respective subnet
+configuration does not exist this call is equivalent to a subnet
+creation.]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:doc>
+            <![CDATA[the SubnetConfig structure in request body parameter]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="subnetConfig"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[Response as dictated by the HTTP Response Status code
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/subnetservice/default/subnet/salesdepartment
+
+Request body in XML:
+&lt;subnetConfig&gt;
+&lt;name&gt;salesdepartment&lt;/name&gt;
+&lt;subnet&gt;172.173.174.254/24&lt;/subnet&gt;
+&lt;nodeConnectors&gt;OF|22@OF|00:00:11:22:33:44:55:66&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|39@OF|00:00:ab:cd:33:44:55:66&lt;/nodeConnectors&gt;
+&lt;/subnetConfig&gt;
+
+Request body in JSON:
+{
+"name":"salesdepartment",
+"subnet":"172.173.174.254/24",
+"nodeConnectors":[
+"OF|22@OF|00:00:11:22:33:44:55:66",
+"OF|39@OF|00:00:ab:cd:33:44:55:66"
+]
+}
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+  </wadl:resources>
+</wadl:application>

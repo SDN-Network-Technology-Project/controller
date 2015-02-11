@@ -1,0 +1,133 @@
+------------------------------------------------------------
+/usr/bin/pip run on Wed Jan  7 19:21:43 2015
+Getting page https://pypi.python.org/simple/pycurl/
+URLs to search for versions for pycurl in /usr/lib/python2.7/dist-packages:
+* https://pypi.python.org/simple/pycurl/
+Analyzing links from page https://pypi.python.org/simple/pycurl/
+  Skipping link https://pypi.python.org/packages/2.6/p/pycurl/pycurl-7.19.0.2.win32-py2.6.exe#md5=125dc00488a543788ebdedec8465534b (from https://pypi.python.org/simple/pycurl/); unknown archive format: .exe
+  Skipping link https://pypi.python.org/packages/2.6/p/pycurl/pycurl-7.19.0.3.win32-py2.6.exe#md5=a1dbbdf183c525e85de7038bd1f2f04f (from https://pypi.python.org/simple/pycurl/); unknown archive format: .exe
+  Skipping link https://pypi.python.org/packages/2.6/p/pycurl/pycurl-7.19.3.1.win32-py2.6.exe#md5=6a7423ee6916ecffc00d26d667b14207 (from https://pypi.python.org/simple/pycurl/); unknown archive format: .exe
+  Skipping link https://pypi.python.org/packages/2.6/p/pycurl/pycurl-7.19.3.win32-py2.6.exe#md5=86dc7d4484c0b41da7568644164e1b32 (from https://pypi.python.org/simple/pycurl/); unknown archive format: .exe
+  Skipping link https://pypi.python.org/packages/2.6/p/pycurl/pycurl-7.19.5.win32-py2.6.exe#md5=fec0dad9a36b22709b9669f929698850 (from https://pypi.python.org/simple/pycurl/); unknown archive format: .exe
+  Skipping link https://pypi.python.org/packages/2.7/p/pycurl/pycurl-7.19.0.2.win32-py2.7.exe#md5=374fd1dd1d5934522b73f4c994856be4 (from https://pypi.python.org/simple/pycurl/); unknown archive format: .exe
+  Skipping link https://pypi.python.org/packages/2.7/p/pycurl/pycurl-7.19.0.3.win32-py2.7.exe#md5=55559246b2bc3f518b2ce82cb9934463 (from https://pypi.python.org/simple/pycurl/); unknown archive format: .exe
+  Skipping link https://pypi.python.org/packages/2.7/p/pycurl/pycurl-7.19.3.1.win32-py2.7.exe#md5=a04be4550de35ecde11e3e70dc53b138 (from https://pypi.python.org/simple/pycurl/); unknown archive format: .exe
+  Skipping link https://pypi.python.org/packages/2.7/p/pycurl/pycurl-7.19.3.win32-py2.7.exe#md5=4bbb209836e32dd2bf730efb20850f1a (from https://pypi.python.org/simple/pycurl/); unknown archive format: .exe
+  Skipping link https://pypi.python.org/packages/2.7/p/pycurl/pycurl-7.19.5.win32-py2.7.exe#md5=b3256df89852c5d84f40d8f669ca1d53 (from https://pypi.python.org/simple/pycurl/); unknown archive format: .exe
+  Skipping link https://pypi.python.org/packages/3.2/p/pycurl/pycurl-7.19.3.1.win32-py3.2.exe#md5=1edcec141fea88ac4aa34207608d0aa2 (from https://pypi.python.org/simple/pycurl/); unknown archive format: .exe
+  Skipping link https://pypi.python.org/packages/3.2/p/pycurl/pycurl-7.19.3.win32-py3.2.exe#md5=95979e8267caadeab6357b0bf2abc39b (from https://pypi.python.org/simple/pycurl/); unknown archive format: .exe
+  Skipping link https://pypi.python.org/packages/3.2/p/pycurl/pycurl-7.19.5.win32-py3.2.exe#md5=504c918781d8a37aecc53843b4415f61 (from https://pypi.python.org/simple/pycurl/); unknown archive format: .exe
+  Skipping link https://pypi.python.org/packages/3.3/p/pycurl/pycurl-7.19.3.1.win32-py3.3.exe#md5=4a6510a45d452eafbd432a6c97f86e70 (from https://pypi.python.org/simple/pycurl/); unknown archive format: .exe
+  Skipping link https://pypi.python.org/packages/3.3/p/pycurl/pycurl-7.19.3.win32-py3.3.exe#md5=411b3f5199f971fcb16ca263397033b7 (from https://pypi.python.org/simple/pycurl/); unknown archive format: .exe
+  Skipping link https://pypi.python.org/packages/3.3/p/pycurl/pycurl-7.19.5.win32-py3.3.exe#md5=9c1c131683dd2a41731ba2ee98fa8a0f (from https://pypi.python.org/simple/pycurl/); unknown archive format: .exe
+  Skipping link https://pypi.python.org/packages/3.4/p/pycurl/pycurl-7.19.5.win32-py3.4.exe#md5=48a1e50a1c39c38972d3eacca6f5c852 (from https://pypi.python.org/simple/pycurl/); unknown archive format: .exe
+  Found link https://pypi.python.org/packages/source/p/pycurl/pycurl-7.18.2.tar.gz#md5=819a591aabcade5122bbd476165cb72f (from https://pypi.python.org/simple/pycurl/), version: 7.18.2
+  Found link https://pypi.python.org/packages/source/p/pycurl/pycurl-7.19.0.1.tar.gz#md5=bf737819edcd5b3d9d93b9fc4cd8e003 (from https://pypi.python.org/simple/pycurl/), version: 7.19.0.1
+  Found link https://pypi.python.org/packages/source/p/pycurl/pycurl-7.19.0.2.tar.gz#md5=518be33976dbc6838e42495ada64b43f (from https://pypi.python.org/simple/pycurl/), version: 7.19.0.2
+  Found link https://pypi.python.org/packages/source/p/pycurl/pycurl-7.19.0.3.tar.gz#md5=3c3e6033185a49438820af215a936120 (from https://pypi.python.org/simple/pycurl/), version: 7.19.0.3
+  Found link https://pypi.python.org/packages/source/p/pycurl/pycurl-7.19.0.tar.gz#md5=074cd44079bb68697f5d8751102b384b (from https://pypi.python.org/simple/pycurl/), version: 7.19.0
+  Found link https://pypi.python.org/packages/source/p/pycurl/pycurl-7.19.3.1.tar.gz#md5=6df8fa7fe8b680d93248da1f8d4fcd12 (from https://pypi.python.org/simple/pycurl/), version: 7.19.3.1
+  Found link https://pypi.python.org/packages/source/p/pycurl/pycurl-7.19.3.tar.gz#md5=b9091b7438d3de1552e28862d2971cd1 (from https://pypi.python.org/simple/pycurl/), version: 7.19.3
+  Found link https://pypi.python.org/packages/source/p/pycurl/pycurl-7.19.5.1.tar.gz#md5=f44cd54256d7a643ab7b16e3f409b26b (from https://pypi.python.org/simple/pycurl/), version: 7.19.5.1
+  Found link https://pypi.python.org/packages/source/p/pycurl/pycurl-7.19.5.tar.gz#md5=47b4eac84118e2606658122104e62072 (from https://pypi.python.org/simple/pycurl/), version: 7.19.5
+Using version 7.19.5.1 (newest of versions: 7.19.5.1, 7.19.5, 7.19.3.1, 7.19.3, 7.19.3, 7.19.0.3, 7.19.0.2, 7.19.0.1, 7.19.0, 7.18.2)
+Downloading/unpacking pycurl from https://pypi.python.org/packages/source/p/pycurl/pycurl-7.19.5.1.tar.gz#md5=f44cd54256d7a643ab7b16e3f409b26b
+  Downloading from URL https://pypi.python.org/packages/source/p/pycurl/pycurl-7.19.5.1.tar.gz#md5=f44cd54256d7a643ab7b16e3f409b26b
+  Running setup.py (path:/tmp/pip_build_root/pycurl/setup.py) egg_info for package pycurl
+    Using curl-config (libcurl 7.35.0)
+    running egg_info
+    creating pip-egg-info/pycurl.egg-info
+    writing pip-egg-info/pycurl.egg-info/PKG-INFO
+    writing top-level names to pip-egg-info/pycurl.egg-info/top_level.txt
+    writing dependency_links to pip-egg-info/pycurl.egg-info/dependency_links.txt
+    writing manifest file 'pip-egg-info/pycurl.egg-info/SOURCES.txt'
+    warning: manifest_maker: standard file '-c' not found
+    
+    reading manifest file 'pip-egg-info/pycurl.egg-info/SOURCES.txt'
+    reading manifest template 'MANIFEST.in'
+    writing manifest file 'pip-egg-info/pycurl.egg-info/SOURCES.txt'
+  Source in /tmp/pip_build_root/pycurl has version 7.19.5.1, which satisfies requirement pycurl from https://pypi.python.org/packages/source/p/pycurl/pycurl-7.19.5.1.tar.gz#md5=f44cd54256d7a643ab7b16e3f409b26b
+Installing collected packages: pycurl
+  Found existing installation: pycurl 7.19.3
+    Uninstalling pycurl:
+      Removing file or directory /usr/lib/python2.7/dist-packages/pycurl-7.19.3.egg-info
+      Successfully uninstalled pycurl
+  Running setup.py install for pycurl
+    Running command /usr/bin/python -c "import setuptools, tokenize;__file__='/tmp/pip_build_root/pycurl/setup.py';exec(compile(getattr(tokenize, 'open', open)(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --record /tmp/pip-8qqSNy-record/install-record.txt --single-version-externally-managed --compile
+    Using curl-config (libcurl 7.35.0)
+    running install
+    running build
+    running build_py
+    creating build
+    creating build/lib.linux-x86_64-2.7
+    creating build/lib.linux-x86_64-2.7/curl
+    copying python/curl/__init__.py -> build/lib.linux-x86_64-2.7/curl
+    running build_ext
+    building 'pycurl' extension
+    creating build/temp.linux-x86_64-2.7
+    creating build/temp.linux-x86_64-2.7/src
+    x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -DPYCURL_VERSION="7.19.5.1" -DHAVE_CURL_OPENSSL=1 -DHAVE_CURL_SSL=1 -I/usr/include/python2.7 -c src/docstrings.c -o build/temp.linux-x86_64-2.7/src/docstrings.o
+    In file included from src/docstrings.c:4:0:
+    src/pycurl.h:4:20: fatal error: Python.h: No such file or directory
+     #include <Python.h>
+                        ^
+    compilation terminated.
+    error: command 'x86_64-linux-gnu-gcc' failed with exit status 1
+    Complete output from command /usr/bin/python -c "import setuptools, tokenize;__file__='/tmp/pip_build_root/pycurl/setup.py';exec(compile(getattr(tokenize, 'open', open)(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --record /tmp/pip-8qqSNy-record/install-record.txt --single-version-externally-managed --compile:
+    Using curl-config (libcurl 7.35.0)
+
+running install
+
+running build
+
+running build_py
+
+creating build
+
+creating build/lib.linux-x86_64-2.7
+
+creating build/lib.linux-x86_64-2.7/curl
+
+copying python/curl/__init__.py -> build/lib.linux-x86_64-2.7/curl
+
+running build_ext
+
+building 'pycurl' extension
+
+creating build/temp.linux-x86_64-2.7
+
+creating build/temp.linux-x86_64-2.7/src
+
+x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -DPYCURL_VERSION="7.19.5.1" -DHAVE_CURL_OPENSSL=1 -DHAVE_CURL_SSL=1 -I/usr/include/python2.7 -c src/docstrings.c -o build/temp.linux-x86_64-2.7/src/docstrings.o
+
+In file included from src/docstrings.c:4:0:
+
+src/pycurl.h:4:20: fatal error: Python.h: No such file or directory
+
+ #include <Python.h>
+
+                    ^
+
+compilation terminated.
+
+error: command 'x86_64-linux-gnu-gcc' failed with exit status 1
+
+----------------------------------------
+  Rolling back uninstall of pycurl
+  Replacing /usr/lib/python2.7/dist-packages/pycurl-7.19.3.egg-info
+Cleaning up...
+  Removing temporary dir /tmp/pip_build_root...
+Command /usr/bin/python -c "import setuptools, tokenize;__file__='/tmp/pip_build_root/pycurl/setup.py';exec(compile(getattr(tokenize, 'open', open)(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --record /tmp/pip-8qqSNy-record/install-record.txt --single-version-externally-managed --compile failed with error code 1 in /tmp/pip_build_root/pycurl
+Exception information:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/pip/basecommand.py", line 122, in main
+    status = self.run(options, args)
+  File "/usr/lib/python2.7/dist-packages/pip/commands/install.py", line 283, in run
+    requirement_set.install(install_options, global_options, root=options.root_path)
+  File "/usr/lib/python2.7/dist-packages/pip/req.py", line 1435, in install
+    requirement.install(install_options, global_options, *args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/pip/req.py", line 706, in install
+    cwd=self.source_dir, filter_stdout=self._filter_install, show_stdout=False)
+  File "/usr/lib/python2.7/dist-packages/pip/util.py", line 697, in call_subprocess
+    % (command_desc, proc.returncode, cwd))
+InstallationError: Command /usr/bin/python -c "import setuptools, tokenize;__file__='/tmp/pip_build_root/pycurl/setup.py';exec(compile(getattr(tokenize, 'open', open)(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --record /tmp/pip-8qqSNy-record/install-record.txt --single-version-externally-managed --compile failed with error code 1 in /tmp/pip_build_root/pycurl

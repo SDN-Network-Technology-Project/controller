@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/commons/httpclient/pom.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/commons/httpclient/src/main/java/org/opendaylight/controller/commons/httpclient/HTTPResponse.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/commons/httpclient/src/main/java/org/opendaylight/controller/commons/httpclient/HTTPClient.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/commons/httpclient/src/main/java/org/opendaylight/controller/commons/httpclient/HTTPRequest.java">
+</file>
+</checkstyle>

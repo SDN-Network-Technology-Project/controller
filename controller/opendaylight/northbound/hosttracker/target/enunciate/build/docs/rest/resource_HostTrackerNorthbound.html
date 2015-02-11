@@ -1,0 +1,690 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>HostTrackerNorthbound</title>
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS: implied media="all" -->
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/prettify.css">
+
+  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+  <script src="js/libs/modernizr-1.7.min.js"></script>
+
+</head>
+
+<body class="home">
+
+  <div class="container">
+    <header>
+      <div id="header" class="column first last span-20">
+        <div id="site-name" class="column span-18 append-1 prepend-1 first last"><a href="index.html">HostTrackerNorthbound</a></div>
+        <div id="primary" class="column span-18 append-1 prepend-1 first last">
+          <ul class="navigation">
+            <li id="nav-rest"><a href="rest.html">REST</a></li>
+            <li id="nav-data"><a href="model.html">Data Model</a></li>
+            <li id="nav-downloads"><a href="downloads.html">Files and Libraries</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="xbreadcrumbs" id="breadcrumbs">
+            <li>
+              <a href="index.html" class="home">Home</a> &gt;
+            </li>
+            <li>
+              <a href="rest.html">REST</a> &gt;
+              <ul>
+                <li><a href="model.html">Data Model</a></li>
+                <li><a href="downloads.html">Files and Libraries</a></li>
+                <li><a href="rest.html">REST</a></li>
+              </ul>
+            </li>
+            <li class="current">
+              <a href="resource_HostTrackerNorthbound.html">HostTrackerNorthbound</a>
+              <ul>
+                <li><a href="resource_HostTrackerNorthbound.html">HostTrackerNorthbound</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div id="main" class="column first last span-20">
+      <h1>HostTrackerNorthbound</h1>
+
+      <p>Host Tracker Northbound REST APIs.<br>
+This class provides REST APIs to track host location in a network. Host
+Location is represented by Host node connector which is essentially a logical
+entity that represents a Switch/Port. A host is represented by it's
+IP-address and mac-address.
+
+<br>
+<br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b>HTTP and HTTPS</b><br>
+<br>
+HTTPS Authentication is disabled by default.</p>
+      <p>The following resources are part of this group:</p>
+      <ul>
+        <li><a href="#path__-containerName-_address_-networkAddress-.html">/{containerName}/address/{networkAddress}</a></li>
+        <li><a href="#path__-containerName-_hosts_active.html">/{containerName}/hosts/active</a></li>
+        <li><a href="#path__-containerName-_hosts_inactive.html">/{containerName}/hosts/inactive</a></li>
+      </ul>
+      <a name="path__-containerName-_address_-networkAddress-.html"></a>
+      <h1>/{containerName}/address/{networkAddress}</h1>
+      <p class="note">Mount Point: <a href="../controller/nb/v2/hosttracker/{containerName}/address/{networkAddress}">/controller/nb/v2/hosttracker/{containerName}/address/{networkAddress}</a></p>
+      <p>
+        The following operations are supported on this resource:
+      </p>
+      <ul>
+        <li><a href="#GET">GET</a></li>
+        <li><a href="#PUT">PUT</a></li>
+        <li><a href="#DELETE">DELETE</a></li>
+      </ul>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Returns a host that matches the IP Address value passed as parameter.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container. The Container name for the base controller is "default".
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>networkAddress</td>
+          <td>
+            IP Address being looked up
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td><a href="el_ns0_hostConfig.html">hostConfig</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>host that matches the IP Address
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/hosttracker/default/address/1.1.1.1
+
+Response body in XML
+
+&lt;hostConfig&gt;
+&#x20;&lt;dataLayerAddress&gt;00:00:00:00:01:01&lt;/dataLayerAddress&gt;
+&#x20;&lt;networkAddress&gt;1.1.1.1&lt;/networkAddress&gt;
+&#x20;&lt;nodeType&gt;OF&lt;/nodeType&gt;
+&#x20;&lt;nodeId&gt;00:00:00:00:00:00:00:01&lt;/nodeId&gt;
+&#x20;&lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+&#x20;&lt;nodeConnectorId&gt;9&lt;/nodeConnectorId&gt;
+&#x20;&lt;vlan&gt;0&lt;/vlan&gt;
+&#x20;&lt;staticHost&gt;false&lt;/staticHost&gt;
+&lt;/hostConfig&gt;
+
+Response body in JSON:
+
+{
+&#x20;"dataLayerAddress":"00:00:00:00:01:01",
+&#x20;"nodeType":"OF",
+&#x20;"nodeId":"00:00:00:00:00:00:00:01",
+&#x20;"nodeConnectorType":"OF",
+&#x20;"nodeConnectorId":"9",
+&#x20;"vlan":"0",
+&#x20;"staticHost":"false",
+&#x20;"networkAddress":"1.1.1.1"
+}
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>400</td>
+          <td>
+            Invalid IP specified in networkAddress parameter
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName is not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller Services are unavailable
+          </td>
+        </tr>
+      </table>
+      <a name="PUT"></a>
+      <h2>PUT</h2>
+      <p>
+            Add a Static Host configuration. If a host by the given address already
+exists, this method will respond with a non-successful status response.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container. The Container name for the base controller is "default".
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>networkAddress</td>
+          <td>
+            Host IP Address
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Request Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td><a href="el_ns0_hostConfig.html">hostConfig</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>Host Config Details</p>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml<br/></td>
+        </tr>
+      </table>
+      <p>Response as dictated by the HTTP Response Status code
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/hosttracker/default/address/1.1.1.1
+
+Request body in XML
+
+&lt;hostConfig&gt;
+&#x20;&lt;dataLayerAddress&gt;00:00:00:00:01:01&lt;/dataLayerAddress&gt;
+&#x20;&lt;networkAddress&gt;1.1.1.1&lt;/networkAddress&gt;
+&#x20;&lt;nodeType&gt;OF&lt;/nodeType&gt;
+&#x20;&lt;nodeId&gt;00:00:00:00:00:00:00:01&lt;/nodeId&gt;
+&#x20;&lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+&#x20;&lt;nodeConnectorId&gt;9&lt;/nodeConnectorId&gt;
+&#x20;&lt;vlan&gt;1&lt;/vlan&gt;
+&#x20;&lt;staticHost&gt;true&lt;/staticHost&gt;
+&lt;/hostConfig&gt;
+
+Request body in JSON:
+
+{
+&#x20;"dataLayerAddress":"00:00:00:00:01:01",
+&#x20;"nodeType":"OF",
+&#x20;"nodeId":"00:00:00:00:00:00:00:01",
+&#x20;"nodeConnectorType":"OF",
+&#x20;"nodeConnectorId":"9",
+&#x20;"vlan":"1",
+&#x20;"staticHost":"true",
+&#x20;"networkAddress":"1.1.1.1"
+}
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>201</td>
+          <td>
+            Static host created successfully
+          </td>
+        </tr>
+        <tr>
+          <td>400</td>
+          <td>
+            Invalid parameters specified, see response body for details
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The container or resource is not found
+          </td>
+        </tr>
+        <tr>
+          <td>409</td>
+          <td>
+            Resource conflict, see response body for details
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller services are unavailable
+          </td>
+        </tr>
+      </table>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <p>
+            Delete a Static Host configuration
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container. The Container name for the base controller is "default".
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>networkAddress</td>
+          <td>
+            IP Address
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml<br/></td>
+        </tr>
+      </table>
+      <p>Response as dictated by the HTTP Response code.
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/hosttracker/default/address/1.1.1.1</p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>204</td>
+          <td>
+            Static host deleted successfully
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The container or a specified resource was not found
+          </td>
+        </tr>
+        <tr>
+          <td>406</td>
+          <td>
+            Cannot operate on Default Container when other Containers are active
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller service is unavailable
+          </td>
+        </tr>
+      </table>
+      <a name="path__-containerName-_hosts_active.html"></a>
+      <h1>/{containerName}/hosts/active</h1>
+      <p class="note">Mount Point: <a href="../controller/nb/v2/hosttracker/{containerName}/hosts/active">/controller/nb/v2/hosttracker/{containerName}/hosts/active</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Returns a list of all Hosts : both configured via PUT API and dynamically
+learnt on the network.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container. The Container name for the base controller is "default".
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td><a href="el_ns0_list.html">list</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>List of Active Hosts.
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/hosttracker/default/hosts/active
+
+Response body in XML
+
+&lt;list&gt;
+&#x20;&lt;hostConfig&gt;
+&#x20;&#x20;&lt;dataLayerAddress&gt;00:00:00:00:01:01&lt;/dataLayerAddress&gt;
+&#x20;&#x20;&lt;networkAddress&gt;1.1.1.1&lt;/networkAddress&gt;
+&#x20;&#x20;&lt;nodeType&gt;OF&lt;/nodeType&gt;
+&#x20;&#x20;&lt;nodeId&gt;00:00:00:00:00:00:00:01&lt;/nodeId&gt;
+&#x20;&#x20;&lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+&#x20;&#x20;&lt;nodeConnectorId&gt;9&lt;/nodeConnectorId&gt;
+&#x20;&#x20;&lt;vlan&gt;0&lt;/vlan&gt;
+&#x20;&#x20;&lt;staticHost&gt;false&lt;/staticHost&gt;
+&#x20;&lt;/hostConfig&gt;
+&#x20;&lt;hostConfig&gt;
+&#x20;&#x20;&lt;dataLayerAddress&gt;00:00:00:00:02:02&lt;/dataLayerAddress&gt;
+&#x20;&#x20;&lt;networkAddress&gt;2.2.2.2&lt;/networkAddress&gt;
+&#x20;&#x20;&lt;nodeType&gt;OF&lt;/nodeType&gt;
+&#x20;&#x20;&lt;nodeId&gt;00:00:00:00:00:00:00:02&lt;/nodeId&gt;
+&#x20;&#x20;&lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+&#x20;&#x20;&lt;nodeConnectorId&gt;5&lt;/nodeConnectorId&gt;
+&#x20;&#x20;&lt;vlan&gt;0&lt;/vlan&gt;
+&#x20;&#x20;&lt;staticHost&gt;false&lt;/staticHost&gt;
+&#x20;&lt;/hostConfig&gt;
+&lt;/list&gt;
+
+Response body in JSON:
+
+{
+&#x20;"hostConfig":[
+&#x20;&#x20;{
+&#x20;&#x20;&#x20;"dataLayerAddress":"00:00:00:00:01:01",
+&#x20;&#x20;&#x20;"nodeType":"OF",
+&#x20;&#x20;&#x20;"nodeId":"00:00:00:00:00:00:00:01",
+&#x20;&#x20;&#x20;"nodeConnectorType":"OF",
+&#x20;&#x20;&#x20;"nodeConnectorId":"9",
+&#x20;&#x20;&#x20;"vlan":"0",
+&#x20;&#x20;&#x20;"staticHost":"false",
+&#x20;&#x20;&#x20;"networkAddress":"1.1.1.1"
+&#x20;&#x20;},
+&#x20;&#x20;{
+&#x20;&#x20;&#x20;"dataLayerAddress":"00:00:00:00:02:02",
+&#x20;&#x20;&#x20;"nodeType":"OF",
+&#x20;&#x20;&#x20;"nodeId":"00:00:00:00:00:00:00:02",
+&#x20;&#x20;&#x20;"nodeConnectorType":"OF",
+&#x20;&#x20;&#x20;"nodeConnectorId":"5",
+&#x20;&#x20;&#x20;"vlan":"0",
+&#x20;&#x20;&#x20;"staticHost":"false",
+&#x20;&#x20;&#x20;"networkAddress":"2.2.2.2"
+&#x20;&#x20;}
+&#x20;]
+}
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName is not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller Services are unavailable
+          </td>
+        </tr>
+      </table>
+      <a name="path__-containerName-_hosts_inactive.html"></a>
+      <h1>/{containerName}/hosts/inactive</h1>
+      <p class="note">Mount Point: <a href="../controller/nb/v2/hosttracker/{containerName}/hosts/inactive">/controller/nb/v2/hosttracker/{containerName}/hosts/inactive</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Returns a list of Hosts that are statically configured and are connected
+to a NodeConnector that is down.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container. The Container name for the base controller is "default".
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td><a href="el_ns0_list.html">list</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>List of inactive Hosts.
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/hosttracker/default/hosts/inactive
+
+Response body in XML
+
+&lt;list&gt;
+&#x20;&lt;hostConfig&gt;
+&#x20;&#x20;&lt;dataLayerAddress&gt;00:00:00:00:01:01&lt;/dataLayerAddress&gt;
+&#x20;&#x20;&lt;networkAddress&gt;1.1.1.1&lt;/networkAddress&gt;
+&#x20;&#x20;&lt;nodeType&gt;OF&lt;/nodeType&gt;
+&#x20;&#x20;&lt;nodeId&gt;00:00:00:00:00:00:00:01&lt;/nodeId&gt;
+&#x20;&#x20;&lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+&#x20;&#x20;&lt;nodeConnectorId&gt;9&lt;/nodeConnectorId&gt;
+&#x20;&#x20;&lt;vlan&gt;0&lt;/vlan&gt;
+&#x20;&#x20;&lt;staticHost&gt;false&lt;/staticHost&gt;
+&#x20;&lt;/hostConfig&gt;
+&#x20;&lt;hostConfig&gt;
+&#x20;&#x20;&lt;dataLayerAddress&gt;00:00:00:00:02:02&lt;/dataLayerAddress&gt;
+&#x20;&#x20;&lt;networkAddress&gt;2.2.2.2&lt;/networkAddress&gt;
+&#x20;&#x20;&lt;nodeType&gt;OF&lt;/nodeType&gt;
+&#x20;&#x20;&lt;nodeId&gt;00:00:00:00:00:00:00:02&lt;/nodeId&gt;
+&#x20;&#x20;&lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+&#x20;&#x20;&lt;nodeConnectorId&gt;5&lt;/nodeConnectorId&gt;
+&#x20;&#x20;&lt;vlan&gt;0&lt;/vlan&gt;
+&#x20;&#x20;&lt;staticHost&gt;false&lt;/staticHost&gt;
+&#x20;&lt;/hostConfig&gt;
+&lt;/list&gt;
+
+Response body in JSON:
+
+{
+&#x20;"hostConfig":[
+&#x20;&#x20;{
+&#x20;&#x20;&#x20;"dataLayerAddress":"00:00:00:00:01:01",
+&#x20;&#x20;&#x20;"nodeType":"OF",
+&#x20;&#x20;&#x20;"nodeId":"00:00:00:00:00:00:00:01",
+&#x20;&#x20;&#x20;"nodeConnectorType":"OF",
+&#x20;&#x20;&#x20;"nodeConnectorId":"9",
+&#x20;&#x20;&#x20;"vlan":"0",
+&#x20;&#x20;&#x20;"staticHost":"false",
+&#x20;&#x20;&#x20;"networkAddress":"1.1.1.1"
+&#x20;&#x20;},
+&#x20;&#x20;{
+&#x20;&#x20;&#x20;"dataLayerAddress":"00:00:00:00:02:02",
+&#x20;&#x20;&#x20;"nodeType":"OF",
+&#x20;&#x20;&#x20;"nodeId":"00:00:00:00:00:00:00:02",
+&#x20;&#x20;&#x20;"nodeConnectorType":"OF",
+&#x20;&#x20;&#x20;"nodeConnectorId":"5",
+&#x20;&#x20;&#x20;"vlan":"0",
+&#x20;&#x20;&#x20;"staticHost":"false",
+&#x20;&#x20;&#x20;"networkAddress":"2.2.2.2"
+&#x20;&#x20;}
+&#x20;]
+}
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName is not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller Services are unavailable
+          </td>
+        </tr>
+      </table>
+
+      <div class="clear" />
+    </div>
+    <footer>
+      <div id="footer">
+        Generated by <a href="http://enunciate.codehaus.org">Enunciate</a>.
+      </div>
+    </footer>
+  </div> <!--! end of #container -->
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+  <script>window.jQuery || document.write("<script src='js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
+
+  <!--manage the navigation menu-->
+  <script src="js/libs/xbreadcrumbs.js"></script>
+  <script>
+    $(function() {
+      $('#breadcrumbs').xBreadcrumbs();
+    });
+  </script>
+
+
+  <!-- prettify code blocks. see http://code.google.com/p/google-code-prettify/ -->
+  <script src="js/libs/prettify/prettify.js"></script>
+  <script>
+    $(function() {
+      prettyPrint();
+    });
+  </script>
+
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg"); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
+  <![endif]-->
+
+</body>
+</html>

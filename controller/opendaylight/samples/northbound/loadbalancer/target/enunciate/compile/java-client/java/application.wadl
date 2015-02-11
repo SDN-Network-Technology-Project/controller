@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wadl:application xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <wadl:doc xmlns:enunciate="http://enunciate.codehaus.org/" enunciate:generatedBy="Enunciate-1.26.1"/>
+  <wadl:grammars>
+    <wadl:include href="ns0.xsd"/>
+  </wadl:grammars>
+  <wadl:resources base="http://localhost:8080/full">
+    <wadl:resource path="/one/nb/v2/lb/{containerName}">
+      <wadl:param name="containerName" style="template"/>
+      <wadl:method name="GET">
+        <wadl:request/>
+        <wadl:response>
+          <wadl:representation mediaType="application/xml" element="pools"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/one/nb/v2/lb/{containerName}/vips">
+      <wadl:param name="containerName" style="template"/>
+      <wadl:method name="GET">
+        <wadl:request/>
+        <wadl:response>
+          <wadl:representation mediaType="application/xml" element="VIPs"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/one/nb/v2/lb/{containerName}/create/pool">
+      <wadl:param name="containerName" style="template"/>
+      <wadl:method name="POST">
+        <wadl:request>
+          <wadl:representation mediaType="application/xml" element="pool"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/one/nb/v2/lb/{containerName}/create/poolmember">
+      <wadl:param name="containerName" style="template"/>
+      <wadl:method name="POST">
+        <wadl:request>
+          <wadl:representation mediaType="application/xml" element="poolmember"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/one/nb/v2/lb/{containerName}/create/vip">
+      <wadl:param name="containerName" style="template"/>
+      <wadl:method name="POST">
+        <wadl:request>
+          <wadl:representation mediaType="application/xml" element="vip"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/one/nb/v2/lb/{containerName}/update/vip">
+      <wadl:param name="containerName" style="template"/>
+      <wadl:method name="PUT">
+        <wadl:request>
+          <wadl:representation mediaType="application/xml" element="vip"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/one/nb/v2/lb/{containerName}/delete/pool/{poolName}">
+      <wadl:param name="containerName" style="template"/>
+      <wadl:param name="poolName" style="template"/>
+      <wadl:method name="DELETE">
+        <wadl:request/>
+        <wadl:response>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/one/nb/v2/lb/{containerName}/delete/vip/{vipName}">
+      <wadl:param name="containerName" style="template"/>
+      <wadl:param name="vipName" style="template"/>
+      <wadl:method name="DELETE">
+        <wadl:request/>
+        <wadl:response>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/one/nb/v2/lb/{containerName}/delete/poolmember/{poolMemberName}/{poolName}">
+      <wadl:param name="containerName" style="template"/>
+      <wadl:param name="poolMemberName" style="template"/>
+      <wadl:param name="poolName" style="template"/>
+      <wadl:method name="DELETE">
+        <wadl:request/>
+        <wadl:response>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+  </wadl:resources>
+</wadl:application>

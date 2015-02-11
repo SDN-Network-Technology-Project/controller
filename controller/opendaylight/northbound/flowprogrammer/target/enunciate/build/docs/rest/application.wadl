@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wadl:application xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <wadl:doc xmlns:enunciate="http://enunciate.codehaus.org/" enunciate:generatedBy="Enunciate-1.26.1"/>
+  <wadl:grammars>
+    <wadl:include href="ns0.xsd"/>
+  </wadl:grammars>
+  <wadl:resources base="http://localhost:8080/full">
+    <wadl:resource path="/controller/nb/v2/flowprogrammer/{containerName}">
+      <wadl:param name="containerName" style="template">
+        <wadl:doc>
+          <![CDATA[Name of the Container (Eg. 'default')]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Returns a list of Flows configured on the given container]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[List of flows configured on a given container
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/flowprogrammer/default
+
+Response body in XML:
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;list&gt;
+&#x20;&#x20;&#x20;&lt;flowConfig&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;installInHw&gt;true&lt;/installInHw&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;name&gt;flow1&lt;/name&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;node&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;type&gt;OF&lt;/type&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;/node&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;ingressPort&gt;1&lt;/ingressPort&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;priority&gt;500&lt;/priority&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;etherType&gt;0x800&lt;/etherType&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nwSrc&gt;9.9.1.1&lt;/nwSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;actions&gt;OUTPUT=2&lt;/actions&gt;
+&#x20;&#x20;&#x20;&lt;/flowConfig&gt;
+&lt;/list&gt;
+
+Response body in JSON:
+{
+"flowConfig": [
+{
+"installInHw": "true",
+"name": "flow1",
+"node": {
+"type": "OF",
+"id": "00:00:00:00:00:00:00:01"
+},
+"ingressPort": "1",
+"priority": "500",
+"etherType": "0x800",
+"nwSrc":"9.9.1.1",
+"actions": [
+"OUTPUT=2"
+]
+}
+]
+}
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="list"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/flowprogrammer/{containerName}/node/{nodeType}/{nodeId}">
+      <wadl:param name="containerName" style="template">
+        <wadl:doc>
+          <![CDATA[Name of the Container (Eg. 'default')]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="nodeType" style="template">
+        <wadl:doc>
+          <![CDATA[Type of the node being programmed (Eg. 'OF')]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="nodeId" style="template">
+        <wadl:doc>
+          <![CDATA[Node Identifier (Eg. '00:00:00:00:00:00:00:01')]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Returns a list of Flows configured on a Node in a given container]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[List of flows configured on a Node in a container
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/flowprogrammer/default/node/OF/00:00:00:00:00:00:00:01
+
+Response body in XML:
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;list&gt;
+&#x20;&#x20;&#x20;&lt;flowConfig&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;installInHw&gt;true&lt;/installInHw&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;name&gt;flow1&lt;/name&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;node&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;type&gt;OF&lt;/type&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;/node&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;ingressPort&gt;1&lt;/ingressPort&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;priority&gt;500&lt;/priority&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;etherType&gt;0x800&lt;/etherType&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nwSrc&gt;9.9.1.1&lt;/nwSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;actions&gt;OUTPUT=2&lt;/actions&gt;
+&#x20;&#x20;&#x20;&lt;/flowConfig&gt;
+&lt;/list&gt;
+
+Response body in JSON:
+{
+"flowConfig": [
+{
+"installInHw": "true",
+"name": "flow1",
+"node": {
+"type": "OF",
+"id": "00:00:00:00:00:00:00:01"
+},
+"ingressPort": "1",
+"priority": "500",
+"etherType": "0x800",
+"nwSrc":"9.9.1.1",
+"actions": [
+"OUTPUT=2"
+]
+}
+]
+}
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="list"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/flowprogrammer/{containerName}/node/{nodeType}/{nodeId}/staticFlow/{name}">
+      <wadl:param name="containerName" style="template">
+        <wadl:doc>
+          <![CDATA[Name of the Container (Eg. 'default')]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="nodeType" style="template">
+        <wadl:doc>
+          <![CDATA[Type of the node being programmed (Eg. 'OF')]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="nodeId" style="template">
+        <wadl:doc>
+          <![CDATA[Node Identifier (Eg. '00:00:00:00:00:00:00:01')]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="name" style="template">
+        <wadl:doc>
+          <![CDATA[Human-readable name for the configured flow (Eg. 'Flow1')]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Returns the flow configuration matching a human-readable name and nodeId
+on a given Container.]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[Flow configuration matching the name and nodeId on a Container
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/flowprogrammer/default/node/OF/00:00:00:00:00:00:00:01/staticFlow/flow1
+
+Response body in XML:
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;flowConfig&gt;
+&#x20;&#x20;&#x20;&lt;installInHw&gt;true&lt;/installInHw&gt;
+&#x20;&#x20;&#x20;&lt;name&gt;flow1&lt;/name&gt;
+&#x20;&#x20;&#x20;&lt;node&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;type&gt;OF&lt;/type&gt;
+&#x20;&#x20;&#x20;&lt;/node&gt;
+&#x20;&#x20;&#x20;&lt;ingressPort&gt;1&lt;/ingressPort&gt;
+&#x20;&#x20;&#x20;&lt;priority&gt;500&lt;/priority&gt;
+&#x20;&#x20;&#x20;&lt;etherType&gt;0x800&lt;/etherType&gt;
+&#x20;&#x20;&#x20;&lt;nwSrc&gt;9.9.1.1&lt;/nwSrc&gt;
+&#x20;&#x20;&#x20;&lt;actions&gt;OUTPUT=2&lt;/actions&gt;
+&lt;/flowConfig&gt;
+
+Response body in JSON:
+{
+"installInHw":"true",
+"name":"flow1",
+"node":{
+"id":"00:00:00:00:00:00:00:01",
+"type":"OF"
+},
+"ingressPort":"1",
+"priority":"500",
+"etherType":"0x800",
+"nwSrc":"9.9.1.1",
+"actions":[
+"OUTPUT=2"
+]
+}
+
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="flowConfig"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="PUT">
+        <wadl:doc>
+          <![CDATA[Add or Modify a flow configuration. If the flow exists already, it will replace the current flow.]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:representation mediaType="application/xml" element="flowConfig"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:request>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[Response as dictated by the HTTP Response Status code
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/flowprogrammer/default/node/OF/00:00:00:00:00:00:00:01/staticFlow/flow1
+
+Request body in XML:
+&lt;flowConfig&gt;
+&#x20;&#x20;&#x20;&lt;installInHw&gt;true&lt;/installInHw&gt;
+&#x20;&#x20;&#x20;&lt;name&gt;flow1&lt;/name&gt;
+&#x20;&#x20;&#x20;&lt;node&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;type&gt;OF&lt;/type&gt;
+&#x20;&#x20;&#x20;&lt;/node&gt;
+&#x20;&#x20;&#x20;&lt;ingressPort&gt;1&lt;/ingressPort&gt;
+&#x20;&#x20;&#x20;&lt;priority&gt;500&lt;/priority&gt;
+&#x20;&#x20;&#x20;&lt;etherType&gt;0x800&lt;/etherType&gt;
+&#x20;&#x20;&#x20;&lt;nwSrc&gt;9.9.1.1&lt;/nwSrc&gt;
+&#x20;&#x20;&#x20;&lt;actions&gt;OUTPUT=2&lt;/actions&gt;
+&lt;/flowConfig&gt;
+
+Request body in JSON:
+{
+"installInHw":"true",
+"name":"flow1",
+"node":{
+"id":"00:00:00:00:00:00:00:01",
+"type":"OF"
+},
+"ingressPort":"1",
+"priority":"500",
+"etherType":"0x800",
+"nwSrc":"9.9.1.1",
+"actions":[
+"OUTPUT=2"
+]
+}
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="DELETE">
+        <wadl:doc>
+          <![CDATA[Delete a Flow configuration]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[Response as dictated by the HTTP Response code
+
+<pre>
+
+Example:
+
+RequestURL:
+http://localhost:8080/controller/nb/v2/flowprogrammer/default/node/OF/00:00:00:00:00:00:00:01/staticFlow/flow1
+
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+      <wadl:method name="POST">
+        <wadl:doc>
+          <![CDATA[Toggle a Flow configuration]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[Response as dictated by the HTTP Response code
+
+<pre>
+
+Example:
+
+RequestURL:
+http://localhost:8080/controller/nb/v2/flowprogrammer/default/node/OF/00:00:00:00:00:00:00:01/staticFlow/flow1
+
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+  </wadl:resources>
+</wadl:application>

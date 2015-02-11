@@ -1,0 +1,912 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api-docs title="Container Manager REST API">
+  <data>
+    <schema namespace="" namespaceId="ns0" file="ns0.xsd">
+      <types>
+        <type name="configurationObject" id="org.opendaylight.controller.configuration.ConfigurationObject" package="org.opendaylight.controller.configuration">
+          <groups>
+            <group>ConfigurationObject</group>
+          </groups>
+        </type>
+        <type name="containerConfig" id="org.opendaylight.controller.containermanager.ContainerConfig" package="org.opendaylight.controller.containermanager" extendsType="org.opendaylight.controller.configuration.ConfigurationObject">
+          <groups>
+            <group>ContainerConfig</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="staticVlan">
+              <choice name="staticVlan" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="container">
+              <choice name="container" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="nodeConnectors">
+              <choice name="nodeConnectors" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="flowSpecs">
+              <choice name="flowSpecs" namespace="" typeNamespace="" typeName="containerFlowConfig" typeSchemaId="ns0"/>
+            </element>
+          </elements>
+        </type>
+        <type name="containerFlowConfig" id="org.opendaylight.controller.containermanager.ContainerFlowConfig" package="org.opendaylight.controller.containermanager" extendsType="org.opendaylight.controller.configuration.ConfigurationObject">
+          <groups>
+            <group>ContainerFlowConfig</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="tpDst">
+              <choice name="tpDst" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="nwDst">
+              <choice name="nwDst" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="dlVlan">
+              <choice name="dlVlan" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="nwSrc">
+              <choice name="nwSrc" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="tpSrc">
+              <choice name="tpSrc" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="name">
+              <choice name="name" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="protocol">
+              <choice name="protocol" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+        <type name="containerConfigs" id="org.opendaylight.controller.containermanager.northbound.ContainerConfigs" package="org.opendaylight.controller.containermanager.northbound">
+          <groups>
+            <group>ContainerConfigs</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="containerConfig">
+              <choice name="containerConfig" namespace="" typeNamespace="" typeName="containerConfig" typeSchemaId="ns0"/>
+            </element>
+          </elements>
+        </type>
+        <type name="flowSpecConfigs" id="org.opendaylight.controller.containermanager.northbound.FlowSpecConfigs" package="org.opendaylight.controller.containermanager.northbound">
+          <groups>
+            <group>FlowSpecConfigs</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="flow-spec-config">
+              <choice name="flow-spec-config" namespace="" typeNamespace="" typeName="containerFlowConfig" typeSchemaId="ns0"/>
+            </element>
+          </elements>
+        </type>
+        <type name="stringList" id="org.opendaylight.controller.containermanager.northbound.StringList" package="org.opendaylight.controller.containermanager.northbound">
+          <groups>
+            <group>StringList</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="nodeConnectors">
+              <choice name="nodeConnectors" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+      </types>
+      <elements>
+        <element name="containerConfig" type="org.opendaylight.controller.containermanager.ContainerConfig" typeName="containerConfig" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>ContainerConfig</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<containerConfig>
+  <staticVlan>...</staticVlan>
+  <container>...</container>
+  <nodeConnectors>...</nodeConnectors>
+  <nodeConnectors>...</nodeConnectors>
+  <!--...more "nodeConnectors" elements...-->
+  <flowSpecs>
+    <tpDst>...</tpDst>
+    <nwDst>...</nwDst>
+    <dlVlan>...</dlVlan>
+    <nwSrc>...</nwSrc>
+    <tpSrc>...</tpSrc>
+    <name>...</name>
+    <protocol>...</protocol>
+  </flowSpecs>
+  <flowSpecs>
+    <!--...-->
+  </flowSpecs>
+  <!--...more "flowSpecs" elements...-->
+</containerConfig>]]></examplexml>
+        </element>
+        <element name="flow-spec-config" type="org.opendaylight.controller.containermanager.ContainerFlowConfig" typeName="containerFlowConfig" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>ContainerFlowConfig</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<flow-spec-config>
+  <tpDst>...</tpDst>
+  <nwDst>...</nwDst>
+  <dlVlan>...</dlVlan>
+  <nwSrc>...</nwSrc>
+  <tpSrc>...</tpSrc>
+  <name>...</name>
+  <protocol>...</protocol>
+</flow-spec-config>]]></examplexml>
+        </element>
+        <element name="containerConfig-list" type="org.opendaylight.controller.containermanager.northbound.ContainerConfigs" typeName="containerConfigs" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>ContainerConfigs</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<containerConfig-list>
+  <containerConfig>
+    <staticVlan>...</staticVlan>
+    <container>...</container>
+    <nodeConnectors>...</nodeConnectors>
+    <nodeConnectors>...</nodeConnectors>
+    <!--...more "nodeConnectors" elements...-->
+    <flowSpecs>
+      <tpDst>...</tpDst>
+      <nwDst>...</nwDst>
+      <dlVlan>...</dlVlan>
+      <nwSrc>...</nwSrc>
+      <tpSrc>...</tpSrc>
+      <name>...</name>
+      <protocol>...</protocol>
+    </flowSpecs>
+    <flowSpecs>
+      <!--...-->
+    </flowSpecs>
+    <!--...more "flowSpecs" elements...-->
+  </containerConfig>
+  <containerConfig>
+    <!--...-->
+  </containerConfig>
+  <!--...more "containerConfig" elements...-->
+</containerConfig-list>]]></examplexml>
+        </element>
+        <element name="flow-spec-configs" type="org.opendaylight.controller.containermanager.northbound.FlowSpecConfigs" typeName="flowSpecConfigs" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>FlowSpecConfigs</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<flow-spec-configs>
+  <flow-spec-config>
+    <tpDst>...</tpDst>
+    <nwDst>...</nwDst>
+    <dlVlan>...</dlVlan>
+    <nwSrc>...</nwSrc>
+    <tpSrc>...</tpSrc>
+    <name>...</name>
+    <protocol>...</protocol>
+  </flow-spec-config>
+  <flow-spec-config>
+    <!--...-->
+  </flow-spec-config>
+  <!--...more "flow-spec-config" elements...-->
+</flow-spec-configs>]]></examplexml>
+        </element>
+        <element name="nodeConnectors" type="org.opendaylight.controller.containermanager.northbound.StringList" typeName="stringList" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>StringList</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<nodeConnectors>
+  <nodeConnectors>...</nodeConnectors>
+  <nodeConnectors>...</nodeConnectors>
+  <!--...more "nodeConnectors" elements...-->
+</nodeConnectors>]]></examplexml>
+        </element>
+      </elements>
+      <groups>
+        <group>
+          <name>ConfigurationObject</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>ContainerConfig</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>ContainerConfigs</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>ContainerFlowConfig</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>FlowSpecConfigs</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>StringList</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+      </groups>
+    </schema>
+  </data>
+  <soap>
+    <wsdls>
+    </wsdls>
+  </soap>
+  <rest baseAddress="http://localhost:8080/full" wadl="application.wadl">
+    <resources>
+      <resource name="/containers" subcontext="/controller/nb/v2/containermanager">
+        <groups>
+          <group>ContainerManagerNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Get all the containers configured in the system]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="containerConfig-list" />
+            
+            <documentation><![CDATA[a List of all org.opendaylight.controller.containermanager.ContainerConfig
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/containers
+
+Response body in XML:
+&lt;containerConfig-list&gt;
+&#x20;&#x20;&#x20;&lt;containerConfig&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;container&gt;black&lt;/container&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;staticVlan&gt;10&lt;/staticVlan&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nodeConnectors&gt;OF|1@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nodeConnectors&gt;OF|23@OF|00:00:00:00:00:00:20:21&lt;/nodeConnectors&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;flowSpecs&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;name&gt;tcp&lt;/name&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;protocol&gt;TCP&lt;/protocol&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;/flowSpecs&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;/containerConfig&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;containerConfig&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;container&gt;red&lt;/container&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;staticVlan&gt;20&lt;/staticVlan&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nodeConnectors&gt;OF|1@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nodeConnectors&gt;OF|23@OF|00:00:00:00:00:00:20:21&lt;/nodeConnectors&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;flowSpecs&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;name&gt;udp&lt;/name&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;protocol&gt;UDP&lt;/protocol&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;/flowSpecs&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;/containerConfig&gt;
+&lt;/containerConfig-list&gt;
+
+Response body in JSON:
+{ "containerConfig" : [
+{ "container" : "black",
+"nodeConnectors" : [
+"OF|1@OF|00:00:00:00:00:00:00:01", "OF|23@OF|00:00:00:00:00:00:20:21"
+],
+"staticVlan" : "10",
+"flowSpecs : [
+{ "name": "udp",
+"protocol": "UDP" }
+]
+},
+{ "container" : "red",
+"nodeConnectors" : [
+"OF|1@OF|00:00:00:00:00:00:00:01",
+"OF|23@OF|00:00:00:00:00:00:20:21"
+],
+"staticVlan" : "20",
+"flowSpecs": [
+{ "name": "tcp",
+"protocol": "TCP"
+}
+]
+}
+]
+}
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User is not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[One or more of Controller Services are unavailable]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/container/{container}" subcontext="/controller/nb/v2/containermanager">
+        <groups>
+          <group>ContainerManagerNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Get the container configuration for container name requested]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="container" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[name of the Container (eg. blue)]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="containerConfig" />
+            
+            <documentation><![CDATA[a List of org.opendaylight.controller.containermanager.ContainerConfig
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/blue
+
+Response body in XML:
+&lt;containerConfig&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;container&gt;blue&lt;/container&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;staticVlan&gt;10&lt;/staticVlan&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;nodeConnectors&gt;OF|1@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;nodeConnectors&gt;OF|23@OF|00:00:00:00:00:00:20:21&lt;/nodeConnectors&gt;
+&lt;/containerConfig&gt;
+
+Response body in JSON:
+{
+"containerConfig": [
+{
+"container": "yellow",
+"staticVlan": "10",
+"nodeConnectors": [
+"OF|1@OF|00:00:00:00:00:00:00:01",
+"OF|2@OF|00:00:00:00:00:00:00:02"
+],
+"flowSpecs": []
+}
+]
+}
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User is not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="403">
+            <![CDATA[Operation forbidden on default]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The container is not found]]>
+          </statusCode>
+        </operation>
+        <operation name="PUT">
+          <documentation>
+            <![CDATA[Create a container]]>
+          </documentation>
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <parameter name="container" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[name of the Container (eg. yellow)]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="containerConfig" />
+            
+            <documentation><![CDATA[details of the container as specified by: org.opendaylight.controller.containermanager.ContainerConfig]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[Response as dictated by the HTTP Response Status code
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/yellow
+
+Request body in XML:
+&lt;containerConfig&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;container&gt;yellow&lt;/container&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;staticVlan&gt;10&lt;/staticVlan&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;nodeConnectors&gt;&lt;/nodeConnectors&gt;
+&lt;/containerConfig&gt;
+
+Request body in JSON:
+{
+"container" : "yellow",
+"nodeConnectors" : [
+"OF|1@OF|00:00:00:00:00:00:00:01",
+"OF|23@OF|00:00:00:00:00:00:20:21"
+],
+"staticVlan" : "10"
+}
+
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="201">
+            <![CDATA[Container created successfully]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Invalid Container configuration.]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="403">
+            <![CDATA[Operation forbidden on default]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Container Name is not found]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Failed to create Container due to Conflicting Name]]>
+          </statusCode>
+          <statusCode code="500">
+            <![CDATA[Failure Reason included in HTTP Error response]]>
+          </statusCode>
+        </operation>
+        <operation name="DELETE">
+          <documentation>
+            <![CDATA[Delete a container]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <parameter name="container" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[name of the Container (eg. green)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[Response as dictated by the HTTP Response code
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/green
+
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="204">
+            <![CDATA[Container deleted successfully]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="403">
+            <![CDATA[Operation forbidden on default]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The container is not found]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/container/{container}/flowspecs" subcontext="/controller/nb/v2/containermanager">
+        <groups>
+          <group>ContainerManagerNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Get all the flowspec in a given container]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="container" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[name of the Container (eg. red)]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="flow-spec-configs" />
+            
+            <documentation><![CDATA[list of all flowspec configured for a container. Flowspec as
+specified by:
+org.opendaylight.controller.containermanager.ContainerFlowConfig
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/red/flowspec
+
+Response body in XML:
+&lt;flow-spec-configs&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;flow-spec-config&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;name&gt;ssh&lt;/name&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;dlVlan&gt;52&lt;/dlVlan&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nwSrc&gt;10.0.0.101&lt;/nwSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nwDst&gt;10.0.0.102&lt;/nwDst&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;protocol&gt;IPv4&lt;/protocol&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;tpSrc&gt;23&lt;/tpSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;tpDst&gt;100&lt;/tpDst&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;/flow-spec-config&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;flow-spec-config&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;name&gt;http2&lt;/name&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;dlVlan&gt;123&lt;/dlVlan&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nwSrc&gt;10.0.0.201&lt;/nwSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nwDst&gt;10.0.0.202&lt;/nwDst&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;protocol&gt;&lt;/protocol&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;tpSrc&gt;80&lt;/tpSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;tpDst&gt;100&lt;/tpDst&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;/flow-spec-config&gt;
+&lt;/flow-spec-configs&gt;
+
+Response body in JSON:
+{
+"flow-spec-config": [
+{
+"name": "http",
+"dlVlan" : "52",
+"nwSrc": "10.0.0.201",
+"nwDst": "10.0.0.202",
+"protocol": "",
+"tpSrc": "80",
+"tpDst": "100"
+},
+{
+"name": "ssh",
+"dlVlan" : "123",
+"nwSrc": "10.0.0.101",
+"nwDst": "10.0.0.102",
+"protocol": "IPv4",
+"tpSrc": "23",
+"tpDst": "100"
+}
+]
+}
+
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The container is not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[One or more of Controller Services are unavailable]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/container/{container}/nodeconnector" subcontext="/controller/nb/v2/containermanager">
+        <groups>
+          <group>ContainerManagerNorthbound</group>
+        </groups>
+        <operation name="PUT">
+          <documentation>
+            <![CDATA[Add node connectors to a container]]>
+          </documentation>
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <parameter name="container" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[name of the container (eg. green)]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="nodeConnectors" />
+            
+            <documentation><![CDATA[The list of strings each representing a node connector in the form "<Port Type>|<Port id>@<Node Type>|<Node id>", as "OF|1@OF|00:00:00:ab:00:00:00:01"]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[response as dictated by the HTTP Status code
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/green/nodeconnector
+
+Request body in XML:
+&lt;nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|1@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|2@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|3@OF|00:00:00:00:00:00:00:22&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|4@OF|00:00:00:00:00:00:00:22&lt;/nodeConnectors&gt;
+&lt;/nodeConnectors&gt;
+
+Request body in JSON:
+{
+"nodeConnectors" : [
+"OF|1@OF|00:00:00:00:00:00:00:01",
+"OF|2@OF|00:00:00:00:00:00:00:01",
+"OF|3@OF|00:00:00:00:00:00:00:22",
+"OF|4@OF|00:00:00:00:00:00:00:22"
+]
+}
+
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[NodeConnectors added successfully]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="403">
+            <![CDATA[Operation forbidden on default]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The Container is not found]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Container Entry already exists]]>
+          </statusCode>
+          <statusCode code="500">
+            <![CDATA[Failed to create nodeconnectors. Failure Reason included in HTTP Error response]]>
+          </statusCode>
+        </operation>
+        <operation name="DELETE">
+          <documentation>
+            <![CDATA[Remove node connectors from a container]]>
+          </documentation>
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <parameter name="container" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[name of the container (eg. red)]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="nodeConnectors" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[response as dictated by the HTTP Status code
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/red/nodeconnector
+
+Request body in XML:
+&lt;nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|1@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|2@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|3@OF|00:00:00:00:00:00:00:22&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|4@OF|00:00:00:00:00:00:00:22&lt;/nodeConnectors&gt;
+&lt;/nodeConnectors&gt;
+
+Request body in JSON:
+{
+"nodeConnectors" : [
+"OF|1@OF|00:00:00:00:00:00:00:01",
+"OF|2@OF|00:00:00:00:00:00:00:01",
+"OF|3@OF|00:00:00:00:00:00:00:22",
+"OF|4@OF|00:00:00:00:00:00:00:22"
+]
+}
+
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="204">
+            <![CDATA[Container Entry deleted successfully]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Invalid Container Entry configuration]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The Container is not found]]>
+          </statusCode>
+          <statusCode code="406">
+            <![CDATA[Cannot operate on Default Container when other Containers are active]]>
+          </statusCode>
+          <statusCode code="500">
+            <![CDATA[Failed to delete node connector. Failure Reason included in HTTP Error response]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/container/{container}/flowspec/{flowspec}" subcontext="/controller/nb/v2/containermanager">
+        <groups>
+          <group>ContainerManagerNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Get flowspec within a given container]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="container" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[name of the Container (eg. green)]]>
+          </parameter>
+          <parameter name="flowspec" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="flow-spec-config" />
+            
+            <documentation><![CDATA[flowspec detail as specified by:
+org.opendaylight.controller.containermanager.ContainerFlowConfig
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/green/flowspec/ssh
+
+Response body in XML:
+&lt;flow-spec-config&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;name&gt;ssh&lt;/name&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;dlVlan&gt;52&lt;/dlVlan&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;nwSrc&gt;10.0.0.101&lt;/nwSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;nwDst&gt;10.0.0.102&lt;/nwDst&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;protocol&gt;IPv4&lt;/protocol&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;tpSrc&gt;80&lt;/tpSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;tpDst&gt;100&lt;/tpDst&gt;
+&lt;/flow-spec-config&gt;
+
+Response body in JSON:
+{
+"protocol" : "IPv4",
+"dlVlan" : "52",
+"nwDst" : "10.0.0.102",
+"name" : "ssh",
+"nwSrc" : "10.0.0.101",
+"tpSrc" : "80",
+"tpDst" : "100"
+}
+
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The container is not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[One or more of Controller Services are unavailable]]>
+          </statusCode>
+        </operation>
+        <operation name="PUT">
+          <documentation>
+            <![CDATA[Add flowspec to a container]]>
+          </documentation>
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <parameter name="container" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[name of the container (eg. purple)]]>
+          </parameter>
+          <parameter name="flowspec" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[configuration as specified by: org.opendaylight.controller.containermanager.ContainerFlowConfig]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="flow-spec-config" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[Response as dictated by the HTTP Response code
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/purple/flowspec/http
+
+Request body in XML:
+&lt;flow-spec-config&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;name&gt;http&lt;/name&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;dlVlan&gt;25&lt;/dlVlan&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;nwSrc&gt;10.0.0.101&lt;/nwSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;nwDst&gt;10.0.0.102&lt;/nwDst&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;protocol&gt;&lt;/protocol&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;tpSrc&gt;80&lt;/tpSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&lt;tpDst&gt;100&lt;/tpDst&gt;
+&lt;/flow-spec-config&gt;
+
+Request body in JSON:
+{
+"name" : "http",
+"dlVlan" : "25",
+"nwSrc" : "10.0.0.101",
+"nwDst" : "10.0.0.102",
+"protocol" : "",
+"tpSrc" : "80",
+"tpDst" : "100"
+}
+
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="201">
+            <![CDATA[FlowSpec created successfully]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Invalid flowspec configuration]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The container is not found]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Container Entry already exists]]>
+          </statusCode>
+          <statusCode code="500">
+            <![CDATA[Failed to create Flow specifications. Failure Reason included in HTTP Error response]]>
+          </statusCode>
+        </operation>
+        <operation name="DELETE">
+          <documentation>
+            <![CDATA[Remove flowspec from a container]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <parameter name="container" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[name of the Container (eg. black)]]>
+          </parameter>
+          <parameter name="flowspec" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[Response as dictated by the HTTP Response code
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/black/flowspec/telnet
+
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="204">
+            <![CDATA[Flow Spec deleted successfully]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Invalid flowspec configuration]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Container or Container Entry not found]]>
+          </statusCode>
+          <statusCode code="406">
+            <![CDATA[Cannot operate on Default Container when other Containers are active]]>
+          </statusCode>
+          <statusCode code="500">
+            <![CDATA[Failed to delete Flowspec. Failure Reason included in HTTP Error response]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[One or more of Controller service is unavailable]]>
+          </statusCode>
+        </operation>
+      </resource>
+    </resources>
+    <groups>
+      <group>
+        <name>ContainerManagerNorthbound</name>
+        <documentation><![CDATA[Container Manager Northbound API
+
+<br>
+<br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b>HTTP and HTTPS</b><br>
+<br>
+HTTPS Authentication is disabled by default. Administrator can enable it in
+tomcat-server.xml after adding a proper keystore / SSL certificate from a
+trusted authority.<br>
+More info :
+http://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Configuration]]></documentation>
+      </group>
+    </groups>
+  </rest>
+  <packages>
+    <package id="org.opendaylight.controller.containermanager.northbound">
+    </package>
+  </packages>
+</api-docs>

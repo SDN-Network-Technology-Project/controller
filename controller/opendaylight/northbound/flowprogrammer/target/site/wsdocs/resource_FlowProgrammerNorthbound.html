@@ -1,0 +1,902 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>FlowProgrammerNorthbound</title>
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS: implied media="all" -->
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/prettify.css">
+
+  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+  <script src="js/libs/modernizr-1.7.min.js"></script>
+
+</head>
+
+<body class="home">
+
+  <div class="container">
+    <header>
+      <div id="header" class="column first last span-20">
+        <div id="site-name" class="column span-18 append-1 prepend-1 first last"><a href="index.html">FlowProgrammerNorthbound</a></div>
+        <div id="primary" class="column span-18 append-1 prepend-1 first last">
+          <ul class="navigation">
+            <li id="nav-rest"><a href="rest.html">REST</a></li>
+            <li id="nav-data"><a href="model.html">Data Model</a></li>
+            <li id="nav-downloads"><a href="downloads.html">Files and Libraries</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="xbreadcrumbs" id="breadcrumbs">
+            <li>
+              <a href="index.html" class="home">Home</a> &gt;
+            </li>
+            <li>
+              <a href="rest.html">REST</a> &gt;
+              <ul>
+                <li><a href="model.html">Data Model</a></li>
+                <li><a href="downloads.html">Files and Libraries</a></li>
+                <li><a href="rest.html">REST</a></li>
+              </ul>
+            </li>
+            <li class="current">
+              <a href="resource_FlowProgrammerNorthbound.html">FlowProgrammerNorthbound</a>
+              <ul>
+                <li><a href="resource_FlowProgrammerNorthbound.html">FlowProgrammerNorthbound</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div id="main" class="column first last span-20">
+      <h1>FlowProgrammerNorthbound</h1>
+
+      <p>Flow Configuration Northbound API provides capabilities to program flows.
+
+<br>
+<br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b>HTTP and HTTPS</b><br>
+<br>
+HTTPS Authentication is disabled by default.</p>
+      <p>The following resources are part of this group:</p>
+      <ul>
+        <li><a href="#path__-containerName-.html">/{containerName}</a></li>
+        <li><a href="#path__-containerName-_node_-nodeType-_-nodeId-.html">/{containerName}/node/{nodeType}/{nodeId}</a></li>
+        <li><a href="#path__-containerName-_node_-nodeType-_-nodeId-_staticFlow_-name-.html">/{containerName}/node/{nodeType}/{nodeId}/staticFlow/{name}</a></li>
+      </ul>
+      <a name="path__-containerName-.html"></a>
+      <h1>/{containerName}</h1>
+      <p class="note">Mount Point: <a href="../controller/nb/v2/flowprogrammer/{containerName}">/controller/nb/v2/flowprogrammer/{containerName}</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Returns a list of Flows configured on the given container
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container (Eg. 'default')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td><a href="el_ns0_list.html">list</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>List of flows configured on a given container
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/flowprogrammer/default
+
+Response body in XML:
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;list&gt;
+&#x20;&#x20;&#x20;&lt;flowConfig&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;installInHw&gt;true&lt;/installInHw&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;name&gt;flow1&lt;/name&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;node&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;type&gt;OF&lt;/type&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;/node&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;ingressPort&gt;1&lt;/ingressPort&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;priority&gt;500&lt;/priority&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;etherType&gt;0x800&lt;/etherType&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nwSrc&gt;9.9.1.1&lt;/nwSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;actions&gt;OUTPUT=2&lt;/actions&gt;
+&#x20;&#x20;&#x20;&lt;/flowConfig&gt;
+&lt;/list&gt;
+
+Response body in JSON:
+{
+"flowConfig": [
+{
+"installInHw": "true",
+"name": "flow1",
+"node": {
+"type": "OF",
+"id": "00:00:00:00:00:00:00:01"
+},
+"ingressPort": "1",
+"priority": "500",
+"etherType": "0x800",
+"nwSrc":"9.9.1.1",
+"actions": [
+"OUTPUT=2"
+]
+}
+]
+}
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName is not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller Services are unavailable
+          </td>
+        </tr>
+      </table>
+      <a name="path__-containerName-_node_-nodeType-_-nodeId-.html"></a>
+      <h1>/{containerName}/node/{nodeType}/{nodeId}</h1>
+      <p class="note">Mount Point: <a href="../controller/nb/v2/flowprogrammer/{containerName}/node/{nodeType}/{nodeId}">/controller/nb/v2/flowprogrammer/{containerName}/node/{nodeType}/{nodeId}</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Returns a list of Flows configured on a Node in a given container
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container (Eg. 'default')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeType</td>
+          <td>
+            Type of the node being programmed (Eg. 'OF')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeId</td>
+          <td>
+            Node Identifier (Eg. '00:00:00:00:00:00:00:01')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td><a href="el_ns0_list.html">list</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>List of flows configured on a Node in a container
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/flowprogrammer/default/node/OF/00:00:00:00:00:00:00:01
+
+Response body in XML:
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;list&gt;
+&#x20;&#x20;&#x20;&lt;flowConfig&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;installInHw&gt;true&lt;/installInHw&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;name&gt;flow1&lt;/name&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;node&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;type&gt;OF&lt;/type&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;/node&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;ingressPort&gt;1&lt;/ingressPort&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;priority&gt;500&lt;/priority&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;etherType&gt;0x800&lt;/etherType&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;nwSrc&gt;9.9.1.1&lt;/nwSrc&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;actions&gt;OUTPUT=2&lt;/actions&gt;
+&#x20;&#x20;&#x20;&lt;/flowConfig&gt;
+&lt;/list&gt;
+
+Response body in JSON:
+{
+"flowConfig": [
+{
+"installInHw": "true",
+"name": "flow1",
+"node": {
+"type": "OF",
+"id": "00:00:00:00:00:00:00:01"
+},
+"ingressPort": "1",
+"priority": "500",
+"etherType": "0x800",
+"nwSrc":"9.9.1.1",
+"actions": [
+"OUTPUT=2"
+]
+}
+]
+}
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName or nodeId is not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller Services are unavailable
+          </td>
+        </tr>
+      </table>
+      <a name="path__-containerName-_node_-nodeType-_-nodeId-_staticFlow_-name-.html"></a>
+      <h1>/{containerName}/node/{nodeType}/{nodeId}/staticFlow/{name}</h1>
+      <p class="note">Mount Point: <a href="../controller/nb/v2/flowprogrammer/{containerName}/node/{nodeType}/{nodeId}/staticFlow/{name}">/controller/nb/v2/flowprogrammer/{containerName}/node/{nodeType}/{nodeId}/staticFlow/{name}</a></p>
+      <p>
+        The following operations are supported on this resource:
+      </p>
+      <ul>
+        <li><a href="#GET">GET</a></li>
+        <li><a href="#PUT">PUT</a></li>
+        <li><a href="#DELETE">DELETE</a></li>
+        <li><a href="#POST">POST</a></li>
+      </ul>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Returns the flow configuration matching a human-readable name and nodeId
+on a given Container.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container (Eg. 'default')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeType</td>
+          <td>
+            Type of the node being programmed (Eg. 'OF')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeId</td>
+          <td>
+            Node Identifier (Eg. '00:00:00:00:00:00:00:01')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>name</td>
+          <td>
+            Human-readable name for the configured flow (Eg. 'Flow1')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td><a href="el_ns0_flowConfig.html">flowConfig</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>Flow configuration matching the name and nodeId on a Container
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/flowprogrammer/default/node/OF/00:00:00:00:00:00:00:01/staticFlow/flow1
+
+Response body in XML:
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;flowConfig&gt;
+&#x20;&#x20;&#x20;&lt;installInHw&gt;true&lt;/installInHw&gt;
+&#x20;&#x20;&#x20;&lt;name&gt;flow1&lt;/name&gt;
+&#x20;&#x20;&#x20;&lt;node&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;type&gt;OF&lt;/type&gt;
+&#x20;&#x20;&#x20;&lt;/node&gt;
+&#x20;&#x20;&#x20;&lt;ingressPort&gt;1&lt;/ingressPort&gt;
+&#x20;&#x20;&#x20;&lt;priority&gt;500&lt;/priority&gt;
+&#x20;&#x20;&#x20;&lt;etherType&gt;0x800&lt;/etherType&gt;
+&#x20;&#x20;&#x20;&lt;nwSrc&gt;9.9.1.1&lt;/nwSrc&gt;
+&#x20;&#x20;&#x20;&lt;actions&gt;OUTPUT=2&lt;/actions&gt;
+&lt;/flowConfig&gt;
+
+Response body in JSON:
+{
+"installInHw":"true",
+"name":"flow1",
+"node":{
+"id":"00:00:00:00:00:00:00:01",
+"type":"OF"
+},
+"ingressPort":"1",
+"priority":"500",
+"etherType":"0x800",
+"nwSrc":"9.9.1.1",
+"actions":[
+"OUTPUT=2"
+]
+}
+
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName or NodeId or Configuration name is not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller Services are unavailable
+          </td>
+        </tr>
+      </table>
+      <a name="PUT"></a>
+      <h2>PUT</h2>
+      <p>
+            Add or Modify a flow configuration. If the flow exists already, it will replace the current flow.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container (Eg. 'default')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>name</td>
+          <td>
+            Name of the Static Flow configuration (Eg. 'Flow2')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeType</td>
+          <td>
+            Type of the node being programmed (Eg. 'OF')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeId</td>
+          <td>
+            Node Identifier (Eg. '00:00:00:00:00:00:00:01')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Request Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td><a href="el_ns0_flowConfig.html">flowConfig</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml<br/></td>
+        </tr>
+      </table>
+      <p>Response as dictated by the HTTP Response Status code
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/flowprogrammer/default/node/OF/00:00:00:00:00:00:00:01/staticFlow/flow1
+
+Request body in XML:
+&lt;flowConfig&gt;
+&#x20;&#x20;&#x20;&lt;installInHw&gt;true&lt;/installInHw&gt;
+&#x20;&#x20;&#x20;&lt;name&gt;flow1&lt;/name&gt;
+&#x20;&#x20;&#x20;&lt;node&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;type&gt;OF&lt;/type&gt;
+&#x20;&#x20;&#x20;&lt;/node&gt;
+&#x20;&#x20;&#x20;&lt;ingressPort&gt;1&lt;/ingressPort&gt;
+&#x20;&#x20;&#x20;&lt;priority&gt;500&lt;/priority&gt;
+&#x20;&#x20;&#x20;&lt;etherType&gt;0x800&lt;/etherType&gt;
+&#x20;&#x20;&#x20;&lt;nwSrc&gt;9.9.1.1&lt;/nwSrc&gt;
+&#x20;&#x20;&#x20;&lt;actions&gt;OUTPUT=2&lt;/actions&gt;
+&lt;/flowConfig&gt;
+
+Request body in JSON:
+{
+"installInHw":"true",
+"name":"flow1",
+"node":{
+"id":"00:00:00:00:00:00:00:01",
+"type":"OF"
+},
+"ingressPort":"1",
+"priority":"500",
+"etherType":"0x800",
+"nwSrc":"9.9.1.1",
+"actions":[
+"OUTPUT=2"
+]
+}
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Static Flow modified successfully
+          </td>
+        </tr>
+        <tr>
+          <td>201</td>
+          <td>
+            Flow Config processed successfully
+          </td>
+        </tr>
+        <tr>
+          <td>400</td>
+          <td>
+            Failed to create Static Flow entry due to invalid flow configuration
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The Container Name or nodeId is not found
+          </td>
+        </tr>
+        <tr>
+          <td>406</td>
+          <td>
+            Cannot operate on Default Container when other Containers are active
+          </td>
+        </tr>
+        <tr>
+          <td>409</td>
+          <td>
+            Failed to create Static Flow entry due to Conflicting Name or configuration
+          </td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>
+            Failed to create Static Flow entry. Failure Reason included in HTTP Error response
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller services are unavailable
+          </td>
+        </tr>
+      </table>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <p>
+            Delete a Flow configuration
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container (Eg. 'default')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>name</td>
+          <td>
+            Name of the Static Flow configuration (Eg. 'Flow1')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeType</td>
+          <td>
+            Type of the node being programmed (Eg. 'OF')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeId</td>
+          <td>
+            Node Identifier (Eg. '00:00:00:00:00:00:00:01')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml</td>
+        </tr>
+      </table>
+      <p>Response as dictated by the HTTP Response code
+
+<pre>
+
+Example:
+
+RequestURL:
+http://localhost:8080/controller/nb/v2/flowprogrammer/default/node/OF/00:00:00:00:00:00:00:01/staticFlow/flow1
+
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>204</td>
+          <td>
+            Flow Config deleted successfully
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The Container Name or Node-id or Flow Name passed is not found
+          </td>
+        </tr>
+        <tr>
+          <td>406</td>
+          <td>
+            Failed to delete Flow config due to invalid operation. Failure details included in HTTP Error response
+          </td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>
+            Failed to delete Flow config. Failure Reason included in HTTP Error response
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller service is unavailable
+          </td>
+        </tr>
+      </table>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <p>
+            Toggle a Flow configuration
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container (Eg. 'default')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeType</td>
+          <td>
+            Type of the node being programmed (Eg. 'OF')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeId</td>
+          <td>
+            Node Identifier (Eg. '00:00:00:00:00:00:00:01')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>name</td>
+          <td>
+            Name of the Static Flow configuration (Eg. 'Flow1')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml<br/></td>
+        </tr>
+      </table>
+      <p>Response as dictated by the HTTP Response code
+
+<pre>
+
+Example:
+
+RequestURL:
+http://localhost:8080/controller/nb/v2/flowprogrammer/default/node/OF/00:00:00:00:00:00:00:01/staticFlow/flow1
+
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Flow Config processed successfully
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The Container Name or Node-id or Flow Name passed is not found
+          </td>
+        </tr>
+        <tr>
+          <td>406</td>
+          <td>
+            Failed to delete Flow config due to invalid operation. Failure details included in HTTP Error response
+          </td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>
+            Failed to delete Flow config. Failure Reason included in HTTP Error response
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller service is unavailable
+          </td>
+        </tr>
+      </table>
+
+      <div class="clear" />
+    </div>
+    <footer>
+      <div id="footer">
+        Generated by <a href="http://enunciate.codehaus.org">Enunciate</a>.
+      </div>
+    </footer>
+  </div> <!--! end of #container -->
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+  <script>window.jQuery || document.write("<script src='js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
+
+  <!--manage the navigation menu-->
+  <script src="js/libs/xbreadcrumbs.js"></script>
+  <script>
+    $(function() {
+      $('#breadcrumbs').xBreadcrumbs();
+    });
+  </script>
+
+
+  <!-- prettify code blocks. see http://code.google.com/p/google-code-prettify/ -->
+  <script src="js/libs/prettify/prettify.js"></script>
+  <script>
+    $(function() {
+      prettyPrint();
+    });
+  </script>
+
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg"); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
+  <![endif]-->
+
+</body>
+</html>

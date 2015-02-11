@@ -1,0 +1,1244 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>StatisticsNorthbound</title>
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS: implied media="all" -->
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/prettify.css">
+
+  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+  <script src="js/libs/modernizr-1.7.min.js"></script>
+
+</head>
+
+<body class="home">
+
+  <div class="container">
+    <header>
+      <div id="header" class="column first last span-20">
+        <div id="site-name" class="column span-18 append-1 prepend-1 first last"><a href="index.html">StatisticsNorthbound</a></div>
+        <div id="primary" class="column span-18 append-1 prepend-1 first last">
+          <ul class="navigation">
+            <li id="nav-rest"><a href="rest.html">REST</a></li>
+            <li id="nav-data"><a href="model.html">Data Model</a></li>
+            <li id="nav-downloads"><a href="downloads.html">Files and Libraries</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="xbreadcrumbs" id="breadcrumbs">
+            <li>
+              <a href="index.html" class="home">Home</a> &gt;
+            </li>
+            <li>
+              <a href="rest.html">REST</a> &gt;
+              <ul>
+                <li><a href="model.html">Data Model</a></li>
+                <li><a href="downloads.html">Files and Libraries</a></li>
+                <li><a href="rest.html">REST</a></li>
+              </ul>
+            </li>
+            <li class="current">
+              <a href="resource_StatisticsNorthbound.html">StatisticsNorthbound</a>
+              <ul>
+                <li><a href="resource_StatisticsNorthbound.html">StatisticsNorthbound</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div id="main" class="column first last span-20">
+      <h1>StatisticsNorthbound</h1>
+
+      <p>Northbound APIs that returns various Statistics exposed by the Southbound
+protocol plugins such as Openflow.
+
+<br>
+<br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b>HTTP and HTTPS</b><br>
+<br>
+HTTPS Authentication is disabled by default.</p>
+      <p>The following resources are part of this group:</p>
+      <ul>
+        <li><a href="#path__-containerName-_flow.html">/{containerName}/flow</a></li>
+        <li><a href="#path__-containerName-_port.html">/{containerName}/port</a></li>
+        <li><a href="#path__-containerName-_table.html">/{containerName}/table</a></li>
+        <li><a href="#path__-containerName-_flow_node_-nodeType-_-nodeId-.html">/{containerName}/flow/node/{nodeType}/{nodeId}</a></li>
+        <li><a href="#path__-containerName-_port_node_-nodeType-_-nodeId-.html">/{containerName}/port/node/{nodeType}/{nodeId}</a></li>
+        <li><a href="#path__-containerName-_table_node_-nodeType-_-nodeId-.html">/{containerName}/table/node/{nodeType}/{nodeId}</a></li>
+      </ul>
+      <a name="path__-containerName-_flow.html"></a>
+      <h1>/{containerName}/flow</h1>
+      <p class="note">Mount Point: <a href="../controller/nb/v2/statistics/{containerName}/flow">/controller/nb/v2/statistics/{containerName}/flow</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Returns a list of all Flow Statistics from all the Nodes.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container. The Container name for the base controller is "default".
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td><a href="el_ns0_list.html">list</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>List of FlowStatistics from all the Nodes
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/statistics/default/flow
+
+Response body in JSON:
+{
+"flowStatistics": [
+{
+"node": {
+"id":"00:00:00:00:00:00:00:02",
+"type":"OF"
+},
+"flowStatistic": [
+{
+"flow": {
+"match": {
+"matchField": [
+{
+"type": "DL_TYPE",
+"value": "2048"
+},
+{
+"mask": "255.255.255.255",
+"type": "NW_DST",
+"value": "1.1.1.1"
+}
+]
+},
+"actions": {
+"@type": "output",
+"port": {
+"node":{
+"id":"00:00:00:00:00:00:00:02",
+"type":"OF"
+},
+"id":"3",
+"type":"OF"
+}
+},
+"priority": "1",
+"idleTimeout": "0",
+"hardTimeout": "0",
+"id": "0"
+},
+"tableId": "0",
+"durationSeconds": "1828",
+"durationNanoseconds": "397000000",
+"packetCount": "0",
+"byteCount": "0"
+}
+]
+},
+{   flow statistics of another node
+............
+................
+......................
+}
+
+]
+}
+
+Response body in XML:
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;list&gt;
+&lt;flowStatistics&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:02&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;flowStatistic&gt;
+&lt;flow&gt;
+&lt;match&gt;
+&lt;matchField&gt;
+&lt;type&gt;DL_TYPE&lt;/type&gt;
+&lt;value&gt;2048&lt;/value&gt;
+&lt;/matchField&gt;
+&lt;matchField&gt;
+&lt;mask&gt;255.255.255.255&lt;/mask&gt;
+&lt;type&gt;NW_DST&lt;/type&gt;
+&lt;value&gt;1.1.1.2&lt;/value&gt;
+&lt;/matchField&gt;
+&lt;/match&gt;
+&lt;actions
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:type=&quot;output&quot;&gt;
+&lt;port&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:02&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;3&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/port&gt;
+&lt;/actions&gt;
+&lt;priority&gt;1&lt;/priority&gt;
+&lt;idleTimeout&gt;0&lt;/idleTimeout&gt;
+&lt;hardTimeout&gt;0&lt;/hardTimeout&gt;
+&lt;id&gt;0&lt;/id&gt;
+&lt;/flow&gt;
+&lt;tableId&gt;0&lt;/tableId&gt;
+&lt;durationSeconds&gt;337&lt;/durationSeconds&gt;
+&lt;durationNanoseconds&gt;149000000&lt;/durationNanoseconds&gt;
+&lt;packetCount&gt;0&lt;/packetCount&gt;
+&lt;byteCount&gt;0&lt;/byteCount&gt;
+&lt;/flowStatistic&gt;
+&lt;/flowStatistics&gt;
+&lt;flowStatistics&gt;
+flow statistics for another node
+..........
+................
+.....................
+&lt;/flowStatistics&gt;
+&lt;/list&gt;
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName is not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller Services are unavailable
+          </td>
+        </tr>
+      </table>
+      <a name="path__-containerName-_port.html"></a>
+      <h1>/{containerName}/port</h1>
+      <p class="note">Mount Point: <a href="../controller/nb/v2/statistics/{containerName}/port">/controller/nb/v2/statistics/{containerName}/port</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Returns a list of all the Port Statistics across all the NodeConnectors
+on all the Nodes.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container. The Container name for the base controller is "default".
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td><a href="el_ns0_list.html">list</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>List of all the Port Statistics across all the NodeConnectors on
+all the Nodes.
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/statistics/default/port
+
+Response body in JSON:
+{
+"portStatistics": [
+{
+"node": {
+"id":"00:00:00:00:00:00:00:02",
+"type":"OF"
+},
+"portStatistic": [
+{
+"nodeConnector":{
+"node":{
+"id":"00:00:00:00:00:00:00:02",
+"type":"OF"
+},
+"id":"3",
+"type":"OF"
+},
+"receivePackets": "182",
+"transmitPackets": "173",
+"receiveBytes": "12740",
+"transmitBytes": "12110",
+"receiveDrops": "0",
+"transmitDrops": "0",
+"receiveErrors": "0",
+"transmitErrors": "0",
+"receiveFrameError": "0",
+"receiveOverRunError": "0",
+"receiveCrcError": "0",
+"collisionCount": "0"
+},
+{
+"nodeConnector": {
+"node":{
+"id":"00:00:00:00:00:00:00:02",
+"type":"OF"
+},
+"id":"2",
+"type":"OF"
+},
+"receivePackets": "174",
+"transmitPackets": "181",
+"receiveBytes": "12180",
+"transmitBytes": "12670",
+"receiveDrops": "0",
+"transmitDrops": "0",
+"receiveErrors": "0",
+"transmitErrors": "0",
+"receiveFrameError": "0",
+"receiveOverRunError": "0",
+"receiveCrcError": "0",
+"collisionCount": "0"
+},
+
+]
+},
+{
+"node": {
+"id":"00:00:00:00:00:00:00:03",
+"type":"OF"
+},
+"portStatistic": [
+..................
+.......................
+..........................
+]
+}
+]
+}
+
+Response body in XML:
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;list&gt;
+&lt;portStatistics&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:02&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;portStatistic&gt;
+&lt;nodeConnector&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:02&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;3&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/nodeConnector&gt;
+&lt;receivePackets&gt;181&lt;/receivePackets&gt;
+&lt;transmitPackets&gt;172&lt;/transmitPackets&gt;
+&lt;receiveBytes&gt;12670&lt;/receiveBytes&gt;
+&lt;transmitBytes&gt;12040&lt;/transmitBytes&gt;
+&lt;receiveDrops&gt;0&lt;/receiveDrops&gt;
+&lt;transmitDrops&gt;0&lt;/transmitDrops&gt;
+&lt;receiveErrors&gt;0&lt;/receiveErrors&gt;
+&lt;transmitErrors&gt;0&lt;/transmitErrors&gt;
+&lt;receiveFrameError&gt;0&lt;/receiveFrameError&gt;
+&lt;receiveOverRunError&gt;0&lt;/receiveOverRunError&gt;
+&lt;receiveCrcError&gt;0&lt;/receiveCrcError&gt;
+&lt;collisionCount&gt;0&lt;/collisionCount&gt;
+&lt;/portStatistic&gt;
+&lt;portStatistic&gt;
+&lt;nodeConnector&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:02&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;2&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/nodeConnector&gt;
+&lt;receivePackets&gt;173&lt;/receivePackets&gt;
+&lt;transmitPackets&gt;180&lt;/transmitPackets&gt;
+&lt;receiveBytes&gt;12110&lt;/receiveBytes&gt;
+&lt;transmitBytes&gt;12600&lt;/transmitBytes&gt;
+&lt;receiveDrops&gt;0&lt;/receiveDrops&gt;
+&lt;transmitDrops&gt;0&lt;/transmitDrops&gt;
+&lt;receiveErrors&gt;0&lt;/receiveErrors&gt;
+&lt;transmitErrors&gt;0&lt;/transmitErrors&gt;
+&lt;receiveFrameError&gt;0&lt;/receiveFrameError&gt;
+&lt;receiveOverRunError&gt;0&lt;/receiveOverRunError&gt;
+&lt;receiveCrcError&gt;0&lt;/receiveCrcError&gt;
+&lt;collisionCount&gt;0&lt;/collisionCount&gt;
+&lt;/portStatistic&gt;
+&lt;/portStatistics&gt;
+&lt;/list&gt;
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName is not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller Services are unavailable
+          </td>
+        </tr>
+      </table>
+      <a name="path__-containerName-_table.html"></a>
+      <h1>/{containerName}/table</h1>
+      <p class="note">Mount Point: <a href="../controller/nb/v2/statistics/{containerName}/table">/controller/nb/v2/statistics/{containerName}/table</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Returns a list of all the Table Statistics on all Nodes.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container. The Container name for the base controller is "default".
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td><a href="el_ns0_list.html">list</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>Returns a list of all the Table Statistics in a given Node.
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/statistics/default/table
+
+Response body in JSON:
+{
+"tableStatistics": [
+{
+"node": {
+"id":"00:00:00:00:00:00:00:02",
+"type":"OF"
+},
+"tableStatistic": [
+{
+"nodeTable": {
+"node":{
+"id":"00:00:00:00:00:00:00:02",
+"type":"OF"
+},
+"id":"0"
+},
+"activeCount": "11",
+"lookupCount": "816",
+"matchedCount": "220",
+"maximumEntries": "1000"
+},
+{
+...another table
+.....
+........
+}
+
+]
+}
+]
+}
+
+Response body in XML:
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;list&gt;
+&lt;tableStatistics&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;tableStatistic&gt;
+&lt;nodeTable&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;0&lt;/id&gt;
+&lt;/nodeTable&gt;
+&lt;activeCount&gt;12&lt;/activeCount&gt;
+&lt;lookupCount&gt;10935&lt;/lookupCount&gt;
+&lt;matchedCount&gt;10084&lt;/matchedCount&gt;
+&lt;maximumEntries&gt;1000&lt;/maximumEntries&gt;
+&lt;/tableStatistic&gt;
+&lt;tableStatistic&gt;
+&lt;nodeTable&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;1&lt;/id&gt;
+&lt;/nodeTable&gt;
+&lt;activeCount&gt;0&lt;/activeCount&gt;
+&lt;lookupCount&gt;0&lt;/lookupCount&gt;
+&lt;matchedCount&gt;0&lt;/matchedCount&gt;
+&lt;maximumEntries&gt;0&lt;/maximumEntries&gt;
+&lt;/tableStatistic&gt;
+&lt;tableStatistic&gt;
+&lt;nodeTable&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;2&lt;/id&gt;
+&lt;/nodeTable&gt;
+&lt;activeCount&gt;0&lt;/activeCount&gt;
+&lt;lookupCount&gt;0&lt;/lookupCount&gt;
+&lt;matchedCount&gt;0&lt;/matchedCount&gt;
+&lt;maximumEntries&gt;0&lt;/maximumEntries&gt;
+&lt;/tableStatistic&gt;
+&lt;/tableStatistics&gt;
+&lt;tableStatistics&gt;
+...
+......
+........
+&lt;/tableStatistics&gt;
+&lt;/list&gt;
+
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName is not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller Services are unavailable
+          </td>
+        </tr>
+      </table>
+      <a name="path__-containerName-_flow_node_-nodeType-_-nodeId-.html"></a>
+      <h1>/{containerName}/flow/node/{nodeType}/{nodeId}</h1>
+      <p class="note">Mount Point: <a href="../controller/nb/v2/statistics/{containerName}/flow/node/{nodeType}/{nodeId}">/controller/nb/v2/statistics/{containerName}/flow/node/{nodeType}/{nodeId}</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Returns a list of Flow Statistics for a given Node.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container. The Container name for the base controller is "default".
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeType</td>
+          <td>
+            Node Type as specifid in org.opendaylight.controller.sal.core.Node class
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeId</td>
+          <td>
+            Node Identifier
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td><a href="el_ns0_nodeFlowStatistics.html">nodeFlowStatistics</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>List of Flow Statistics for a given Node. *
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/statistics/default/flow/node/OF/00:00:00:00:00:00:00:01
+
+Response body in JSON:
+{
+"node": {
+"id":"00:00:00:00:00:00:00:01",
+"type":"OF"
+},
+"flowStatistic": [
+{
+"flow": {
+"match": {
+"matchField": [
+{
+"type": "DL_TYPE",
+"value": "2048"
+},
+{
+"mask": "255.255.255.255",
+"type": "NW_DST",
+"value": "1.1.1.2"
+}
+]
+},
+"actions": [
+{
+"@type": "setDlDst",
+"address": "52d28b0f76ec"
+},
+{
+"@type": "output",
+"port":{
+"node":{
+"id":"00:00:00:00:00:00:00:01",
+"type":"OF"
+},
+"id":"5",
+"type":"OF"
+}
+}
+],
+"priority": "1",
+"idleTimeout": "0",
+"hardTimeout": "0",
+"id": "0"
+},
+"tableId": "0",
+"durationSeconds": "2089",
+"durationNanoseconds": "538000000",
+"packetCount": "0",
+"byteCount": "0"
+}
+]
+}
+
+Response body in XML:
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;nodeFlowStatistics&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:02&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;flowStatistic&gt;
+&lt;flow&gt;
+&lt;match&gt;
+&lt;matchField&gt;
+&lt;type&gt;DL_TYPE&lt;/type&gt;
+&lt;value&gt;2048&lt;/value&gt;
+&lt;/matchField&gt;
+&lt;matchField&gt;
+&lt;mask&gt;255.255.255.255&lt;/mask&gt;
+&lt;type&gt;NW_DST&lt;/type&gt;
+&lt;value&gt;1.1.1.2&lt;/value&gt;
+&lt;/matchField&gt;
+&lt;/match&gt;
+&lt;actions
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:type=&quot;output&quot;&gt;
+&lt;port&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:02&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;3&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/port&gt;
+&lt;/actions&gt;
+&lt;priority&gt;1&lt;/priority&gt;
+&lt;idleTimeout&gt;0&lt;/idleTimeout&gt;
+&lt;hardTimeout&gt;0&lt;/hardTimeout&gt;
+&lt;id&gt;0&lt;/id&gt;
+&lt;/flow&gt;
+&lt;tableId&gt;0&lt;/tableId&gt;
+&lt;durationSeconds&gt;337&lt;/durationSeconds&gt;
+&lt;durationNanoseconds&gt;149000000&lt;/durationNanoseconds&gt;
+&lt;packetCount&gt;0&lt;/packetCount&gt;
+&lt;byteCount&gt;0&lt;/byteCount&gt;
+&lt;/flowStatistic&gt;
+&lt;flowStatistic&gt;
+&lt;flow&gt;
+&lt;match&gt;
+&lt;matchField&gt;
+&lt;type&gt;DL_TYPE&lt;/type&gt;
+&lt;value&gt;2048&lt;/value&gt;
+&lt;/matchField&gt;
+&lt;matchField&gt;
+&lt;mask&gt;255.255.255.255&lt;/mask&gt;
+&lt;type&gt;NW_DST&lt;/type&gt;
+&lt;value&gt;1.1.1.1&lt;/value&gt;
+&lt;/matchField&gt;
+&lt;/match&gt;
+&lt;actions
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:type=&quot;output&quot;&gt;
+&lt;port&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:02&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;3&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/port&gt;
+&lt;/actions&gt;
+&lt;priority&gt;1&lt;/priority&gt;
+&lt;idleTimeout&gt;0&lt;/idleTimeout&gt;
+&lt;hardTimeout&gt;0&lt;/hardTimeout&gt;
+&lt;id&gt;0&lt;/id&gt;
+&lt;/flow&gt;
+&lt;tableId&gt;0&lt;/tableId&gt;
+&lt;durationSeconds&gt;337&lt;/durationSeconds&gt;
+&lt;durationNanoseconds&gt;208000000&lt;/durationNanoseconds&gt;
+&lt;packetCount&gt;0&lt;/packetCount&gt;
+&lt;byteCount&gt;0&lt;/byteCount&gt;
+&lt;/flowStatistic&gt;
+&lt;/nodeFlowStatistics&gt;
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName is not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller Services are unavailable
+          </td>
+        </tr>
+      </table>
+      <a name="path__-containerName-_port_node_-nodeType-_-nodeId-.html"></a>
+      <h1>/{containerName}/port/node/{nodeType}/{nodeId}</h1>
+      <p class="note">Mount Point: <a href="../controller/nb/v2/statistics/{containerName}/port/node/{nodeType}/{nodeId}">/controller/nb/v2/statistics/{containerName}/port/node/{nodeType}/{nodeId}</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Returns a list of all the Port Statistics across all the NodeConnectors
+in a given Node.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container. The Container name for the base controller is "default".
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeType</td>
+          <td>
+            Node Type as specifid in org.opendaylight.controller.sal.core.Node class
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeId</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td><a href="el_ns0_nodePortStatistics.html">nodePortStatistics</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>Returns a list of all the Port Statistics across all the
+NodeConnectors in a given Node.
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/statistics/default/port/node/OF/00:00:00:00:00:00:00:01
+
+Response body in JSON:
+{
+"node": {
+"id":"00:00:00:00:00:00:00:01",
+"type":"OF"
+},
+"portStatistic": [
+{
+"nodeConnector": {
+"node":{
+"id":"00:00:00:00:00:00:00:01",
+"type":"OF"
+},
+"id":"3",
+"type":"OF"
+},
+"receivePackets": "171",
+"transmitPackets": "2451",
+"receiveBytes": "11970",
+"transmitBytes": "235186",
+"receiveDrops": "0",
+"transmitDrops": "0",
+"receiveErrors": "0",
+"transmitErrors": "0",
+"receiveFrameError": "0",
+"receiveOverRunError": "0",
+"receiveCrcError": "0",
+"collisionCount": "0"
+},
+{
+"nodeConnector": {
+"node":{
+"id":"00:00:00:00:00:00:00:01",
+"type":"OF"
+},
+"id":"2",
+"type":"OF"
+},
+"receivePackets": "179",
+"transmitPackets": "2443",
+"receiveBytes": "12530",
+"transmitBytes": "234626",
+"receiveDrops": "0",
+"transmitDrops": "0",
+"receiveErrors": "0",
+"transmitErrors": "0",
+"receiveFrameError": "0",
+"receiveOverRunError": "0",
+"receiveCrcError": "0",
+"collisionCount": "0"
+}
+]
+}
+
+Response body in XML:
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;nodePortStatistics&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;portStatistic&gt;
+&lt;nodeConnector&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;2&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/nodeConnector&gt;
+&lt;receivePackets&gt;180&lt;/receivePackets&gt;
+&lt;transmitPackets&gt;2594&lt;/transmitPackets&gt;
+&lt;receiveBytes&gt;12600&lt;/receiveBytes&gt;
+&lt;transmitBytes&gt;249396&lt;/transmitBytes&gt;
+&lt;receiveDrops&gt;0&lt;/receiveDrops&gt;
+&lt;transmitDrops&gt;0&lt;/transmitDrops&gt;
+&lt;receiveErrors&gt;0&lt;/receiveErrors&gt;
+&lt;transmitErrors&gt;0&lt;/transmitErrors&gt;
+&lt;receiveFrameError&gt;0&lt;/receiveFrameError&gt;
+&lt;receiveOverRunError&gt;0&lt;/receiveOverRunError&gt;
+&lt;receiveCrcError&gt;0&lt;/receiveCrcError&gt;
+&lt;collisionCount&gt;0&lt;/collisionCount&gt;
+&lt;/portStatistic&gt;
+&lt;portStatistic&gt;
+&lt;nodeConnector&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;5&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/nodeConnector&gt;
+&lt;receivePackets&gt;2542&lt;/receivePackets&gt;
+&lt;transmitPackets&gt;2719&lt;/transmitPackets&gt;
+&lt;receiveBytes&gt;243012&lt;/receiveBytes&gt;
+&lt;transmitBytes&gt;255374&lt;/transmitBytes&gt;
+&lt;receiveDrops&gt;0&lt;/receiveDrops&gt;
+&lt;transmitDrops&gt;0&lt;/transmitDrops&gt;
+&lt;receiveErrors&gt;0&lt;/receiveErrors&gt;
+&lt;transmitErrors&gt;0&lt;/transmitErrors&gt;
+&lt;receiveFrameError&gt;0&lt;/receiveFrameError&gt;
+&lt;receiveOverRunError&gt;0&lt;/receiveOverRunError&gt;
+&lt;receiveCrcError&gt;0&lt;/receiveCrcError&gt;
+&lt;collisionCount&gt;0&lt;/collisionCount&gt;
+&lt;/portStatistic&gt;
+&lt;/nodePortStatistics&gt;
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName is not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller Services are unavailable
+          </td>
+        </tr>
+      </table>
+      <a name="path__-containerName-_table_node_-nodeType-_-nodeId-.html"></a>
+      <h1>/{containerName}/table/node/{nodeType}/{nodeId}</h1>
+      <p class="note">Mount Point: <a href="../controller/nb/v2/statistics/{containerName}/table/node/{nodeType}/{nodeId}">/controller/nb/v2/statistics/{containerName}/table/node/{nodeType}/{nodeId}</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Returns a list of all the Table Statistics on a specific node.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container. The Container name for the base controller is "default".
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeType</td>
+          <td>
+            Node Type as specified in org.opendaylight.controller.sal.core.Node class (e.g. OF for Openflow)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeId</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td><a href="el_ns0_nodeTableStatistics.html">nodeTableStatistics</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>Returns a list of all the Table Statistics in a given Node.
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/statistics/default/table/node/OF/00:00:00:00:00:00:00:01
+
+Response body in JSON:
+{
+"node": {
+"id":"00:00:00:00:00:00:00:01",
+"type":"OF"
+},
+"tableStatistic": [
+{
+"nodeTable": {
+"node":{
+"id":"00:00:00:00:00:00:00:01",
+"type":"OF"
+},
+"id":"0"
+},
+"activeCount": "12",
+"lookupCount": "11382",
+"matchedCount": "10524",
+"maximumEntries": "1000"
+},
+{
+"nodeTable": {
+"node":{
+"id":"00:00:00:00:00:00:00:01",
+"type":"OF"
+},
+"id":"1"
+},
+"activeCount": "0",
+"lookupCount": "0",
+"matchedCount": "0",
+"maximumEntries": "0"
+}
+]
+}
+
+Response body in XML:
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;nodeTableStatistics&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;tableStatistic&gt;
+&lt;nodeTable&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;0&lt;/id&gt;
+&lt;/nodeTable&gt;
+&lt;activeCount&gt;12&lt;/activeCount&gt;
+&lt;lookupCount&gt;10935&lt;/lookupCount&gt;
+&lt;matchedCount&gt;10084&lt;/matchedCount&gt;
+&lt;maximumEntries&gt;1000&lt;/maximumEntries&gt;
+&lt;/tableStatistic&gt;
+&lt;tableStatistic&gt;
+&lt;nodeTable&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;1&lt;/id&gt;
+&lt;/nodeTable&gt;
+&lt;activeCount&gt;0&lt;/activeCount&gt;
+&lt;lookupCount&gt;0&lt;/lookupCount&gt;
+&lt;matchedCount&gt;0&lt;/matchedCount&gt;
+&lt;maximumEntries&gt;0&lt;/maximumEntries&gt;
+&lt;/tableStatistic&gt;
+&lt;tableStatistic&gt;
+&lt;nodeTable&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;2&lt;/id&gt;
+&lt;/nodeTable&gt;
+&lt;activeCount&gt;0&lt;/activeCount&gt;
+&lt;lookupCount&gt;0&lt;/lookupCount&gt;
+&lt;matchedCount&gt;0&lt;/matchedCount&gt;
+&lt;maximumEntries&gt;0&lt;/maximumEntries&gt;
+&lt;/tableStatistic&gt;
+&lt;/nodeTableStatistics&gt;
+
+</pre></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName is not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller Services are unavailable
+          </td>
+        </tr>
+      </table>
+
+      <div class="clear" />
+    </div>
+    <footer>
+      <div id="footer">
+        Generated by <a href="http://enunciate.codehaus.org">Enunciate</a>.
+      </div>
+    </footer>
+  </div> <!--! end of #container -->
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+  <script>window.jQuery || document.write("<script src='js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
+
+  <!--manage the navigation menu-->
+  <script src="js/libs/xbreadcrumbs.js"></script>
+  <script>
+    $(function() {
+      $('#breadcrumbs').xBreadcrumbs();
+    });
+  </script>
+
+
+  <!-- prettify code blocks. see http://code.google.com/p/google-code-prettify/ -->
+  <script src="js/libs/prettify/prettify.js"></script>
+  <script>
+    $(function() {
+      prettyPrint();
+    });
+  </script>
+
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg"); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
+  <![endif]-->
+
+</body>
+</html>

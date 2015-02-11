@@ -1,0 +1,13 @@
+#Tue Dec 30 22:49:39 CST 2014
+/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/java/org/opendaylight/controller/clustering/services_implementation/internal/ClusterManagerCommon.java=1405420105000
+/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/java/org/opendaylight/controller/clustering/services_implementation/internal/Activator.java=1405420105000
+/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/java/org/opendaylight/controller/clustering/services_implementation/internal/ClassResolver.java=1405420105000
+/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/java/org/opendaylight/controller/clustering/services_implementation/internal/CacheListenerContainer.java=1405420105000
+/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/java/org/infinispan/interceptors/distribution/BaseDistributionInterceptor.java=1405420105000
+/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/java/org/opendaylight/controller/clustering/services_implementation/internal/ClusterContainerManager.java=1405420105000
+/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/test/java/org/opendaylight/controller/clustering/services_implementation/internal/ClusterManagerTest.java=1405420105000
+/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/java/org/opendaylight/controller/clustering/services_implementation/internal/GetUpdatesContainer.java=1405420105000
+/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/java/org/opendaylight/controller/clustering/services_implementation/internal/ClusterGlobalManager.java=1405420105000
+/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/java/org/opendaylight/controller/clustering/services_implementation/internal/ClusterManager.java=1405420105000
+/home/localadmin/controller-stable-hydrogen/opendaylight/clustering/services_implementation/src/main/java/org/opendaylight/controller/clustering/services_implementation/internal/ClusterManagerCLI.java=1405420105000
+configuration*?=C74EAFD8C3AE4E383E29FEE620021879B13B6F1F

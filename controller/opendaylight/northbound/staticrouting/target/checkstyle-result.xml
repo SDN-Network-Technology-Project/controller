@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/staticrouting/pom.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/staticrouting/enunciate.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/staticrouting/src/main/java/org/opendaylight/controller/forwarding/staticrouting/northbound/StaticRoutingNorthbound.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/staticrouting/src/main/java/org/opendaylight/controller/forwarding/staticrouting/northbound/StaticRoute.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/staticrouting/src/main/java/org/opendaylight/controller/forwarding/staticrouting/northbound/StaticRoutes.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/staticrouting/src/main/resources/WEB-INF/web.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/staticrouting/src/test/java/org/opendaylight/controller/forwarding/staticrouting/northbound/StaticRoutingNorthboundTest.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/northbound/staticrouting/src/test/java/org/opendaylight/controller/forwarding/staticrouting/northbound/StaticRoutingNorthboundTest.java">
+</file>
+</checkstyle>

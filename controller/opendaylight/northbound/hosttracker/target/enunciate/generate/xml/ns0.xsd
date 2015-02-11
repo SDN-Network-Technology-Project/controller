@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="hostConfig" type="hostConfig"/>
+  <xs:element name="list" type="hosts"/>
+  <xs:complexType name="hostConfig">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[Configuration Java Object which represents a Host configuration information
+for HostTracker.]]>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="dataLayerAddress" type="xs:string" minOccurs="0"/>
+      <xs:element name="nodeType" type="xs:string" minOccurs="0"/>
+      <xs:element name="nodeId" type="xs:string" minOccurs="0"/>
+      <xs:element name="nodeConnectorType" type="xs:string" minOccurs="0"/>
+      <xs:element name="nodeConnectorId" type="xs:string" minOccurs="0"/>
+      <xs:element name="vlan" type="xs:string" minOccurs="0"/>
+      <xs:element name="staticHost" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="networkAddress" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hosts">
+    <xs:sequence>
+      <xs:element name="hostConfig" type="hostConfig" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wadl:application xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <wadl:doc xmlns:enunciate="http://enunciate.codehaus.org/" enunciate:generatedBy="Enunciate-1.26.1"/>
+  <wadl:grammars>
+    <wadl:include href="ns0.xsd"/>
+  </wadl:grammars>
+  <wadl:resources base="http://localhost:8080/full">
+    <wadl:resource path="/controller/nb/v2/connectionmanager/nodes">
+      <wadl:method name="GET">
+        <wadl:doc>
+          <![CDATA[Retrieve a list of all the nodes connected to a given controller in the cluster.]]>
+        </wadl:doc>
+        <wadl:request>
+          <wadl:param name="controller" style="query">
+            <wadl:doc>
+              <![CDATA[Optional parameter to retrieve the nodes connected to another controller in the cluster]]>
+            </wadl:doc>
+          </wadl:param>
+        </wadl:request>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[A list of Nodes org.opendaylight.controller.sal.core.Node
+
+<pre>
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/connectionmanager/nodes?controller=1.1.1.1
+
+Response body in XML:
+&lt;list&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:52&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:3e&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;/list&gt;
+
+Response body in JSON:
+{
+"node": [
+{
+"type": "OF",
+"id": "00:00:00:00:00:00:00:52"
+},
+{
+"type": "OF",
+"id": "00:00:00:00:00:00:00:3e"
+}
+]
+}
+</pre>]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="list"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/connectionmanager/node/{nodeType}/{nodeId}">
+      <wadl:param name="nodeType" style="template">
+        <wadl:doc>
+          <![CDATA[Type of the Node]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="nodeId" style="template">
+        <wadl:doc>
+          <![CDATA[Connection's NodeId.]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:method name="DELETE">
+        <wadl:doc>
+          <![CDATA[Disconnect an existing Connection.
+<pre>
+
+Example :
+
+Request :
+DELETE http://localhost:8080/controller/nb/v2/connectionmanager/node/STUB/mgmt1
+
+</pre>]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:representation mediaType="application/xml"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/connectionmanager/node/{nodeId}/address/{ipAddress}/port/{port}">
+      <wadl:param name="nodeId" style="template">
+        <wadl:doc>
+          <![CDATA[User-Defined name of the node to connect with. This can be any alpha numeric value]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="ipAddress" style="template">
+        <wadl:doc>
+          <![CDATA[IP Address of the Node to connect with.]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="port" style="template">
+        <wadl:doc>
+          <![CDATA[Layer4 Port of the management session to connect with.]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:method name="PUT">
+        <wadl:doc>
+          <![CDATA[If a Network Configuration Service needs a Management Connection and if the
+Node Type is unknown, use this REST api to connect to the management session.
+<pre>
+
+Example :
+
+Request :
+PUT http://localhost:8080/controller/nb/v2/connectionmanager/node/mgmt1/address/1.1.1.1/port/6634
+
+Response :
+Node :
+xml :
+&lt;node&gt;
+&lt;id&gt;mgmt1&lt;/id&gt;
+&lt;type&gt;STUB&lt;/type&gt;
+&lt;/node&gt;
+
+json:
+{"id": "mgmt1","type": "STUB"}
+
+</pre>]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[Node If the connection is successful, HTTP 404 otherwise.]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="node"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+    <wadl:resource path="/controller/nb/v2/connectionmanager/node/{nodeType}/{nodeId}/address/{ipAddress}/port/{port}">
+      <wadl:param name="nodeType" style="template">
+        <wadl:doc>
+          <![CDATA[Type of the Node the connection is made for.]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="nodeId" style="template">
+        <wadl:doc>
+          <![CDATA[User-Defined name of the node to connect with. This can be any alpha numeric value]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="ipAddress" style="template">
+        <wadl:doc>
+          <![CDATA[IP Address of the Node to connect with.]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:param name="port" style="template">
+        <wadl:doc>
+          <![CDATA[Layer4 Port of the management session to connect with.]]>
+        </wadl:doc>
+      </wadl:param>
+      <wadl:method name="PUT">
+        <wadl:doc>
+          <![CDATA[If a Network Configuration Service needs a Management Connection, and if the
+node Type is known, the user can choose to use this REST api to connect to the management session.
+<pre>
+
+Example :
+
+Request :
+PUT http://localhost:8080/controller/nb/v2/connectionmanager/node/STUB/mgmt1/address/1.1.1.1/port/6634
+
+Response : Node :
+xml :
+&lt;node&gt;
+&lt;id&gt;mgmt1&lt;/id&gt;
+&lt;type&gt;STUB&lt;/type&gt;
+&lt;/node&gt;
+
+json:
+{"id": "mgmt1","type": "STUB"}
+
+</pre>]]>
+        </wadl:doc>
+        <wadl:request/>
+        <wadl:response>
+          <wadl:doc>
+            <![CDATA[Node If the connection is successful, HTTP 404 otherwise.]]>
+          </wadl:doc>
+          <wadl:representation mediaType="application/xml" element="node"/>
+          <wadl:representation mediaType="application/json"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+  </wadl:resources>
+</wadl:application>

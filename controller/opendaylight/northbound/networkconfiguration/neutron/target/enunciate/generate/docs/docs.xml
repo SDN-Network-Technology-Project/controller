@@ -1,0 +1,1625 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api-docs title="OpenStack Neutron REST API">
+  <data>
+    <schema namespace="" namespaceId="ns0" file="ns0.xsd">
+      <types>
+        <type name="configurationObject" id="org.opendaylight.controller.configuration.ConfigurationObject" package="org.opendaylight.controller.configuration">
+          <groups>
+            <group>ConfigurationObject</group>
+          </groups>
+        </type>
+        <type name="neutronFloatingIP" id="org.opendaylight.controller.networkconfig.neutron.NeutronFloatingIP" package="org.opendaylight.controller.networkconfig.neutron" extendsType="org.opendaylight.controller.configuration.ConfigurationObject">
+          <groups>
+            <group>NeutronFloatingIP</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="floating_ip_address">
+              <choice name="floating_ip_address" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="port_id">
+              <choice name="port_id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="tenant_id">
+              <choice name="tenant_id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="floating_network_id">
+              <choice name="floating_network_id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="id">
+              <choice name="id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="fixed_ip_address">
+              <choice name="fixed_ip_address" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+        <type name="neutronNetwork" id="org.opendaylight.controller.networkconfig.neutron.NeutronNetwork" package="org.opendaylight.controller.networkconfig.neutron" extendsType="org.opendaylight.controller.configuration.ConfigurationObject">
+          <groups>
+            <group>NeutronNetwork</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="segmentation_id">
+              <choice name="segmentation_id" namespace="provider"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="tenant_id">
+              <choice name="tenant_id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="name">
+              <choice name="name" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="external">
+              <choice name="external" namespace="router"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="network_type">
+              <choice name="network_type" namespace="provider"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="shared">
+              <choice name="shared" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="boolean"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="physical_network">
+              <choice name="physical_network" namespace="provider"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="status">
+              <choice name="status" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="id">
+              <choice name="id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="admin_state_up">
+              <choice name="admin_state_up" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="boolean"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="subnets">
+              <choice name="subnets" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+        <type name="neutronPort" id="org.opendaylight.controller.networkconfig.neutron.NeutronPort" package="org.opendaylight.controller.networkconfig.neutron" extendsType="org.opendaylight.controller.configuration.ConfigurationObject">
+          <groups>
+            <group>NeutronPort</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="tenant_id">
+              <choice name="tenant_id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="mac_address">
+              <choice name="mac_address" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="admin_state_up">
+              <choice name="admin_state_up" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="boolean"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="device_owner">
+              <choice name="device_owner" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="status">
+              <choice name="status" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="id">
+              <choice name="id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="device_id">
+              <choice name="device_id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="network_id">
+              <choice name="network_id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="name">
+              <choice name="name" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="fixed_ips">
+              <choice name="fixed_ips" namespace="" typeNamespace="" typeName="neutron_IPs" typeSchemaId="ns0"/>
+            </element>
+          </elements>
+        </type>
+        <type name="neutronRouter" id="org.opendaylight.controller.networkconfig.neutron.NeutronRouter" package="org.opendaylight.controller.networkconfig.neutron" extendsType="org.opendaylight.controller.configuration.ConfigurationObject">
+          <groups>
+            <group>NeutronRouter</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="tenant_id">
+              <choice name="tenant_id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="external_gateway_info">
+              <choice name="external_gateway_info" namespace="" typeNamespace="" typeName="neutronRouter_NetworkReference" typeSchemaId="ns0"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="admin_state_up">
+              <choice name="admin_state_up" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="boolean"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="status">
+              <choice name="status" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="id">
+              <choice name="id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="name">
+              <choice name="name" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+        <type name="neutronRouter_Interface" id="org.opendaylight.controller.networkconfig.neutron.NeutronRouter_Interface" package="org.opendaylight.controller.networkconfig.neutron">
+          <groups>
+            <group>NeutronRouter_Interface</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="id">
+              <choice name="id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="tenant_id">
+              <choice name="tenant_id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="port_id">
+              <choice name="port_id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="subnet_id">
+              <choice name="subnet_id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+        <type name="neutronRouter_NetworkReference" id="org.opendaylight.controller.networkconfig.neutron.NeutronRouter_NetworkReference" package="org.opendaylight.controller.networkconfig.neutron">
+          <groups>
+            <group>NeutronRouter_NetworkReference</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="network_id">
+              <choice name="network_id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+        <type name="neutronSubnet" id="org.opendaylight.controller.networkconfig.neutron.NeutronSubnet" package="org.opendaylight.controller.networkconfig.neutron" extendsType="org.opendaylight.controller.configuration.ConfigurationObject">
+          <groups>
+            <group>NeutronSubnet</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="ip_version">
+              <choice name="ip_version" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="int"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="gateway_ip">
+              <choice name="gateway_ip" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="cidr">
+              <choice name="cidr" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="ipv6_address_mode">
+              <choice name="ipv6_address_mode" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="network_id">
+              <choice name="network_id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="id">
+              <choice name="id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="tenant_id">
+              <choice name="tenant_id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="dns_nameservers">
+              <choice name="dns_nameservers" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="name">
+              <choice name="name" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="ipv6_ra_mode">
+              <choice name="ipv6_ra_mode" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="host_routes">
+              <choice name="host_routes" namespace="" typeNamespace="" typeName="neutronSubnet_HostRoute" typeSchemaId="ns0"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="allocation_pools">
+              <choice name="allocation_pools" namespace="" typeNamespace="" typeName="neutronSubnet_IPAllocationPool" typeSchemaId="ns0"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="enable_dhcp">
+              <choice name="enable_dhcp" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="boolean"/>
+            </element>
+          </elements>
+        </type>
+        <type name="neutronSubnet_HostRoute" id="org.opendaylight.controller.networkconfig.neutron.NeutronSubnet_HostRoute" package="org.opendaylight.controller.networkconfig.neutron">
+          <groups>
+            <group>NeutronSubnet_HostRoute</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="nexthop">
+              <choice name="nexthop" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="destination">
+              <choice name="destination" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+        <type name="neutronSubnet_IPAllocationPool" id="org.opendaylight.controller.networkconfig.neutron.NeutronSubnet_IPAllocationPool" package="org.opendaylight.controller.networkconfig.neutron">
+          <groups>
+            <group>NeutronSubnet_IPAllocationPool</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="start">
+              <choice name="start" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="end">
+              <choice name="end" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+        <type name="neutron_IPs" id="org.opendaylight.controller.networkconfig.neutron.Neutron_IPs" package="org.opendaylight.controller.networkconfig.neutron" extendsType="org.opendaylight.controller.configuration.ConfigurationObject">
+          <groups>
+            <group>Neutron_IPs</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="subnet_id">
+              <choice name="subnet_id" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="ip_address">
+              <choice name="ip_address" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+        <type name="neutronFloatingIPRequest" id="org.opendaylight.controller.networkconfig.neutron.northbound.NeutronFloatingIPRequest" package="org.opendaylight.controller.networkconfig.neutron.northbound">
+          <groups>
+            <group>NeutronFloatingIPRequest</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="floatingip">
+              <choice name="floatingip" namespace="" typeNamespace="" typeName="neutronFloatingIP" typeSchemaId="ns0"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="floatingips">
+              <choice name="floatingips" namespace="" typeNamespace="" typeName="neutronFloatingIP" typeSchemaId="ns0"/>
+            </element>
+          </elements>
+        </type>
+        <type name="neutronNetworkRequest" id="org.opendaylight.controller.networkconfig.neutron.northbound.NeutronNetworkRequest" package="org.opendaylight.controller.networkconfig.neutron.northbound">
+          <groups>
+            <group>NeutronNetworkRequest</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="network">
+              <choice name="network" namespace="" typeNamespace="" typeName="neutronNetwork" typeSchemaId="ns0"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="networks">
+              <choice name="networks" namespace="" typeNamespace="" typeName="neutronNetwork" typeSchemaId="ns0"/>
+            </element>
+          </elements>
+        </type>
+        <type name="neutronPortRequest" id="org.opendaylight.controller.networkconfig.neutron.northbound.NeutronPortRequest" package="org.opendaylight.controller.networkconfig.neutron.northbound">
+          <groups>
+            <group>NeutronPortRequest</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="port">
+              <choice name="port" namespace="" typeNamespace="" typeName="neutronPort" typeSchemaId="ns0"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="ports">
+              <choice name="ports" namespace="" typeNamespace="" typeName="neutronPort" typeSchemaId="ns0"/>
+            </element>
+          </elements>
+        </type>
+        <type name="neutronRouterRequest" id="org.opendaylight.controller.networkconfig.neutron.northbound.NeutronRouterRequest" package="org.opendaylight.controller.networkconfig.neutron.northbound">
+          <groups>
+            <group>NeutronRouterRequest</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="router">
+              <choice name="router" namespace="" typeNamespace="" typeName="neutronRouter" typeSchemaId="ns0"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="routers">
+              <choice name="routers" namespace="" typeNamespace="" typeName="neutronRouter" typeSchemaId="ns0"/>
+            </element>
+          </elements>
+        </type>
+        <type name="neutronSubnetRequest" id="org.opendaylight.controller.networkconfig.neutron.northbound.NeutronSubnetRequest" package="org.opendaylight.controller.networkconfig.neutron.northbound">
+          <groups>
+            <group>NeutronSubnetRequest</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="subnet">
+              <choice name="subnet" namespace="" typeNamespace="" typeName="neutronSubnet" typeSchemaId="ns0"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="subnets">
+              <choice name="subnets" namespace="" typeNamespace="" typeName="neutronSubnet" typeSchemaId="ns0"/>
+            </element>
+          </elements>
+        </type>
+      </types>
+      <elements>
+        <element name="neutronFloatingIP" type="org.opendaylight.controller.networkconfig.neutron.NeutronFloatingIP" typeName="neutronFloatingIP" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>NeutronFloatingIP</group>
+          </groups>
+        </element>
+        <element name="network" type="org.opendaylight.controller.networkconfig.neutron.NeutronNetwork" typeName="neutronNetwork" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>NeutronNetwork</group>
+          </groups>
+        </element>
+        <element name="neutronPort" type="org.opendaylight.controller.networkconfig.neutron.NeutronPort" typeName="neutronPort" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>NeutronPort</group>
+          </groups>
+        </element>
+        <element name="neutronRouter" type="org.opendaylight.controller.networkconfig.neutron.NeutronRouter" typeName="neutronRouter" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>NeutronRouter</group>
+          </groups>
+        </element>
+        <element name="neutronRouter_Interface" type="org.opendaylight.controller.networkconfig.neutron.NeutronRouter_Interface" typeName="neutronRouter_Interface" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>NeutronRouter_Interface</group>
+          </groups>
+        </element>
+        <element name="neutronRouter_NetworkReference" type="org.opendaylight.controller.networkconfig.neutron.NeutronRouter_NetworkReference" typeName="neutronRouter_NetworkReference" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>NeutronRouter_NetworkReference</group>
+          </groups>
+        </element>
+        <element name="neutronSubnet" type="org.opendaylight.controller.networkconfig.neutron.NeutronSubnet" typeName="neutronSubnet" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>NeutronSubnet</group>
+          </groups>
+        </element>
+        <element name="neutronSubnet_HostRoute" type="org.opendaylight.controller.networkconfig.neutron.NeutronSubnet_HostRoute" typeName="neutronSubnet_HostRoute" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>NeutronSubnet_HostRoute</group>
+          </groups>
+        </element>
+        <element name="neutronSubnet_IPAllocationPool" type="org.opendaylight.controller.networkconfig.neutron.NeutronSubnet_IPAllocationPool" typeName="neutronSubnet_IPAllocationPool" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>NeutronSubnet_IPAllocationPool</group>
+          </groups>
+        </element>
+        <element name="neutron_IPs" type="org.opendaylight.controller.networkconfig.neutron.Neutron_IPs" typeName="neutron_IPs" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>Neutron_IPs</group>
+          </groups>
+        </element>
+        <element name="neutronFloatingIPRequest" type="org.opendaylight.controller.networkconfig.neutron.northbound.NeutronFloatingIPRequest" typeName="neutronFloatingIPRequest" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>NeutronFloatingIPRequest</group>
+          </groups>
+        </element>
+        <element name="neutronNetworkRequest" type="org.opendaylight.controller.networkconfig.neutron.northbound.NeutronNetworkRequest" typeName="neutronNetworkRequest" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>NeutronNetworkRequest</group>
+          </groups>
+        </element>
+        <element name="neutronPortRequest" type="org.opendaylight.controller.networkconfig.neutron.northbound.NeutronPortRequest" typeName="neutronPortRequest" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>NeutronPortRequest</group>
+          </groups>
+        </element>
+        <element name="neutronRouterRequest" type="org.opendaylight.controller.networkconfig.neutron.northbound.NeutronRouterRequest" typeName="neutronRouterRequest" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>NeutronRouterRequest</group>
+          </groups>
+        </element>
+        <element name="neutronSubnetRequest" type="org.opendaylight.controller.networkconfig.neutron.northbound.NeutronSubnetRequest" typeName="neutronSubnetRequest" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>NeutronSubnetRequest</group>
+          </groups>
+        </element>
+      </elements>
+      <groups>
+        <group>
+          <name>ConfigurationObject</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>NeutronFloatingIP</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>NeutronFloatingIPRequest</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>NeutronNetwork</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>NeutronNetworkRequest</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>NeutronPort</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>NeutronPortRequest</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>NeutronRouter</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>NeutronRouterRequest</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>NeutronRouter_Interface</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>NeutronRouter_NetworkReference</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>NeutronSubnet</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>NeutronSubnetRequest</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>NeutronSubnet_HostRoute</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>NeutronSubnet_IPAllocationPool</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>Neutron_IPs</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+      </groups>
+    </schema>
+  </data>
+  <soap>
+    <wsdls>
+    </wsdls>
+  </soap>
+  <rest baseAddress="http://localhost:8080/full" wadl="application.wadl">
+    <resources>
+      <resource name="/floatingips" subcontext="/controller/nb/v2/neutron">
+        <groups>
+          <group>NeutronFloatingIPsNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Returns a list of all FloatingIPs]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="false"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="fields" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="id" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="floating_network_id" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="port_id" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="fixed_ip_address" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="floating_ip_address" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="tenant_id" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="limit" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="marker" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="page_reverse" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+        <operation name="POST">
+          <documentation>
+            <![CDATA[Creates new FloatingIPs]]>
+          </documentation>
+          <contentType type="application/json" consumable="true" produceable="true"/>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="neutronFloatingIPRequest" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="201">
+            <![CDATA[Created]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Bad Request]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Conflict]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/networks" subcontext="/controller/nb/v2/neutron">
+        <groups>
+          <group>NeutronNetworksNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Returns a list of all Networks]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="false"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="fields" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="id" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="name" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="admin_state_up" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="status" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="shared" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="tenant_id" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="router_external" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="provider_network_type" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="provider_physical_network" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="provider_segmentation_id" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="limit" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="marker" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="page_reverse" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+        </operation>
+        <operation name="POST">
+          <documentation>
+            <![CDATA[Creates new Networks]]>
+          </documentation>
+          <contentType type="application/json" consumable="true" produceable="true"/>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="neutronNetworkRequest" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="network" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="201">
+            <![CDATA[Created]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Bad Request]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/ports" subcontext="/controller/nb/v2/neutron">
+        <groups>
+          <group>NeutronPortsNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Returns a list of all Ports]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="false"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="fields" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="id" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="network_id" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="name" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="admin_state_up" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="status" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="mac_address" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="device_id" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="device_owner" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="tenant_id" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="limit" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="marker" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="page_reverse" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+        <operation name="POST">
+          <documentation>
+            <![CDATA[Creates new Ports]]>
+          </documentation>
+          <contentType type="application/json" consumable="true" produceable="true"/>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="neutronPortRequest" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="201">
+            <![CDATA[Created]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Bad Request]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="403">
+            <![CDATA[Forbidden]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Not Found]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Conflict]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[MAC generation failure]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/routers" subcontext="/controller/nb/v2/neutron">
+        <groups>
+          <group>NeutronRoutersNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Returns a list of all Routers]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="false"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="fields" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="id" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="name" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="admin_state_up" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="status" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="tenant_id" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="external_gateway_info" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="limit" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="marker" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="page_reverse" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+        <operation name="POST">
+          <documentation>
+            <![CDATA[Creates new Routers]]>
+          </documentation>
+          <contentType type="application/json" consumable="true" produceable="true"/>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="neutronRouterRequest" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="201">
+            <![CDATA[Created]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Bad Request]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/subnets" subcontext="/controller/nb/v2/neutron">
+        <groups>
+          <group>NeutronSubnetsNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Returns a list of all Subnets]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="false"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="fields" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="id" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="network_id" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="name" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="ip_version" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="cidr" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="gateway_ip" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="enable_dhcp" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="tenant_id" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="ipv6_address_mode" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="ipv6_ra_mode" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="limit" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="marker" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="page_reverse" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+        <operation name="POST">
+          <documentation>
+            <![CDATA[Creates new Subnets]]>
+          </documentation>
+          <contentType type="application/json" consumable="true" produceable="true"/>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="neutronSubnetRequest" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="201">
+            <![CDATA[Created]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Bad Request]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="403">
+            <![CDATA[Forbidden]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Not Found]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Conflict]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/floatingips/{floatingipUUID}" subcontext="/controller/nb/v2/neutron">
+        <groups>
+          <group>NeutronFloatingIPsNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Returns a specific FloatingIP]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="false"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="floatingipUUID" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="fields" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Not Found]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+        <operation name="PUT">
+          <documentation>
+            <![CDATA[Updates a FloatingIP]]>
+          </documentation>
+          <contentType type="application/json" consumable="true" produceable="true"/>
+          <parameter name="floatingipUUID" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="neutronFloatingIPRequest" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Bad Request]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Not Found]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Conflict]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+        <operation name="DELETE">
+          <documentation>
+            <![CDATA[Deletes a FloatingIP]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <parameter name="floatingipUUID" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="204">
+            <![CDATA[No Content]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Not Found]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/networks/{netUUID}" subcontext="/controller/nb/v2/neutron">
+        <groups>
+          <group>NeutronNetworksNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Returns a specific Network]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="false"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="netUUID" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="fields" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Not Found]]>
+          </statusCode>
+        </operation>
+        <operation name="PUT">
+          <documentation>
+            <![CDATA[Updates a Network]]>
+          </documentation>
+          <contentType type="application/json" consumable="true" produceable="true"/>
+          <parameter name="netUUID" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="neutronNetworkRequest" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Bad Request]]>
+          </statusCode>
+          <statusCode code="403">
+            <![CDATA[Forbidden]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Not Found]]>
+          </statusCode>
+        </operation>
+        <operation name="DELETE">
+          <documentation>
+            <![CDATA[Deletes a Network]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <parameter name="netUUID" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="204">
+            <![CDATA[No Content]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Not Found]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Network In Use]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/ports/{portUUID}" subcontext="/controller/nb/v2/neutron">
+        <groups>
+          <group>NeutronPortsNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Returns a specific Port]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="false"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="portUUID" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="fields" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Not Found]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+        <operation name="PUT">
+          <documentation>
+            <![CDATA[Updates a Port]]>
+          </documentation>
+          <contentType type="application/json" consumable="true" produceable="true"/>
+          <parameter name="portUUID" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="neutronPortRequest" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Bad Request]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="403">
+            <![CDATA[Forbidden]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Not Found]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Conflict]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+        <operation name="DELETE">
+          <documentation>
+            <![CDATA[Deletes a Port]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <parameter name="portUUID" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="204">
+            <![CDATA[No Content]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="403">
+            <![CDATA[Forbidden]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Not Found]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/routers/{routerUUID}" subcontext="/controller/nb/v2/neutron">
+        <groups>
+          <group>NeutronRoutersNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Returns a specific Router]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="false"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="routerUUID" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="fields" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="403">
+            <![CDATA[Forbidden]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Not Found]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+        <operation name="PUT">
+          <documentation>
+            <![CDATA[Updates a Router]]>
+          </documentation>
+          <contentType type="application/json" consumable="true" produceable="true"/>
+          <parameter name="routerUUID" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="neutronRouterRequest" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Bad Request]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Not Found]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+        <operation name="DELETE">
+          <documentation>
+            <![CDATA[Deletes a Router]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <parameter name="routerUUID" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="204">
+            <![CDATA[No Content]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Not Found]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Conflict]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/subnets/{subnetUUID}" subcontext="/controller/nb/v2/neutron">
+        <groups>
+          <group>NeutronSubnetsNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Returns a specific Subnet]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="false"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="subnetUUID" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="fields" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Not Found]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+        <operation name="PUT">
+          <documentation>
+            <![CDATA[Updates a Subnet]]>
+          </documentation>
+          <contentType type="application/json" consumable="true" produceable="true"/>
+          <parameter name="subnetUUID" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="neutronSubnetRequest" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Bad Request]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="403">
+            <![CDATA[Forbidden]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Not Found]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+        <operation name="DELETE">
+          <documentation>
+            <![CDATA[Deletes a Subnet]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <parameter name="subnetUUID" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="204">
+            <![CDATA[No Content]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Not Found]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Conflict]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/routers/{routerUUID}/add_router_interface" subcontext="/controller/nb/v2/neutron">
+        <groups>
+          <group>NeutronRoutersNorthbound</group>
+        </groups>
+        <operation name="PUT">
+          <documentation>
+            <![CDATA[Adds an interface to a router]]>
+          </documentation>
+          <contentType type="application/json" consumable="true" produceable="true"/>
+          <parameter name="routerUUID" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="neutronRouter_Interface" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Bad Request]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Not Found]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Conflict]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/routers/{routerUUID}/remove_router_interface" subcontext="/controller/nb/v2/neutron">
+        <groups>
+          <group>NeutronRoutersNorthbound</group>
+        </groups>
+        <operation name="PUT">
+          <documentation>
+            <![CDATA[Removes an interface to a router]]>
+          </documentation>
+          <contentType type="application/json" consumable="true" produceable="true"/>
+          <parameter name="routerUUID" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="neutronRouter_Interface" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Bad Request]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[Unauthorized]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Not Found]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Conflict]]>
+          </statusCode>
+          <statusCode code="501">
+            <![CDATA[Not Implemented]]>
+          </statusCode>
+        </operation>
+      </resource>
+    </resources>
+    <groups>
+      <group>
+        <name>NeutronFloatingIPsNorthbound</name>
+        <documentation><![CDATA[Neutron Northbound REST APIs.<br>
+This class provides REST APIs for managing Neutron Floating IPs
+
+<br>
+<br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b>HTTP and HTTPS</b><br>
+<br>
+HTTPS Authentication is disabled by default. Administrator can enable it in
+tomcat-server.xml after adding a proper keystore / SSL certificate from a
+trusted authority.<br>
+More info :
+http://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Configuration]]></documentation>
+      </group>
+      <group>
+        <name>NeutronNetworksNorthbound</name>
+        <documentation><![CDATA[Neutron Northbound REST APIs for Network.<br>
+This class provides REST APIs for managing neutron Networks
+
+<br>
+<br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b>HTTP and HTTPS</b><br>
+<br>
+HTTPS Authentication is disabled by default. Administrator can enable it in
+tomcat-server.xml after adding a proper keystore / SSL certificate from a
+trusted authority.<br>
+More info :
+http://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Configuration]]></documentation>
+      </group>
+      <group>
+        <name>NeutronPortsNorthbound</name>
+        <documentation><![CDATA[Neutron Northbound REST APIs.<br>
+This class provides REST APIs for managing neutron port objects
+
+<br>
+<br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b>HTTP and HTTPS</b><br>
+<br>
+HTTPS Authentication is disabled by default. Administrator can enable it in
+tomcat-server.xml after adding a proper keystore / SSL certificate from a
+trusted authority.<br>
+More info :
+http://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Configuration]]></documentation>
+      </group>
+      <group>
+        <name>NeutronRoutersNorthbound</name>
+        <documentation><![CDATA[Neutron Northbound REST APIs.<br>
+This class provides REST APIs for managing neutron routers
+
+<br>
+<br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b>HTTP and HTTPS</b><br>
+<br>
+HTTPS Authentication is disabled by default. Administrator can enable it in
+tomcat-server.xml after adding a proper keystore / SSL certificate from a
+trusted authority.<br>
+More info :
+http://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Configuration]]></documentation>
+      </group>
+      <group>
+        <name>NeutronSubnetsNorthbound</name>
+        <documentation><![CDATA[Neutron Northbound REST APIs for Subnets.<br>
+This class provides REST APIs for managing neutron Subnets
+
+<br>
+<br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b>HTTP and HTTPS</b><br>
+<br>
+HTTPS Authentication is disabled by default. Administrator can enable it in
+tomcat-server.xml after adding a proper keystore / SSL certificate from a
+trusted authority.<br>
+More info :
+http://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Configuration]]></documentation>
+      </group>
+    </groups>
+  </rest>
+  <packages>
+    <package id="org.opendaylight.controller.networkconfig.neutron.northbound">
+    </package>
+  </packages>
+</api-docs>

@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api-docs title="Subnet Service REST API">
+  <data>
+    <schema namespace="" namespaceId="ns0" file="ns0.xsd">
+      <types>
+        <type name="configurationObject" id="org.opendaylight.controller.configuration.ConfigurationObject" package="org.opendaylight.controller.configuration">
+          <groups>
+            <group>ConfigurationObject</group>
+          </groups>
+        </type>
+        <type name="subnetConfigs" id="org.opendaylight.controller.subnets.northbound.SubnetConfigs" package="org.opendaylight.controller.subnets.northbound">
+          <groups>
+            <group>SubnetConfigs</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="subnetConfig">
+              <choice name="subnetConfig" namespace="" typeNamespace="" typeName="subnetConfig" typeSchemaId="ns0"/>
+            </element>
+          </elements>
+        </type>
+        <type name="subnetConfig" id="org.opendaylight.controller.switchmanager.SubnetConfig" package="org.opendaylight.controller.switchmanager" extendsType="org.opendaylight.controller.configuration.ConfigurationObject">
+          <groups>
+            <group>SubnetConfig</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="subnet">
+              <choice name="subnet" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="name">
+              <choice name="name" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="nodeConnectors">
+              <choice name="nodeConnectors" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+      </types>
+      <elements>
+        <element name="list" type="org.opendaylight.controller.subnets.northbound.SubnetConfigs" typeName="subnetConfigs" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>SubnetConfigs</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<list>
+  <subnetConfig>
+    <subnet>...</subnet>
+    <name>...</name>
+    <nodeConnectors>...</nodeConnectors>
+    <nodeConnectors>...</nodeConnectors>
+    <!--...more "nodeConnectors" elements...-->
+  </subnetConfig>
+  <subnetConfig>
+    <!--...-->
+  </subnetConfig>
+  <!--...more "subnetConfig" elements...-->
+</list>]]></examplexml>
+        </element>
+        <element name="subnetConfig" type="org.opendaylight.controller.switchmanager.SubnetConfig" typeName="subnetConfig" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>SubnetConfig</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<subnetConfig>
+  <subnet>...</subnet>
+  <name>...</name>
+  <nodeConnectors>...</nodeConnectors>
+  <nodeConnectors>...</nodeConnectors>
+  <!--...more "nodeConnectors" elements...-->
+</subnetConfig>]]></examplexml>
+        </element>
+      </elements>
+      <groups>
+        <group>
+          <name>ConfigurationObject</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>SubnetConfig</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>SubnetConfigs</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+      </groups>
+    </schema>
+  </data>
+  <soap>
+    <wsdls>
+    </wsdls>
+  </soap>
+  <rest baseAddress="http://localhost:8080/full" wadl="application.wadl">
+    <resources>
+      <resource name="/{containerName}/subnets" subcontext="/controller/nb/v2/subnetservice">
+        <groups>
+          <group>SubnetsNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[List all the subnets in a given container]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[container in which we want to query the subnets]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="list" />
+            
+            <documentation><![CDATA[a List of SubnetConfig
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/subnetservice/default/subnets
+
+Response body in XML:
+&lt;list&gt;
+&lt;subnetConfig&gt;
+&lt;name&gt;marketingdepartment&lt;/name&gt;
+&lt;subnet&gt;30.31.54.254/24&lt;/subnet&gt;
+&lt;/subnetConfig&gt;
+&lt;subnetConfig&gt;
+&lt;name&gt;salesdepartment&lt;/name&gt;
+&lt;subnet&gt;20.18.1.254/16&lt;/subnet&gt;
+&lt;nodeConnectors&gt;OF|11@OF|00:00:00:aa:bb:cc:dd:ee&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|13@OF|00:00:00:aa:bb:cc:dd:ee&lt;/nodeConnectors&gt;
+&lt;/subnetConfig&gt;
+&lt;/list&gt;
+Response body in JSON:
+{
+"subnetConfig": [
+{
+"name": "marketingdepartment",
+"subnet": "30.31.54.254/24",
+"nodeConnectors": [
+"OF|04@OF|00:00:00:00:00:00:00:04",
+"OF|07@OF|00:00:00:00:00:00:00:07"
+]
+},
+{
+"name":"salesdepartment",
+"subnet":"20.18.1.254/16",
+"nodeConnectors": [
+"OF|11@OF|00:00:00:aa:bb:cc:dd:ee",
+"OF|13@OF|00:00:00:aa:bb:cc:dd:ee"
+]
+}
+]
+}
+
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName passed was not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Service unavailable]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/{containerName}/subnet/{subnetName}" subcontext="/controller/nb/v2/subnetservice">
+        <groups>
+          <group>SubnetsNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[List the configuration of a subnet in a given container]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[container in which we want to query the subnet]]>
+          </parameter>
+          <parameter name="subnetName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[of the subnet being queried]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="subnetConfig" />
+            
+            <documentation><![CDATA[SubnetConfig
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/subnetservice/default/subnet/marketingdepartment
+
+Response body in XML:
+&lt;subnetConfig&gt;
+&lt;name&gt;marketingdepartment&lt;/name&gt;
+&lt;subnet&gt;30.0.0.1/24&lt;/subnet&gt;
+&lt;nodeConnectors&gt;OF|1@OF|00:00:00:00:00:00:00:01&lt;/nodePorts&gt;
+&lt;nodeConnectors&gt;OF|3@OF|00:00:00:00:00:00:00:03&lt;/nodePorts&gt;
+&lt;/subnetConfig&gt;
+
+Response body in JSON:
+{
+"name":"marketingdepartment",
+"subnet":"30.0.0.1/24",
+"nodeConnectors":[
+"OF|1@OF|00:00:00:00:00:00:00:01",
+"OF|3@OF|00:00:00:00:00:00:00:03"
+]
+}
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName or subnetName passed was not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Service unavailable]]>
+          </statusCode>
+        </operation>
+        <operation name="PUT">
+          <documentation>
+            <![CDATA[Add a subnet into the specified container context, node connectors are
+optional]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[name of the container context in which the subnet needs to be added]]>
+          </parameter>
+          <parameter name="subnetName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[name of new subnet to be added]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="subnetConfig" />
+            
+            <documentation><![CDATA[the SubnetConfig structure in request body]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[Response as dictated by the HTTP Response Status code
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/subnetservice/default/subnet/salesdepartment
+
+Request body in XML:
+&lt;subnetConfig&gt;
+&lt;name&gt;salesdepartment&lt;/name&gt;
+&lt;subnet&gt;172.173.174.254/24&lt;/subnet&gt;
+&lt;nodeConnectors&gt;OF|22@OF|00:00:11:22:33:44:55:66&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|39@OF|00:00:ab:cd:33:44:55:66&lt;/nodeConnectors&gt;
+&lt;/subnetConfig&gt;
+
+Request body in JSON:
+{
+"name":"salesdepartment",
+"subnet":"172.173.174.254/24",
+"nodeConnectors":[
+"OF|22@OF|00:00:11:22:33:44:55:66",
+"OF|39@OF|00:00:ab:cd:33:44:55:66"
+]
+}
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="201">
+            <![CDATA[Subnet created successfully]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Invalid data passed]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Subnet name in url conflicts with name in request body]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[Container name passed was not found or subnet config is null]]>
+          </statusCode>
+          <statusCode code="500">
+            <![CDATA[Internal Server Error: Addition of subnet failed]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Service unavailable]]>
+          </statusCode>
+        </operation>
+        <operation name="DELETE">
+          <documentation>
+            <![CDATA[Delete a subnet from the specified container context]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[name of the container in which subnet needs to be removed]]>
+          </parameter>
+          <parameter name="subnetName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[name of new subnet to be deleted]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[Response as dictated by the HTTP Response Status code
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/subnetservice/default/subnet/engdepartment
+
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="204">
+            <![CDATA[No Content]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName passed was not found]]>
+          </statusCode>
+          <statusCode code="500">
+            <![CDATA[Internal Server Error : Removal of subnet failed]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Service unavailable]]>
+          </statusCode>
+        </operation>
+        <operation name="POST">
+          <documentation>
+            <![CDATA[Modify a subnet. Replace the existing subnet with the new specified one.
+For now only port list modification is allowed. If the respective subnet
+configuration does not exist this call is equivalent to a subnet
+creation.]]>
+          </documentation>
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container context]]>
+          </parameter>
+          <parameter name="subnetName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the subnet to be modified]]>
+          </parameter>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="subnetConfig" />
+            
+            <documentation><![CDATA[the SubnetConfig structure in request body parameter]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[Response as dictated by the HTTP Response Status code
+
+<pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/subnetservice/default/subnet/salesdepartment
+
+Request body in XML:
+&lt;subnetConfig&gt;
+&lt;name&gt;salesdepartment&lt;/name&gt;
+&lt;subnet&gt;172.173.174.254/24&lt;/subnet&gt;
+&lt;nodeConnectors&gt;OF|22@OF|00:00:11:22:33:44:55:66&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|39@OF|00:00:ab:cd:33:44:55:66&lt;/nodeConnectors&gt;
+&lt;/subnetConfig&gt;
+
+Request body in JSON:
+{
+"name":"salesdepartment",
+"subnet":"172.173.174.254/24",
+"nodeConnectors":[
+"OF|22@OF|00:00:11:22:33:44:55:66",
+"OF|39@OF|00:00:ab:cd:33:44:55:66"
+]
+}
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Configuration replaced successfully]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[Subnet name in url conflicts with name in request body]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName or subnetName is not found]]>
+          </statusCode>
+          <statusCode code="500">
+            <![CDATA[Internal server error: Modify subnet failed]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Service unavailable]]>
+          </statusCode>
+        </operation>
+      </resource>
+    </resources>
+    <groups>
+      <group>
+        <name>SubnetsNorthbound</name>
+        <documentation><![CDATA[This class provides REST APIs to manage subnets.
+
+<br>
+<br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b>HTTP and HTTPS</b><br>
+<br>
+HTTPS Authentication is disabled by default.]]></documentation>
+      </group>
+    </groups>
+  </rest>
+  <packages>
+    <package id="org.opendaylight.controller.subnets.northbound">
+    </package>
+  </packages>
+</api-docs>

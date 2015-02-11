@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/logging/bridge/pom.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/logging/bridge/src/main/java/org/opendaylight/controller/logging/bridge/internal/Activator.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/logging/bridge/src/main/java/org/opendaylight/controller/logging/bridge/internal/UncaughtExceptionPolicy.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/logging/bridge/src/main/java/org/opendaylight/controller/logging/bridge/internal/LogListenerImpl.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/logging/bridge/src/test/java/org/opendaylight/controller/logging/bridge/internal/LogListenerImplTest.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/logging/bridge/src/test/java/org/opendaylight/controller/logging/bridge/internal/LogListenerImplTest.java">
+</file>
+</checkstyle>

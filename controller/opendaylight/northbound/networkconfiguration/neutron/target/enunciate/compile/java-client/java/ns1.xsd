@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" targetNamespace="provider" xmlns:ns1="provider" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="network_type" type="xs:string">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="physical_network" type="xs:string">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="segmentation_id" type="xs:string">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+  </xs:element>
+</xs:schema>

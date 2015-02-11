@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api-docs title="Controller Manager REST API">
+  <data>
+    <schema namespace="" namespaceId="ns0" file="ns0.xsd">
+      <types>
+        <type name="controllerProperties" id="org.opendaylight.controller.controllermanager.northbound.ControllerProperties" package="org.opendaylight.controller.controllermanager.northbound">
+          <documentation>
+            <![CDATA[The class describes set of properties attached to a controller]]>
+          </documentation>
+          <groups>
+            <group>ControllerProperties</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="properties">
+              <choice name="properties/property" namespace=""/>
+            </element>
+          </elements>
+        </type>
+        <type name="property" id="org.opendaylight.controller.sal.core.Property" package="org.opendaylight.controller.sal.core">
+          <groups>
+            <group>Property</group>
+          </groups>
+        </type>
+      </types>
+      <elements>
+        <element name="controllerProperties" type="org.opendaylight.controller.controllermanager.northbound.ControllerProperties" typeName="controllerProperties" typeNamespace="" typeSchemaId="ns0">
+          <documentation>
+            <![CDATA[The class describes set of properties attached to a controller]]>
+          </documentation>
+          <groups>
+            <group>ControllerProperties</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<controllerProperties>
+  <properties>
+    <property>...</property>
+    <property>...</property>
+    <!--...more "property" elements...-->
+  </properties>
+</controllerProperties>]]></examplexml>
+        </element>
+        <element name="property" type="org.opendaylight.controller.sal.core.Property" typeName="property" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>Property</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<property />]]></examplexml>
+        </element>
+      </elements>
+      <groups>
+        <group>
+          <name>ControllerProperties</name>
+          <documentation><![CDATA[The class describes set of properties attached to a controller]]></documentation>
+        </group>
+        <group>
+          <name>Property</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+      </groups>
+    </schema>
+  </data>
+  <soap>
+    <wsdls>
+    </wsdls>
+  </soap>
+  <rest baseAddress="http://localhost:8080/full" wadl="application.wadl">
+    <resources>
+      <resource name="/configuration" subcontext="/controller/nb/v2/controllermanager">
+        <groups>
+          <group>ControllerManagerNorthbound</group>
+        </groups>
+        <operation name="PUT">
+          <documentation>
+            <![CDATA[Save controller configuration
+
+Request URL:
+http://localhost:8080/controller/nb/v2/controllermanager/configuration
+
+Request body is empty]]>
+          </documentation>
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="204">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Configuration service is unavailable.]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/{containerName}/properties" subcontext="/controller/nb/v2/controllermanager">
+        <groups>
+          <group>ControllerManagerNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Retrieve a property or all properties for the controller in the network]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container (Eg. 'default')]]>
+          </parameter>
+          <parameter name="propertyName" type="query" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Property specified by org.opendaylight.controller.sal.core.Property and its extended classes  Example:  Request URL: http://localhost:8080/controller/nb/v2/controllermanager/default/properties/?propertyName=macAddress  Response Body in XML: <?xml version="1.0" encoding="UTF-8" standalone="yes"?> <controllerProperties> <properties> <macAddress> <value>3e:04:ef:11:13:80</value> </macAddress> </properties> </controllerProperties>  Response Body in JSON: { "controllerProperties": {"properties": { "macAddress": { "value": "3e:04:ef:11:13:80" } } } }]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="property" />
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName or property is not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[One or more of Controller Services are unavailable]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/{containerName}/properties/{propertyName}" subcontext="/controller/nb/v2/controllermanager">
+        <groups>
+          <group>ControllerManagerNorthbound</group>
+        </groups>
+        <operation name="DELETE">
+          <documentation>
+            <![CDATA[Delete a property of the controller]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container (Eg. 'default')]]>
+          </parameter>
+          <parameter name="propertyName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Property specified by org.opendaylight.controller.sal.core.Property and its extended classes]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[Response as dictated by the HTTP Response Status code
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/controllermanager/default/properties/description]]></documentation>
+          </outValue>
+          <statusCode code="204">
+            <![CDATA[Property removed successfully]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName is not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[One or more of Controller Services are unavailable]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/{containerName}/properties/{propertyName}/{propertyValue}" subcontext="/controller/nb/v2/controllermanager">
+        <groups>
+          <group>ControllerManagerNorthbound</group>
+        </groups>
+        <operation name="PUT">
+          <documentation>
+            <![CDATA[Add a controller property to the controller. This method overrides
+previously set property values if the property already exist.]]>
+          </documentation>
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Container (Eg. 'default')]]>
+          </parameter>
+          <parameter name="propertyName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Name of the Property specified by org.opendaylight.controller.sal.core.Property and its extended classes]]>
+          </parameter>
+          <parameter name="propertyValue" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[Value of the Property specified by org.opendaylight.controller.sal.core.Property and its extended classes]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[Response as dictated by the HTTP Response Status code
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/controllermanager/default/properties/description/defaultController]]></documentation>
+          </outValue>
+          <statusCode code="201">
+            <![CDATA[Operation successful]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Invalid property parameters]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The containerName or property is not found]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[One or more of Controller Services are unavailable]]>
+          </statusCode>
+        </operation>
+      </resource>
+    </resources>
+    <groups>
+      <group>
+        <name>ControllerManagerNorthbound</name>
+        <documentation><![CDATA[The class provides Northbound REST APIs to manager the controller. Currently
+it supports getting controller property(ies), setting a property, and
+removing a property]]></documentation>
+      </group>
+    </groups>
+  </rest>
+  <packages>
+    <package id="org.opendaylight.controller.controllermanager.northbound">
+    </package>
+  </packages>
+</api-docs>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/sal/networkconfiguration/api/pom.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/sal/networkconfiguration/api/src/main/java/org/opendaylight/controller/sal/networkconfig/bridgedomain/ConfigConstants.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/sal/networkconfiguration/api/src/main/java/org/opendaylight/controller/sal/networkconfig/bridgedomain/BridgeDomainConfigServiceException.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/sal/networkconfiguration/api/src/main/java/org/opendaylight/controller/sal/networkconfig/bridgedomain/IPluginInBridgeDomainConfigService.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/sal/networkconfiguration/api/src/main/java/org/opendaylight/controller/sal/networkconfig/bridgedomain/IBridgeDomainConfigService.java">
+</file>
+</checkstyle>

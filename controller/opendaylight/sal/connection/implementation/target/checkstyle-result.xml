@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/sal/connection/implementation/pom.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/sal/connection/implementation/src/main/java/org/opendaylight/controller/sal/connection/implementation/internal/Activator.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/sal/connection/implementation/src/main/java/org/opendaylight/controller/sal/connection/implementation/internal/ConnectionService.java">
+</file>
+</checkstyle>

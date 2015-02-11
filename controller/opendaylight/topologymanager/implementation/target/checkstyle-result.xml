@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/topologymanager/implementation/pom.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/topologymanager/implementation/src/main/java/org/opendaylight/controller/topologymanager/ITopologyManagerClusterWideAware.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/topologymanager/implementation/src/main/java/org/opendaylight/controller/topologymanager/internal/Activator.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/topologymanager/implementation/src/main/java/org/opendaylight/controller/topologymanager/internal/TopologyManagerImpl.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/topologymanager/implementation/src/main/java/org/opendaylight/controller/topologymanager/TopologyUserLinkConfig.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/topologymanager/implementation/src/main/java/org/opendaylight/controller/topologymanager/ITopologyManager.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/topologymanager/implementation/src/main/java/org/opendaylight/controller/topologymanager/ITopologyManagerAware.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/topologymanager/implementation/src/test/java/org/opendaylight/controller/topologymanager/internal/TopologyManagerImplTest.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/topologymanager/implementation/src/test/java/org/opendaylight/controller/topologymanager/internal/TopologyManagerImplTest.java">
+</file>
+</checkstyle>

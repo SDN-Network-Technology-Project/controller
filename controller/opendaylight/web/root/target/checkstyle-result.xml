@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/web/root/pom.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/web/root/src/main/java/org/opendaylight/controller/web/NodeBean.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/web/root/src/main/java/org/opendaylight/controller/web/DaylightWebUtil.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/web/root/src/main/java/org/opendaylight/controller/web/UserBean.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/web/root/src/main/java/org/opendaylight/controller/web/DaylightWebAdmin.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/web/root/src/main/java/org/opendaylight/controller/web/ControllerUISessionManager.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/web/root/src/main/java/org/opendaylight/controller/web/IDaylightWeb.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/web/root/src/main/java/org/opendaylight/controller/web/ClusterNodeBean.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/web/root/src/main/java/org/opendaylight/controller/web/DaylightWeb.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/web/root/src/main/resources/WEB-INF/spring/servlet/security.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/web/root/src/main/resources/WEB-INF/web.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/web/root/src/main/resources/WEB-INF/RootGUI-servlet.xml">
+</file>
+</checkstyle>

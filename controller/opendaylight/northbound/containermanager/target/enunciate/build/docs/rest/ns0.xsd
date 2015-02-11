@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="containerConfig" type="containerConfig"/>
+  <xs:element name="flow-spec-config" type="containerFlowConfig"/>
+  <xs:element name="containerConfig-list" type="containerConfigs"/>
+  <xs:element name="flow-spec-configs" type="flowSpecConfigs"/>
+  <xs:element name="nodeConnectors" type="stringList"/>
+  <xs:complexType name="configurationObject" abstract="true"/>
+  <xs:complexType name="containerConfig">
+    <xs:complexContent>
+      <xs:extension base="configurationObject">
+        <xs:sequence>
+          <xs:element name="staticVlan" type="xs:string" minOccurs="0"/>
+          <xs:element name="container" type="xs:string" minOccurs="0"/>
+          <xs:element name="nodeConnectors" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="flowSpecs" type="containerFlowConfig" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="containerFlowConfig">
+    <xs:complexContent>
+      <xs:extension base="configurationObject">
+        <xs:sequence>
+          <xs:element name="tpDst" type="xs:string" minOccurs="0"/>
+          <xs:element name="nwDst" type="xs:string" minOccurs="0"/>
+          <xs:element name="dlVlan" type="xs:string" minOccurs="0"/>
+          <xs:element name="nwSrc" type="xs:string" minOccurs="0"/>
+          <xs:element name="tpSrc" type="xs:string" minOccurs="0"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="protocol" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="containerConfigs">
+    <xs:sequence>
+      <xs:element name="containerConfig" type="containerConfig" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="flowSpecConfigs">
+    <xs:sequence>
+      <xs:element name="flow-spec-config" type="containerFlowConfig" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="stringList">
+    <xs:sequence>
+      <xs:element name="nodeConnectors" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/forwarding/staticrouting/pom.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/forwarding/staticrouting/src/main/java/org/opendaylight/controller/forwarding/staticrouting/internal/Activator.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/forwarding/staticrouting/src/main/java/org/opendaylight/controller/forwarding/staticrouting/internal/StaticRoutingImplementation.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/forwarding/staticrouting/src/main/java/org/opendaylight/controller/forwarding/staticrouting/IStaticRoutingAware.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/forwarding/staticrouting/src/main/java/org/opendaylight/controller/forwarding/staticrouting/StaticRouteConfig.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/forwarding/staticrouting/src/main/java/org/opendaylight/controller/forwarding/staticrouting/StaticRoute.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/forwarding/staticrouting/src/main/java/org/opendaylight/controller/forwarding/staticrouting/IForwardingStaticRouting.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/forwarding/staticrouting/src/test/java/org/opendaylight/controller/forwarding/staticrouting/internal/StaticRoutingImplementationTest.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/forwarding/staticrouting/src/test/java/org/opendaylight/controller/forwarding/staticrouting/StaticRouteTest.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/forwarding/staticrouting/src/test/java/org/opendaylight/controller/forwarding/staticrouting/StaticRouteConfigTest.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/forwarding/staticrouting/src/test/java/org/opendaylight/controller/forwarding/staticrouting/internal/StaticRoutingImplementationTest.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/forwarding/staticrouting/src/test/java/org/opendaylight/controller/forwarding/staticrouting/StaticRouteTest.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/forwarding/staticrouting/src/test/java/org/opendaylight/controller/forwarding/staticrouting/StaticRouteConfigTest.java">
+</file>
+</checkstyle>

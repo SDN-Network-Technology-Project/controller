@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/statisticsmanager/implementation/pom.xml">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/statisticsmanager/implementation/src/main/java/org/opendaylight/controller/statisticsmanager/internal/Activator.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/statisticsmanager/implementation/src/main/java/org/opendaylight/controller/statisticsmanager/internal/StatisticsManager.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/statisticsmanager/implementation/src/test/java/org/opendaylight/controller/statisticsmanager/internal/StatisticsManagerTest.java">
+</file>
+<file name="/home/localadmin/controller-stable-hydrogen/opendaylight/statisticsmanager/implementation/src/test/java/org/opendaylight/controller/statisticsmanager/internal/StatisticsManagerTest.java">
+</file>
+</checkstyle>

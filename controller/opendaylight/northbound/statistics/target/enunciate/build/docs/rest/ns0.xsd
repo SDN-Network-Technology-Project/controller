@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="action" type="action"/>
+  <xs:element name="node" type="node"/>
+  <xs:element name="nodeConnector" type="nodeConnector"/>
+  <xs:element name="nodeTable" type="nodeTable"/>
+  <xs:element name="flow" type="flow"/>
+  <xs:element name="match" type="match"/>
+  <xs:element name="matchField" type="matchField"/>
+  <xs:element name="FlowStat" type="flowOnNode"/>
+  <xs:element name="nodeConnectorStatistics" type="nodeConnectorStatistics"/>
+  <xs:element name="nodeTableStatistics" type="nodeTableStatistics"/>
+  <xs:element name="list" type="allFlowStatistics"/>
+  <xs:element name="list" type="allPortStatistics"/>
+  <xs:element name="list" type="allTableStatistics"/>
+  <xs:element name="nodeFlowStatistics" type="flowStatistics"/>
+  <xs:element name="nodePortStatistics" type="portStatistics"/>
+  <xs:element name="nodeTableStatistics" type="tableStatistics"/>
+  <xs:complexType name="action" abstract="true">
+    <xs:sequence>
+      <xs:element name="type" type="actionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="actionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DROP"/>
+      <xs:enumeration value="LOOPBACK"/>
+      <xs:enumeration value="FLOOD"/>
+      <xs:enumeration value="FLOOD_ALL"/>
+      <xs:enumeration value="CONTROLLER"/>
+      <xs:enumeration value="INTERFACE"/>
+      <xs:enumeration value="SW_PATH"/>
+      <xs:enumeration value="HW_PATH"/>
+      <xs:enumeration value="OUTPUT"/>
+      <xs:enumeration value="ENQUEUE"/>
+      <xs:enumeration value="SET_DL_SRC"/>
+      <xs:enumeration value="SET_DL_DST"/>
+      <xs:enumeration value="SET_VLAN_ID"/>
+      <xs:enumeration value="SET_VLAN_PCP"/>
+      <xs:enumeration value="SET_VLAN_CFI"/>
+      <xs:enumeration value="POP_VLAN"/>
+      <xs:enumeration value="PUSH_VLAN"/>
+      <xs:enumeration value="SET_DL_TYPE"/>
+      <xs:enumeration value="SET_NW_SRC"/>
+      <xs:enumeration value="SET_NW_DST"/>
+      <xs:enumeration value="SET_NW_TOS"/>
+      <xs:enumeration value="SET_TP_SRC"/>
+      <xs:enumeration value="SET_TP_DST"/>
+      <xs:enumeration value="SET_NEXT_HOP"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="node">
+    <xs:sequence>
+      <xs:element name="type" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="nodeConnector">
+    <xs:sequence>
+      <xs:element name="node" type="node" minOccurs="0"/>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
+      <xs:element name="type" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="nodeTable">
+    <xs:sequence>
+      <xs:element name="node" type="node" minOccurs="0"/>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="flow">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="1"/>
+      <xs:element name="actions" type="action" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="priority" type="xs:short" minOccurs="1"/>
+      <xs:element name="match" type="match" minOccurs="0"/>
+      <xs:element name="idleTimeout" type="xs:short" minOccurs="1"/>
+      <xs:element name="hardTimeout" type="xs:short" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="match">
+    <xs:sequence>
+      <xs:element name="matchField" type="matchField" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="matchField"/>
+  <xs:complexType name="flowOnNode">
+    <xs:sequence>
+      <xs:element name="packetCount" type="xs:long" minOccurs="1"/>
+      <xs:element name="flow" type="flow" minOccurs="0"/>
+      <xs:element name="tableId" type="xs:byte" minOccurs="1"/>
+      <xs:element name="byteCount" type="xs:long" minOccurs="1"/>
+      <xs:element name="durationNanoseconds" type="xs:int" minOccurs="1"/>
+      <xs:element name="durationSeconds" type="xs:int" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="nodeConnectorStatistics">
+    <xs:sequence>
+      <xs:element name="receiveDrops" type="xs:long" minOccurs="1"/>
+      <xs:element name="receiveFrameError" type="xs:long" minOccurs="1"/>
+      <xs:element name="receiveErrors" type="xs:long" minOccurs="1"/>
+      <xs:element name="receivePackets" type="xs:long" minOccurs="1"/>
+      <xs:element name="receiveBytes" type="xs:long" minOccurs="1"/>
+      <xs:element name="receiveCrcError" type="xs:long" minOccurs="1"/>
+      <xs:element name="transmitPackets" type="xs:long" minOccurs="1"/>
+      <xs:element name="receiveOverRunError" type="xs:long" minOccurs="1"/>
+      <xs:element name="transmitErrors" type="xs:long" minOccurs="1"/>
+      <xs:element name="transmitDrops" type="xs:long" minOccurs="1"/>
+      <xs:element name="transmitBytes" type="xs:long" minOccurs="1"/>
+      <xs:element name="collisionCount" type="xs:long" minOccurs="1"/>
+      <xs:element name="nodeConnector" type="nodeConnector" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="nodeTableStatistics">
+    <xs:sequence>
+      <xs:element name="maximumEntries" type="xs:int" minOccurs="1"/>
+      <xs:element name="activeCount" type="xs:int" minOccurs="1"/>
+      <xs:element name="lookupCount" type="xs:long" minOccurs="1"/>
+      <xs:element name="matchedCount" type="xs:long" minOccurs="1"/>
+      <xs:element name="nodeTable" type="nodeTable" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="allFlowStatistics">
+    <xs:sequence>
+      <xs:element name="flowStatistics" type="flowStatistics" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="allPortStatistics">
+    <xs:sequence>
+      <xs:element name="portStatistics" type="portStatistics" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="allTableStatistics">
+    <xs:sequence>
+      <xs:element name="tableStatistics" type="tableStatistics" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="flowStatistics">
+    <xs:sequence>
+      <xs:element name="node" type="node" minOccurs="0"/>
+      <xs:element name="flowStatistic" type="flowOnNode" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="portStatistics">
+    <xs:sequence>
+      <xs:element name="node" type="node" minOccurs="0"/>
+      <xs:element name="portStatistic" type="nodeConnectorStatistics" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tableStatistics">
+    <xs:sequence>
+      <xs:element name="node" type="node" minOccurs="0"/>
+      <xs:element name="tableStatistic" type="nodeTableStatistics" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

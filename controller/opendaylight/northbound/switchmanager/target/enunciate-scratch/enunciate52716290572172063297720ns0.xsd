@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="node" type="node"/>
+  <xs:element name="nodeConnector" type="nodeConnector"/>
+  <xs:element name="property" type="property"/>
+  <xs:element name="nodeConnectorProperties" type="nodeConnectorProperties"/>
+  <xs:element name="list" type="nodeConnectors"/>
+  <xs:element name="nodeProperties" type="nodeProperties"/>
+  <xs:element name="list" type="nodes"/>
+  <xs:complexType name="node">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
+      <xs:element name="type" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="nodeConnector">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
+      <xs:element name="type" type="xs:string" minOccurs="0"/>
+      <xs:element name="node" type="node" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="property" abstract="true"/>
+  <xs:complexType name="nodeConnectorProperties">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[The class describes set of properties attached to a node connector]]>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="nodeconnector" type="nodeConnector" minOccurs="0"/>
+      <xs:element name="properties" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element ref="property"/>
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="nodeConnectors">
+    <xs:sequence>
+      <xs:element name="nodeConnectorProperties" type="nodeConnectorProperties" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="nodeProperties">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[The class describes set of properties attached to a node]]>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="node" type="node" minOccurs="0"/>
+      <xs:element name="properties" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element ref="property"/>
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="nodes">
+    <xs:sequence>
+      <xs:element name="nodeProperties" type="nodeProperties" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
