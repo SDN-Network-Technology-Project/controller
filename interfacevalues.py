@@ -9,6 +9,9 @@ xmlPos3 = 3
 
 buffer = StringIO()
 
+maxLinkSpeed = 63700000
+upperThreshold = 0.9
+
 #-----------------------FUNCTIONS------------------------------------------------------------------------------------------------------------------------
 
 def getInterfaceBytes():
@@ -37,7 +40,8 @@ while True:
 
     if totalPackets != oldTotalPackets:
         print "XML Updated. Bytes since last update: ",latestPackets
-
+        if latestPackets > (maxLinkSpeed * upperThreshold):
+            print "Alert, Threshold reached"
     buffer.truncate(0)
     time.sleep(0.5)
 
